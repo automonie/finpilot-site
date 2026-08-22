@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cost of Living Calculator: Lagos &amp; Abuja | Automonie</title>
+<meta name="description" content="Free cost-of-living calculator for Nigeria. Estimate your monthly cost of living in Lagos or Abuja — rent, food, transport, utilities and more — for a single person, couple or family. Editable to your reality." />
+<meta name="theme-color" content="#0b1326" />
+<link rel="canonical" href="https://automonie.com/cost-of-living-calculator.html" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Automonie" />
+<meta property="og:title" content="Cost of Living Calculator — Lagos & Abuja" />
+<meta property="og:description" content="What does it really cost to live in Lagos or Abuja? Estimate your monthly total in seconds. Free." />
+<meta property="og:url" content="https://automonie.com/cost-of-living-calculator.html" />
+<link rel="icon" type="image/png" href="assets/logo-mark.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<script>document.documentElement.className+=" js";</script>
+<link rel="stylesheet" href="assets/site.css" />
+<link rel="stylesheet" href="assets/calc.css" />
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://automonie.com/"},{"@type":"ListItem","position":2,"name":"Cost of Living Calculator","item":"https://automonie.com/cost-of-living-calculator.html"}]},{"@type":"WebPage","name":"Cost of Living Calculator: Lagos & Abuja","description":"A free calculator estimating the monthly cost of living in Lagos and Abuja.","url":"https://automonie.com/cost-of-living-calculator.html","isPartOf":{"@type":"WebSite","name":"Automonie","url":"https://automonie.com/"},"about":{"@type":"SoftwareApplication","name":"Automonie","applicationCategory":"FinanceApplication","operatingSystem":"Android, Web"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does it cost to live in Lagos per month?","acceptedAnswer":{"@type":"Answer","text":"It depends heavily on rent and lifestyle, but a single person living moderately in Lagos in 2026 typically spends somewhere in the region of ₦300,000–₦400,000 a month across rent, food, transport, utilities and extras. Use the calculator and edit each line to match your own situation — the range is wide."}},{"@type":"Question","name":"Is Abuja more expensive than Lagos?","acceptedAnswer":{"@type":"Answer","text":"They are broadly comparable. Abuja rent can be higher in central districts, while Lagos transport and food can bite harder depending on where you live. Both are Nigeria's most expensive cities to live in."}},{"@type":"Question","name":"How do I lower my cost of living?","acceptedAnswer":{"@type":"Answer","text":"Start by seeing where the money actually goes — most people underestimate food, transport and subscriptions. Track a full month, then cut the surprises. Rent is the biggest lever, followed by transport (location) and eating out."}}]}]}</script>
+</head>
+<body>
+<header class="nav" id="top">
+  <a href="index.html#top" class="brand"><img src="assets/logo-full-dark.png" alt="Automonie" class="brand-img"></a>
+  <nav class="nav-links" id="navLinks">
+    <a href="quiz.html">Quiz</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="index.html#waitlist">Waitlist</a>
+    <a class="btn btn-ghost" data-app="web">Open web app</a>
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu"><svg class="ic" style="width:26px;height:26px" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+</header>
+
+<main class="calc-wrap">
+  <section class="calc-hero">
+    <span class="eyebrow">Free · editable</span>
+    <h1>Cost of living in Lagos &amp; Abuja</h1>
+    <p class="calc-sub">Pick your city and lifestyle for a starting estimate, then edit every line to match your reality. Your monthly total, worked out live.</p>
+  </section>
+
+  <section class="calc-card" id="colCalc">
+    <div class="calc-row">
+      <div class="calc-field">
+        <label class="calc-label" for="colCity">City</label>
+        <select class="calc-select" id="colCity"><option value="lagos">Lagos</option><option value="abuja">Abuja</option><option value="other">Other Nigerian city</option></select>
+      </div>
+      <div class="calc-field">
+        <label class="calc-label" for="colLife">Lifestyle</label>
+        <select class="calc-select" id="colLife"><option value="lean">Lean</option><option value="moderate" selected>Moderate</option><option value="comfortable">Comfortable</option></select>
+      </div>
+    </div>
+    <div class="calc-field">
+      <label class="calc-label" for="colHouse">Household</label>
+      <select class="calc-select" id="colHouse"><option value="single">Just me</option><option value="couple">Couple</option><option value="family">Family (4)</option></select>
+    </div>
+
+    <label class="calc-label">Monthly estimate (₦) — edit any line</label>
+    <div class="col-cats">
+      <div><label class="calc-note" for="colRent">Rent (monthly)</label><input class="calc-input" id="colRent" type="text" inputmode="numeric" /></div>
+      <div><label class="calc-note" for="colFood">Food &amp; groceries</label><input class="calc-input" id="colFood" type="text" inputmode="numeric" /></div>
+      <div><label class="calc-note" for="colTransport">Transport</label><input class="calc-input" id="colTransport" type="text" inputmode="numeric" /></div>
+      <div><label class="calc-note" for="colUtil">Utilities &amp; data</label><input class="calc-input" id="colUtil" type="text" inputmode="numeric" /></div>
+      <div><label class="calc-note" for="colHealth">Health</label><input class="calc-input" id="colHealth" type="text" inputmode="numeric" /></div>
+      <div><label class="calc-note" for="colMisc">Misc / fun</label><input class="calc-input" id="colMisc" type="text" inputmode="numeric" /></div>
+    </div>
+
+    <div class="col-total">
+      <div class="t" id="colTotal">₦0</div>
+      <div class="y" id="colYear"></div>
+      <button class="calc-reset" id="colReset" type="button">Reset to city defaults</button>
+    </div>
+    <p class="calc-note">Rough 2026 starting figures — rent especially varies enormously by area, so treat these as a frame and edit to your own numbers.</p>
+  </section>
+
+  <div class="tool-links">
+    <a href="budget-calculator.html">→ Naira budget calculator</a>
+    <a href="quiz.html">→ What's your money personality?</a>
+  </div>
+
+  <section class="calc-body">
+    <h2>What does it cost to live in Lagos or Abuja?</h2>
+    <p>There is no single number — your rent, your area and your lifestyle move the total by hundreds of thousands of naira. The calculator gives you a sensible starting point by city and lifestyle, then lets you edit every line so the total is actually yours.</p>
+
+    <h3>Rent — the biggest lever</h3>
+    <p>Rent swings the widest. A self-contained flat on the mainland is a different world from a serviced one-bed in Lekki or Maitama. It is usually the single largest line, so it is also where a move saves the most.</p>
+
+    <h3>Food, transport &amp; the quiet drains</h3>
+    <p>Food and transport are the lines people underestimate most, followed by data and subscriptions. Individually small, together they often rival rent — which is exactly why seeing them added up is a wake-up call.</p>
+
+    <h2>Know your number, then track against it</h2>
+    <p>An estimate is a target. The real value comes from checking it against what you actually spent — that gap is where the surprises (and the savings) live. That is the job Automonie does automatically from your bank statements and alerts.</p>
+  </section>
+
+  <section class="calc-cta">
+    <h2>Estimate it here. Track it in Automonie.</h2>
+    <p>See your true monthly cost of living from your real transactions — no manual entry. Free, on web and Android.</p>
+    <div class="cta-btns">
+      <a class="btn btn-primary" data-app="web">Try the web app</a>
+      <a class="btn btn-ghost" href="index.html#waitlist">Join the waitlist</a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <a href="index.html#top" class="brand"><img src="assets/logo-full-dark.png" alt="Automonie" class="brand-img"></a>
+    <nav class="foot-links">
+      <a href="quiz.html">Quiz</a>
+      <a href="budget-calculator.html">Budget calculator</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+    <p class="foot-copy">© <span id="year">2026</span> Automonie. Naira-first money clarity.</p>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script src="assets/calculators.js"></script>
+</body>
+</html>
