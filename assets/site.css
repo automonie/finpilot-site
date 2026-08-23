@@ -208,6 +208,8 @@ a.card{display:block}
 .footer a .ic{width:16px;height:16px}
 .footer .brand{color:#fff;margin-bottom:12px}
 .footer-bottom{max-width:var(--maxw);margin:36px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);text-align:center;font-size:.9rem;color:#8595ad}
+.footer-simple{display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:center;margin-top:18px}
+.footer-simple a{display:inline;margin:0}
 
 /* Scroll reveal */
 /* Content is visible by default. It is only hidden for the scroll-reveal
@@ -316,7 +318,7 @@ a.card{display:block}
 .social .ic{width:19px;height:19px;color:#fff}
 
 /* ============================================================
-   VISUAL LAYER — illustrations, dividers, animated icons
+   VISUAL LAYER - illustrations, dividers, animated icons
    ============================================================ */
 
 /* --- Wave / curve dividers between sections --- */

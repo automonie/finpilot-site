@@ -1,4 +1,4 @@
-// Automonie free tools — the Naira Budget Calculator and the Lagos/Abuja
+// Automonie free tools - the Naira Budget Calculator and the Lagos/Abuja
 // Cost-of-Living Calculator. Pure client-side, no dependency. Each runs only if
 // its root element is on the page.
 (function () {
