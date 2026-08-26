@@ -1,4 +1,4 @@
-# FinPilot — Marketing site
+# Automonie - Marketing site
 
 A single, self-contained static landing page (`index.html`) — green-on-navy, PiggyVest-inspired, Josefin Sans, SVG icons, scroll animations. No build step.
 
