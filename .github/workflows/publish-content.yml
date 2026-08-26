@@ -1,0 +1,28 @@
+name: Test Content Repository Access
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-content-access:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout website repository
+        uses: actions/checkout@v6
+
+      - name: Checkout Autonomie content repository
+        uses: actions/checkout@v6
+        with:
+          repository: autonomie/autonomie-content
+          token: ${{ secrets.CONTENT_REPO_TOKEN }}
+          path: content
+
+      - name: Confirm content repository is readable
+        run: |
+          echo "Content repository successfully accessed."
+          echo "Files currently present:"
+          find content -maxdepth 3 -type f -print
