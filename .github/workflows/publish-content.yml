@@ -1,4 +1,4 @@
-name: Test Content Repository Access
+name: Test Automonie Content App
 
 on:
   workflow_dispatch:
@@ -11,18 +11,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout website repository
-        uses: actions/checkout@v6
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.AUTOMONIE_CONTENT_APP_CLIENT_ID }}
+          private-key: ${{ secrets.AUTOMONIE_CONTENT_APP_PRIVATE_KEY }}
+          owner: automonie
+          repositories: automonie-content
 
-      - name: Checkout Autonomie content repository
+      - name: Check access to content repository
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          echo "Testing access to automonie/autonomie-content..."
+          gh api /repos/automonie/autonomie-content \
+            --jq '{name: .name, private: .private, default_branch: .default_branch}'
+
+      - name: List content files
         uses: actions/checkout@v6
         with:
-          repository: autonomie/autonomie-content
-          token: ${{ secrets.CONTENT_REPO_TOKEN }}
+          repository: automonie/autonomie-content
+          token: ${{ steps.app-token.outputs.token }}
           path: content
 
-      - name: Confirm content repository is readable
+      - name: Confirm files
         run: |
           echo "Content repository successfully accessed."
-          echo "Files currently present:"
+          echo
+          echo "Files:"
           find content -maxdepth 3 -type f -print
