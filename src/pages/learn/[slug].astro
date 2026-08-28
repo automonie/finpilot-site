@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Byline from '../../components/Byline.astro';
+import Body from '../../components/Body.astro';
+import ProductBridge from '../../components/ProductBridge.astro';
+import { urlFor } from '../../sanity/lib/image';
+import { getAllArticleSlugs, getArticle } from '../../sanity/lib/queries';
+import { articleSchema, faqSchema, breadcrumbSchema } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  const slugs = await getAllArticleSlugs();
+  return slugs.map(({ slug }) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const article = await getArticle(slug!);
+if (!article) return Astro.redirect('/404');
+
+const path = `/learn/${article.slug}`;
+const heroUrl = article.heroImage ? urlFor(article.heroImage).width(1200).height(630).url() : undefined;
+
+const jsonLd = [
+  articleSchema({
+    title: article.title, description: article.metaDescription, path, image: heroUrl,
+    author: article.author, publishedAt: article.publishedAt, updatedAt: article.updatedAt,
+  }),
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Learn', path: '/learn/' },
+    { name: article.title, path },
+  ]),
+  faqSchema(article.faqs),
+].filter(Boolean);
+---
+<BaseLayout title={article.titleTag} description={article.metaDescription} path={path} image={heroUrl} jsonLd={jsonLd}>
+  <article>
+    <h1>{article.title}</h1>
+    <Byline author={article.author} publishedAt={article.publishedAt} updatedAt={article.updatedAt} />
+
+    <div class="direct-answer">
+      <span class="label">The short answer</span>
+      {article.directAnswer}
+    </div>
+
+    {heroUrl && (
+      <img class="hero" src={urlFor(article.heroImage).width(1200).url()} alt={article.heroImage?.alt || article.title} loading="lazy" decoding="async" />
+    )}
+
+    <Body value={article.body} />
+
+    {article.faqs?.length > 0 && (
+      <section class="faqs">
+        <h2>FAQs</h2>
+        {article.faqs.map((f: any) => (
+          <details>
+            <summary>{f.question}</summary>
+            <p>{f.answer}</p>
+          </details>
+        ))}
+      </section>
+    )}
+
+    <ProductBridge />
+
+    {article.relatedGuides?.length > 0 && (
+      <section>
+        <h2>Related reading</h2>
+        <div class="related-cards">
+          {article.relatedGuides.map((g: any) => (
+            <a href={`${g._type === 'article' ? '/learn' : '/guides'}/${g.slug}`}>{g.title}</a>
+          ))}
+        </div>
+      </section>
+    )}
+  </article>
+</BaseLayout>

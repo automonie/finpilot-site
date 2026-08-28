@@ -1,0 +1,19 @@
+# build output
+dist/
+.vercel/
+.astro/
+
+# deps
+node_modules/
+
+# env / secrets
+.env
+.env.*
+!.env.example
+
+# sanity
+.sanity/
+
+# os / editor
+.DS_Store
+*.log

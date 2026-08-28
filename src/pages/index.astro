@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Automonie',
+    url: 'https://automonie.com',
+    logo: 'https://automonie.com/logo.png',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Automonie',
+    applicationCategory: 'FinanceApplication',
+    operatingSystem: 'Android',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'NGN' },
+  },
+];
+---
+<BaseLayout
+  title="Automonie — See where your money actually goes"
+  description="Automonie reads your Nigerian bank statements and SMS alerts and shows you exactly where your money went — categorised, in seconds. Read-only, private, on your device."
+  path="/"
+  jsonLd={jsonLd}
+>
+  <section class="hero">
+    <h1>Where did your money<br />actually go?</h1>
+    <p class="lead">It's never one big purchase — it's a transfer here, a top-up there. Automonie reads your statements and SMS alerts and shows you the truth, in seconds.</p>
+    <p><a class="cta" id="download" href="#get">Get the app (Android)</a></p>
+    <p class="fineprint">Read-only. We never hold your bank login and can't move your money.</p>
+  </section>
+
+  <section>
+    <h2>What it does</h2>
+    <ul class="value">
+      <li><strong>See the truth.</strong> Import a statement or scan your SMS alerts — every naira sorted into real categories.</li>
+      <li><strong>Budgets that warn you early.</strong> Bars turn amber at 80%, red before you overspend.</li>
+      <li><strong>Goals you can track</strong> and bills you'll never forget again.</li>
+    </ul>
+  </section>
+
+  <section id="get" class="product-bridge">
+    <h2 style="margin-top:0">Get Automonie</h2>
+    <p>Install the Android app and see your first month in under two minutes.</p>
+    <a class="cta" href="/download">Download for Android →</a>
+  </section>
+
+  <section>
+    <h2>Learn</h2>
+    <p>Free guides and money writing for Nigerians.</p>
+    <div class="related-cards">
+      <a href="/guides/">Bank statement guides</a>
+      <a href="/learn/">Money, in plain English</a>
+      <a href="/quiz">What's your money personality?</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero { text-align: left; padding-top: 8px; }
+  .lead { font-size: 19px; color: var(--ink-2); max-width: 40ch; }
+  .fineprint { color: var(--ink-3); font-size: 14px; }
+  a.cta { display: inline-block; background: var(--grad); color: #06231c; font-weight: 600; text-decoration: none; padding: 13px 22px; border-radius: 12px; }
+  ul.value { list-style: none; padding: 0; display: grid; gap: 12px; }
+  ul.value li { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+</style>

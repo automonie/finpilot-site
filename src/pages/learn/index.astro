@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getArticleList } from '../../sanity/lib/queries';
+const articles = await getArticleList();
+---
+<BaseLayout
+  title="Learn — Automonie"
+  description="Plain-English money writing for Nigerians: where your money actually goes, and how to take back control."
+  path="/learn/"
+>
+  <h1>Learn</h1>
+  <p>Money self-knowledge, in plain English.</p>
+  <div class="related-cards" style="margin-top:20px">
+    {articles.map((a: any) => (
+      <a href={`/learn/${a.slug}`}>
+        <strong>{a.title}</strong>
+        <span class="creds" style="display:block;color:var(--ink-3);font-weight:400;font-size:14px;margin-top:4px">{a.metaDescription}</span>
+      </a>
+    ))}
+  </div>
+  {articles.length === 0 && <p style="color:var(--ink-3)">Articles are on the way.</p>}
+</BaseLayout>

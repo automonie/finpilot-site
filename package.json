@@ -1,0 +1,34 @@
+{
+  "name": "automonie-web",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Automonie marketing + content site (Astro) with an embedded Sanity Studio at /studio.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "seed": "sanity dataset import ./sanity/seed.ndjson production --replace --missing"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/vercel": "^8.0.4",
+    "@sanity/astro": "^3.1.6",
+    "@sanity/client": "^7.14.1",
+    "@sanity/image-url": "^1.1.0",
+    "@sanity/vision": "^3.66.1",
+    "astro": "^5.1.5",
+    "astro-portabletext": "^0.11.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sanity": "^3.66.1",
+    "styled-components": "^6.1.14"
+  },
+  "devDependencies": {
+    "@astrojs/react": "^4.1.2",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "typescript": "^5.7.3"
+  }
+}

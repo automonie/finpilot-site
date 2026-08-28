@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Byline from '../../components/Byline.astro';
+import Body from '../../components/Body.astro';
+import ProductBridge from '../../components/ProductBridge.astro';
+import { urlFor } from '../../sanity/lib/image';
+import { getAllGuideSlugs, getGuide } from '../../sanity/lib/queries';
+import { articleSchema, faqSchema, breadcrumbSchema } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  const slugs = await getAllGuideSlugs();
+  return slugs.map(({ slug }) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const guide = await getGuide(slug!);
+if (!guide) return Astro.redirect('/404');
+
+const path = `/guides/${guide.slug}`;
+const heroUrl = guide.heroImage ? urlFor(guide.heroImage).width(1200).height(630).url() : undefined;
+
+const jsonLd = [
+  articleSchema({
+    title: guide.title, description: guide.metaDescription, path, image: heroUrl,
+    author: guide.author, publishedAt: guide.publishedAt, updatedAt: guide.updatedAt,
+  }),
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Guides', path: '/guides/' },
+    { name: guide.title, path },
+  ]),
+  faqSchema(guide.faqs),
+].filter(Boolean);
+---
+<BaseLayout title={guide.titleTag} description={guide.metaDescription} path={path} image={heroUrl} jsonLd={jsonLd}>
+  <article>
+    <h1>{guide.title}</h1>
+    <Byline author={guide.author} publishedAt={guide.publishedAt} updatedAt={guide.updatedAt} />
+
+    <div class="direct-answer">
+      <span class="label">The short answer</span>
+      {guide.directAnswer}
+    </div>
+
+    {heroUrl && (
+      <img class="hero" src={urlFor(guide.heroImage).width(1200).url()} alt={guide.heroImage?.alt || guide.title} loading="lazy" decoding="async" />
+    )}
+
+    <Body value={guide.body} />
+
+    {guide.commonProblems?.length > 0 && (
+      <section>
+        <h2>Common problems</h2>
+        <ul class="problems">
+          {guide.commonProblems.map((p: any) => (
+            <li><b>{p.problem}</b>{p.solution}</li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    {guide.faqs?.length > 0 && (
+      <section class="faqs">
+        <h2>FAQs</h2>
+        {guide.faqs.map((f: any) => (
+          <details>
+            <summary>{f.question}</summary>
+            <p>{f.answer}</p>
+          </details>
+        ))}
+      </section>
+    )}
+
+    <ProductBridge />
+
+    {guide.relatedGuides?.length > 0 && (
+      <section>
+        <h2>Related guides</h2>
+        <div class="related-cards">
+          {guide.relatedGuides.map((g: any) => (
+            <a href={`/guides/${g.slug}`}>{g.title}</a>
+          ))}
+        </div>
+      </section>
+    )}
+  </article>
+</BaseLayout>

@@ -1,0 +1,74 @@
+---
+import '../styles/global.css';
+
+// Every page renders through here so the required SEO <head> can never be
+// forgotten. Pages pass their title tag, meta description, canonical path, and any
+// JSON-LD blocks.
+interface Props {
+  title: string;              // the <title> (from titleTag in the CMS)
+  description: string;        // meta description
+  path: string;               // canonical path, e.g. "/guides/gtbank-statement"
+  image?: string;             // absolute OG image URL
+  jsonLd?: unknown[];         // structured-data blocks
+  noindex?: boolean;
+}
+
+const { title, description, path, image, jsonLd = [], noindex = false } = Astro.props;
+const site = 'https://automonie.com';
+const canonical = new URL(path, site).href;
+const ogImage = image || `${site}/og-default.png`;
+const year = new Date().getFullYear();
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content={noindex ? 'noindex,nofollow' : 'index,follow'} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Automonie" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    {jsonLd.map((block) => (
+      <script type="application/ld+json" set:html={JSON.stringify(block)} />
+    ))}
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">automonie</a>
+      <nav>
+        <a href="/guides/">Guides</a>
+        <a href="/learn/">Learn</a>
+        <a href="/#download">Get the app</a>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <p>© {year} Automonie. Make money make sense.</p>
+      <nav>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </nav>
+    </footer>
+  </body>
+</html>

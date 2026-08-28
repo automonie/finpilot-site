@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getGuideList } from '../../sanity/lib/queries';
+const guides = await getGuideList();
+---
+<BaseLayout
+  title="Bank statement guides — Automonie"
+  description="Step-by-step guides to downloading and reading your Nigerian bank statements — GTBank, Access, Opay, Kuda and more."
+  path="/guides/"
+>
+  <h1>Bank statement guides</h1>
+  <p>How to download, open and understand your statements from every major Nigerian bank and fintech.</p>
+  <div class="related-cards" style="margin-top:20px">
+    {guides.map((g: any) => (
+      <a href={`/guides/${g.slug}`}>
+        <strong>{g.title}</strong>
+        <span class="creds" style="display:block;color:var(--ink-3);font-weight:400;font-size:14px;margin-top:4px">{g.metaDescription}</span>
+      </a>
+    ))}
+  </div>
+  {guides.length === 0 && <p style="color:var(--ink-3)">Guides are on the way.</p>}
+</BaseLayout>
