@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import apk from '../data/apk.json';
+// The APK URL is kept in src/data/apk.json so the mobile build's sync script can
+// bump it after every Android build (see the mobile repo's sync-apk-link script).
+---
+<BaseLayout
+  title="Download Automonie for Android"
+  description="Install Automonie on Android and see where your money actually goes — categorised from your statements and SMS alerts in under two minutes."
+  path="/download"
+>
+  <h1>Download Automonie</h1>
+  <p class="lead">Install the Android app and see your first month in under two minutes. Read-only — Automonie never holds your bank login and can't move your money.</p>
+
+  <div class="dl">
+    <a class="cta" href={apk.url} rel="nofollow">Download for Android (APK)</a>
+    <p class="fine">Direct APK · latest build. You may need to allow "install from unknown sources" the first time.</p>
+  </div>
+
+  <h2>Prefer the web?</h2>
+  <p><a href="https://app.automonie.com">Open the web app →</a></p>
+
+  <h2>How to install the APK</h2>
+  <ol>
+    <li>Tap <strong>Download for Android</strong> above.</li>
+    <li>Open the downloaded file. If Android warns you, allow installs from your browser this once.</li>
+    <li>Open Automonie, create your account, and import a statement or scan your SMS alerts.</li>
+  </ol>
+
+  <p style="margin-top:28px"><a href="/#get">← Back home</a></p>
+</BaseLayout>
+
+<style>
+  .lead { font-size: 18px; color: var(--ink-2); max-width: 46ch; }
+  .dl { margin: 24px 0; }
+  a.cta { display: inline-block; background: var(--grad); color: #06231c; font-weight: 600; text-decoration: none; padding: 14px 24px; border-radius: 12px; }
+  .fine { color: var(--ink-3); font-size: 14px; margin-top: 10px; }
+  ol { padding-left: 20px; }
+  ol li { margin: 8px 0; }
+</style>
