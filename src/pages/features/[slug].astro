@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { features } from '../../data/features';
+
+export function getStaticPaths() {
+  return features.map((f) => ({ params: { slug: f.slug }, props: { feature: f } }));
+}
+
+const { feature } = Astro.props;
+const path = `/features/${feature.slug}`;
+const jsonLd = [{
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: feature.title,
+  description: feature.description,
+  url: `https://automonie.com${path}`,
+  isPartOf: { '@type': 'WebSite', name: 'Automonie', url: 'https://automonie.com' },
+}];
+---
+<BaseLayout title={feature.titleTag} description={feature.description} path={path} jsonLd={jsonLd}>
+  <article>
+    <p><a href="/#features">← Features</a></p>
+    <h1>{feature.title}</h1>
+    <p class="lead">{feature.lead}</p>
+
+    {feature.points.map((pt) => (
+      <section>
+        <h2>{pt.h}</h2>
+        <p>{pt.p}</p>
+      </section>
+    ))}
+
+    <aside class="product-bridge">
+      <p>Automonie reads your statements and SMS alerts — it never holds your bank login and can't move your money. It just shows you the picture.</p>
+      <a class="cta" href="/download">Get the app →</a>
+    </aside>
+  </article>
+</BaseLayout>
+
+<style>
+  .lead { font-size: 19px; color: var(--ink-2); }
+  a.cta { display:inline-block; background: var(--grad); color:#06231c; font-weight:600; text-decoration:none; padding:11px 18px; border-radius:12px; margin-top:8px; }
+</style>

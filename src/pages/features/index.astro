@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { features } from '../../data/features';
+---
+<BaseLayout
+  title="Features — Automonie"
+  description="Everything Automonie does: automatic transaction tracking, budgets that warn you early, goals you can track, bill reminders, and money insights."
+  path="/features/"
+>
+  <h1 id="features">Features</h1>
+  <p>Automonie reads your money and shows you the truth. Here's what it does.</p>
+  <div class="related-cards" style="margin-top:20px">
+    {features.map((f) => (
+      <a href={`/features/${f.slug}`}>
+        <strong>{f.title}</strong>
+        <span class="creds" style="display:block;color:var(--ink-3);font-weight:400;font-size:14px;margin-top:4px">{f.description}</span>
+      </a>
+    ))}
+  </div>
+</BaseLayout>
