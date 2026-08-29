@@ -15,6 +15,14 @@ export default defineConfig({
   site: 'https://automonie.com',
   output: 'static',
   adapter: vercel(),
+  // Preserve SEO equity from the old static site's .html URLs.
+  redirects: {
+    '/quiz.html': '/quiz',
+    '/budget-calculator.html': '/budget-calculator',
+    '/cost-of-living-calculator.html': '/cost-of-living-calculator',
+    '/privacy.html': '/privacy',
+    '/terms.html': '/terms',
+  },
   integrations: [
     sanity({
       projectId,
