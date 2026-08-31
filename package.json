@@ -9,7 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "seed": "sanity dataset import ./sanity/seed.ndjson production --replace --missing"
+    "seed": "sanity dataset import ./sanity/seed.ndjson production --replace"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",

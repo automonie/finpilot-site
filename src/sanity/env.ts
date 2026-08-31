@@ -6,6 +6,6 @@ const env = (key: string): string | undefined =>
   (typeof import.meta !== 'undefined' && (import.meta as { env?: Record<string, string> }).env?.[key]) ||
   (typeof process !== 'undefined' ? process.env?.[key] : undefined);
 
-export const projectId = env('PUBLIC_SANITY_PROJECT_ID') || 'replaceme';
+export const projectId = env('PUBLIC_SANITY_PROJECT_ID') || 'onnxvbsi';
 export const dataset = env('PUBLIC_SANITY_DATASET') || 'production';
 export const apiVersion = '2024-12-01';
