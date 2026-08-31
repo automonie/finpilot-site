@@ -1,27 +1,26 @@
 ---
-// Self-hosted Poppins (bundled by Astro from @fontsource — no Google CDN).
+// Shared layout for content pages (guides, learn, features, listings). Wears the
+// same chrome as the marketing home — the site.css nav, footer, texture background
+// and brand palette — with the article rendered in a clean white card (content.css)
+// so long-form reads well. Poppins self-hosted via @fontsource.
 import '@fontsource/poppins/400.css';
 import '@fontsource/poppins/500.css';
 import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/700.css';
-import '../styles/global.css';
+import '../styles/content.css';
 
-// Every page renders through here so the required SEO <head> can never be
-// forgotten. Pages pass their title tag, meta description, canonical path, and any
-// JSON-LD blocks.
 interface Props {
-  title: string;              // the <title> (from titleTag in the CMS)
-  description: string;        // meta description
-  path: string;               // canonical path, e.g. "/guides/gtbank-statement"
-  image?: string;             // absolute OG image URL
-  jsonLd?: unknown[];         // structured-data blocks
+  title: string;
+  description: string;
+  path: string;
+  image?: string;
+  jsonLd?: unknown[];
   noindex?: boolean;
 }
-
 const { title, description, path, image, jsonLd = [], noindex = false } = Astro.props;
 const site = 'https://automonie.com';
 const canonical = new URL(path, site).href;
-const ogImage = image || `${site}/og-default.png`;
+const ogImage = image || `${site}/assets/og-cover.png`;
 const year = new Date().getFullYear();
 ---
 <!doctype html>
@@ -33,49 +32,66 @@ const year = new Date().getFullYear();
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <meta name="robots" content={noindex ? 'noindex,nofollow' : 'index,follow'} />
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0b1326" />
+    <meta property="og:type" content="article" />
     <meta property="og:site_name" content="Automonie" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
-
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
-
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-
+    <link rel="icon" type="image/png" href="/assets/logo-mark.png" />
+    <link rel="stylesheet" href="/assets/site.css" />
     {jsonLd.map((block) => (
       <script type="application/ld+json" set:html={JSON.stringify(block)} />
     ))}
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="/"><img src="/assets/logo-full-dark.png" alt="Automonie" height="26" /></a>
-      <nav>
-        <a href="/features/">Features</a>
+    <header class="nav" id="top">
+      <a href="/" class="brand"><img src="/assets/logo-full-dark.png" alt="Automonie" class="brand-img"></a>
+      <nav class="nav-links" id="navLinks">
+        <div class="has-drop">
+          <button class="drop-btn" aria-haspopup="true">Features <svg class="ic" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="drop-menu">
+            <a href="/features/transactions"><span class="di"><svg class="ic" viewBox="0 0 24 24"><path d="M7 7h11M7 7l3-3M7 7l3 3M17 17H6M17 17l-3-3M17 17l-3 3"/></svg></span><div>Transactions<small>Track &amp; import</small></div></a>
+            <a href="/features/budgets"><span class="di"><svg class="ic" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9v9z"/></svg></span><div>Budgets<small>Limits &amp; alerts</small></div></a>
+            <a href="/features/goals"><span class="di"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg></span><div>Goals<small>Track your saving</small></div></a>
+            <a href="/features/bills"><span class="di"><svg class="ic" viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6"/></svg></span><div>Bills<small>Never miss one</small></div></a>
+            <a href="/features/insights"><span class="di"><svg class="ic" viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 16v-5M12 16V8M16 16v-3"/></svg></span><div>Insights<small>Where it goes</small></div></a>
+          </div>
+        </div>
         <a href="/guides/">Guides</a>
         <a href="/learn/">Learn</a>
         <a href="/quiz">Quiz</a>
-        <a href="/download">Get the app</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/#waitlist">Waitlist</a>
+        <a class="btn btn-ghost" data-app="web">Open web app</a>
       </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><svg class="ic" style="width:26px;height:26px" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     </header>
 
-    <main>
-      <slot />
+    <main class="doc-wrap">
+      <article class="doc">
+        <slot />
+      </article>
     </main>
 
-    <footer class="site-footer">
-      <p>© {year} Automonie. Make money make sense.</p>
-      <nav>
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Terms</a>
-      </nav>
+    <footer class="footer" id="contact">
+      <div class="footer-grid">
+        <div>
+          <div class="brand"><img src="/assets/logo-full-light.png" alt="Automonie" class="brand-img"></div>
+          <p class="muted">See where your money actually goes. Import, budget, track — on web and Android.</p>
+        </div>
+        <div><h4>Product</h4><a href="/features/transactions">Transactions</a><a href="/features/budgets">Budgets</a><a href="/features/goals">Goals</a><a href="/features/insights">Insights</a></div>
+        <div><h4>Learn</h4><a href="/guides/">Bank guides</a><a href="/learn/">Articles</a><a href="/quiz">Money quiz</a></div>
+        <div><h4>Company</h4><a href="/#security">Security</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a><a href="/download">Download</a></div>
+      </div>
+      <div class="footer-bottom">© {year} Automonie. All rights reserved.</div>
     </footer>
+
+    <script src="/assets/site.js" is:inline></script>
   </body>
 </html>

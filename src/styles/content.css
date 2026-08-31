@@ -1,0 +1,65 @@
+/* Reading styles for the content pages (guides, learn, features, listings). These
+   sit on top of the marketing site.css (which provides the tokens, nav, footer and
+   texture background), so guides feel part of the same site: a clean white card on
+   the mint-texture ground, with the brand's navy/green palette. */
+
+/* Aliases so earlier pages that used the old --ink* tokens now resolve to the
+   marketing palette (site.css defines --navy/--text/--muted/--border). */
+:root {
+  --ink: var(--navy);
+  --ink-2: var(--text);
+  --ink-3: var(--muted);
+  --line: var(--border);
+  --grad: linear-gradient(120deg, var(--green), var(--mint));
+  --surface: var(--bg);
+}
+.creds { color: var(--muted); }
+
+.doc-wrap { max-width: 860px; margin: 0 auto; padding: 30px 6vw 72px; }
+.doc {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 30px clamp(20px, 4vw, 40px) 40px;
+}
+.doc h1 { font-size: clamp(27px, 5vw, 38px); font-weight: 700; color: var(--navy); letter-spacing: -0.02em; line-height: 1.16; margin: 0 0 10px; }
+.doc h2 { font-size: clamp(20px, 3.5vw, 26px); font-weight: 600; color: var(--navy); letter-spacing: -0.01em; margin: 32px 0 10px; }
+.doc h3 { font-size: 18px; font-weight: 600; color: var(--navy); margin: 20px 0 8px; }
+.doc p, .doc li { color: var(--text); font-size: 17px; line-height: 1.7; }
+.doc > p:first-of-type { font-size: 18px; }
+.doc a { color: var(--green-d); font-weight: 600; }
+.doc img { max-width: 100%; height: auto; border-radius: 12px; }
+.doc figure { margin: 18px 0; }
+.doc figcaption { color: var(--muted); font-size: 13.5px; margin-top: 6px; }
+.doc .lead { font-size: 19px; color: var(--muted); }
+
+/* Author byline */
+.byline { color: var(--muted); font-size: 14.5px; margin: 0 0 22px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.byline img { width: 40px; height: 40px; border-radius: 50%; }
+.byline strong { color: var(--navy); }
+.byline .creds { display: block; color: var(--muted); }
+
+/* The all-important direct-answer box */
+.direct-answer {
+  border: 1px solid var(--green); border-left: 4px solid var(--green);
+  background: rgba(0, 168, 98, 0.06); border-radius: 14px; padding: 16px 18px; margin: 8px 0 26px;
+  font-size: 18px; font-weight: 500; color: var(--navy);
+}
+.direct-answer .label { display: block; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green-d); font-weight: 700; margin-bottom: 6px; }
+
+.hero { border-radius: 14px; margin: 20px 0 8px; }
+
+/* Common problems + FAQs */
+.problems { padding: 0; list-style: none; }
+.problems li { border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; margin: 10px 0; color: var(--text); }
+.problems b { display: block; margin-bottom: 4px; color: var(--navy); }
+.faqs details { border-bottom: 1px solid var(--border); padding: 12px 0; }
+.faqs summary { font-weight: 600; cursor: pointer; color: var(--navy); }
+
+/* Product bridge */
+.product-bridge { background: var(--bg); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; margin: 30px 0; }
+.product-bridge a.cta { display: inline-block; margin-top: 8px; background: linear-gradient(120deg, var(--green), var(--mint)); color: #06231c; font-weight: 700; text-decoration: none; padding: 11px 18px; border-radius: 999px; }
+
+/* Related cards + listing grids */
+.related-cards { display: grid; gap: 12px; padding: 0; margin: 12px 0 0; grid-template-columns: 1fr; list-style: none; }
+@media (min-width: 560px) { .related-cards { grid-template-columns: 1fr 1fr; } }
+.related-cards a { display: block; border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; text-decoration: none; color: var(--navy); font-weight: 600; background: var(--card); }
+.related-cards a:hover { border-color: var(--green); }
