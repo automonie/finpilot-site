@@ -1,68 +1,372 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-
-const jsonLd = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'Automonie',
-    url: 'https://automonie.com',
-    logo: 'https://automonie.com/logo.png',
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: 'Automonie',
-    applicationCategory: 'FinanceApplication',
-    operatingSystem: 'Android',
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'NGN' },
-  },
-];
+// Marketing home — the existing polished design, ported into Astro. Uses the
+// original stylesheet (public/assets/site.css) + scripts (public/assets/site.js).
+// Copy fixed for honest V1 labelling: no "auto-savings does the work", and the
+// flag-hidden auto-savings + wallet feature panels are removed. Poppins is
+// self-hosted via @fontsource (no Google CDN).
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/500.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
+const year = new Date().getFullYear();
 ---
-<BaseLayout
-  title="Automonie — See where your money actually goes"
-  description="Automonie reads your Nigerian bank statements and SMS alerts and shows you exactly where your money went — categorised, in seconds. Read-only, private, on your device."
-  path="/"
-  jsonLd={jsonLd}
->
-  <section class="hero">
-    <h1>Where did your money<br />actually go?</h1>
-    <p class="lead">It's never one big purchase — it's a transfer here, a top-up there. Automonie reads your statements and SMS alerts and shows you the truth, in seconds.</p>
-    <p><a class="cta" id="download" href="#get">Get the app (Android)</a></p>
-    <p class="fineprint">Read-only. We never hold your bank login and can't move your money.</p>
-  </section>
-
-  <section>
-    <h2>What it does</h2>
-    <ul class="value">
-      <li><strong>See the truth.</strong> Import a statement or scan your SMS alerts — every naira sorted into real categories.</li>
-      <li><strong>Budgets that warn you early.</strong> Bars turn amber at 80%, red before you overspend.</li>
-      <li><strong>Goals you can track</strong> and bills you'll never forget again.</li>
-    </ul>
-  </section>
-
-  <section id="get" class="product-bridge">
-    <h2 style="margin-top:0">Get Automonie</h2>
-    <p>Install the Android app and see your first month in under two minutes.</p>
-    <a class="cta" href="/download">Download for Android →</a>
-  </section>
-
-  <section>
-    <h2>Learn</h2>
-    <p>Free guides and money writing for Nigerians.</p>
-    <div class="related-cards">
-      <a href="/guides/">Bank statement guides</a>
-      <a href="/learn/">Money, in plain English</a>
-      <a href="/quiz">What's your money personality?</a>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Automonie | Take control of every naira</title>
+<meta name="description" content="See where your money actually goes. Automonie reads your Nigerian bank statements and SMS alerts, categorises every naira, and helps you budget — on web and Android." />
+<meta name="theme-color" content="#0b1326" />
+<link rel="canonical" href="https://automonie.com/" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Automonie" />
+<meta property="og:title" content="Automonie | Take control of every naira" />
+<meta property="og:description" content="See where your money actually goes — Automonie reads your statements and SMS alerts and categorises every naira. On web and Android." />
+<meta property="og:url" content="https://automonie.com/" />
+<meta property="og:image" content="https://automonie.com/assets/og-cover.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="en_NG" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Automonie | Take control of every naira" />
+<meta name="twitter:image" content="https://automonie.com/assets/og-cover.png" />
+<link rel="icon" type="image/png" href="/assets/logo-mark.png" />
+<link rel="stylesheet" href="/assets/site.css" />
+</head>
+<body>
+<header class="nav" id="top">
+  <a href="/" class="brand"><img src="/assets/logo-full-dark.png" alt="Automonie" class="brand-img"></a>
+  <nav class="nav-links" id="navLinks">
+    <div class="has-drop">
+      <button class="drop-btn" aria-haspopup="true">Features <svg class="ic" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="drop-menu">
+        <a href="/features/transactions"><span class="di"><svg class="ic" viewBox="0 0 24 24"><path d="M7 7h11M7 7l3-3M7 7l3 3M17 17H6M17 17l-3-3M17 17l-3 3"/></svg></span><div>Transactions<small>Track &amp; import</small></div></a>
+        <a href="/features/budgets"><span class="di"><svg class="ic" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9v9z"/></svg></span><div>Budgets<small>Limits &amp; alerts</small></div></a>
+        <a href="/features/goals"><span class="di"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg></span><div>Goals<small>Track your saving</small></div></a>
+        <a href="/features/bills"><span class="di"><svg class="ic" viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6"/></svg></span><div>Bills &amp; reminders<small>Never miss one</small></div></a>
+        <a href="/features/insights"><span class="di"><svg class="ic" viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 16v-5M12 16V8M16 16v-3"/></svg></span><div>Insights<small>Where it goes</small></div></a>
+      </div>
     </div>
-  </section>
-</BaseLayout>
+    <a href="/guides/">Guides</a>
+    <a href="/learn/">Learn</a>
+    <a href="/quiz">Quiz</a>
+    <a href="#faq">FAQ</a>
+    <a href="#waitlist">Waitlist</a>
+    <a class="btn btn-ghost" data-app="web">Open web app</a>
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu"><svg class="ic" style="width:26px;height:26px" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+</header>
 
-<style>
-  .hero { text-align: left; padding-top: 8px; }
-  .lead { font-size: 19px; color: var(--ink-2); max-width: 40ch; }
-  .fineprint { color: var(--ink-3); font-size: 14px; }
-  a.cta { display: inline-block; background: var(--grad); color: #06231c; font-weight: 600; text-decoration: none; padding: 13px 22px; border-radius: 12px; }
-  ul.value { list-style: none; padding: 0; display: grid; gap: 12px; }
-  ul.value li { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
-</style>
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow reveal">Personal finance, simplified</span>
+    <h1 class="reveal" data-d="1">Take control of <span class="grad">every naira</span>.</h1>
+    <p class="lead reveal" data-d="2">Import bank statements in seconds, see exactly where your money goes, budget smarter, and track your savings goals. Automonie is your money cockpit — on web and Android.</p>
+    <div class="hero-cta reveal" data-d="3">
+      <a class="btn btn-primary" data-app="web">Open the web app <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="store" data-app="apk"><svg class="ic" viewBox="0 0 24 24"><path d="M5 4l14 8-14 8z"/></svg><span><small>Download the</small><b>Android app</b></span></a>
+      <a class="store" data-app="ios"><svg class="ic" viewBox="0 0 24 24" style="stroke:none"><path fill="currentColor" d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg><span><small>Install on</small><b>iPhone (web)</b></span></a>
+    </div>
+    <div class="hero-trust reveal" data-d="3">
+      <span><svg class="ic" viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7z"/></svg> Bank-grade security</span>
+      <span><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg> Built for Naira</span>
+      <span><svg class="ic" viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg> Free to start</span>
+    </div>
+  </div>
+  <div class="hero-art">
+    <svg class="deco flower" style="top:2%;right:4%" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="14" fill="currentColor"/><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-dasharray="0.5 15.5"><circle cx="50" cy="50" r="40"/></g></svg>
+    <svg class="deco cross" style="bottom:6%;left:2%" viewBox="0 0 100 100" aria-hidden="true"><path fill="currentColor" d="M50 0C58 30 70 42 100 50 70 58 58 70 50 100 42 70 30 58 0 50 30 42 42 30 50 0Z"/></svg>
+    <div class="dvc tilt-l float" style="z-index:2">
+      <div class="scrn">
+        <div class="bar"><span class="t">9:41</span><span class="isl"></span><span class="bt"></span></div>
+        <img src="/assets/screens/mobile-transactions.jpg" alt="Automonie transactions on Android" loading="eager" decoding="async">
+        <span class="glare"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="waitlist reveal" id="waitlist">
+  <div class="wl-card">
+    <span class="eyebrow">Join early</span>
+    <h2>Be first in line at launch</h2>
+    <p class="wl-sub">Drop your email and WhatsApp number — we'll add you to our community for early access and updates, and tell you the moment the full launch lands. No spam.</p>
+    <form id="wlForm" class="wl-form" novalidate>
+      <input id="wlEmail" class="wl-input" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" aria-label="Email address" required>
+      <input id="wlPhone" class="wl-input" type="tel" inputmode="tel" autocomplete="tel" placeholder="WhatsApp number e.g. 0803 123 4567" aria-label="WhatsApp number" required>
+      <button class="btn btn-primary wl-btn" type="submit" id="wlBtn">Join the waitlist</button>
+    </form>
+    <p class="wl-msg" id="wlMsg" role="status" aria-live="polite"></p>
+    <a id="wlGroup" class="btn btn-primary wl-group" href="#" target="_blank" rel="noopener" style="display:none;margin-top:14px;background:#25D366;color:#fff">Join our WhatsApp community</a>
+  </div>
+</section>
+
+<section class="stats reveal">
+  <div class="stat"><div class="num" data-count="3" data-suffix="s">0</div><div class="lab">To import a full statement</div></div>
+  <div class="stat"><div class="num" data-count="2" data-suffix=" apps">0</div><div class="lab">Web + Android, one account</div></div>
+  <div class="stat"><div class="num" data-count="100" data-suffix="%">0</div><div class="lab">Naira-first, free to start</div></div>
+  <div class="stat"><div class="num" data-count="6" data-suffix="+">0</div><div class="lab">Money tools in one place</div></div>
+</section>
+
+<section class="trust-strip reveal">
+  <div class="trust-in">
+    <span><svg class="ic" viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7z"/></svg> 256-bit TLS encryption</span>
+    <i class="trust-sep"></i>
+    <span><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg> Read-only bank access</span>
+    <i class="trust-sep"></i>
+    <span><svg class="ic" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> We never see your bank login</span>
+    <i class="trust-sep"></i>
+    <span><svg class="ic" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg> Your data is never sold</span>
+  </div>
+</section>
+
+<section class="section" id="features" style="padding-bottom:18px">
+  <div class="section-head reveal"><span class="eyebrow">Everything in one place</span><h2>How each feature works</h2><p>Tap any feature to see it in detail, with real screens from the app.</p></div>
+</section>
+
+<section class="fpanel g">
+  <div class="fp-in">
+    <div class="fp-copy reveal">
+      <span class="eyebrow">Track &amp; import</span>
+      <h3>Transactions</h3>
+      <p>Log income and expenses, search and filter in a tap, and import a full bank statement — CSV, Excel, or PDF — that we categorise for you automatically.</p>
+      <a class="more" href="/features/transactions">Explore transactions <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="fp-device">
+      <svg class="deco flower" style="top:4%;left:4%" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="14" fill="currentColor"/><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-dasharray="0.5 15.5"><circle cx="50" cy="50" r="40"/></g></svg>
+      <div class="dvc tilt-l float" style="z-index:2">
+        <div class="scrn"><div class="bar"><span class="t">9:41</span><span class="isl"></span><span class="bt"></span></div><img src="/assets/screens/mobile-transactions.jpg" alt="Imported transactions on Automonie" loading="lazy"><span class="glare"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fpanel d alt">
+  <div class="fp-in">
+    <div class="fp-copy reveal">
+      <span class="eyebrow">Limits &amp; alerts</span>
+      <h3>Smart budgets</h3>
+      <p>Set a monthly limit for any category, even your own custom ones, and get an in-app alert before you overspend.</p>
+      <a class="more" href="/features/budgets">Explore budgets <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="fp-device">
+      <div class="bvc tilt-r float" style="z-index:2">
+        <div class="top"><i></i><i></i><i></i><span class="url">app.automonie.com/budget</span></div>
+        <img src="/assets/screens/budget.png" alt="Budget page on Automonie" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fpanel m">
+  <div class="fp-in">
+    <div class="fp-copy reveal">
+      <span class="eyebrow">Track your saving</span>
+      <h3>Goals</h3>
+      <p>Save toward what matters with live progress tracking. Set a target, log what you set aside, and watch the bar move — Automonie keeps score; your money stays yours.</p>
+      <a class="more" href="/features/goals">Explore goals <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="fp-device">
+      <svg class="deco cross" style="top:8%;right:5%" viewBox="0 0 100 100" aria-hidden="true"><path fill="currentColor" d="M50 0C58 30 70 42 100 50 70 58 58 70 50 100 42 70 30 58 0 50 30 42 42 30 50 0Z"/></svg>
+      <div class="dvc tilt-l float" style="z-index:2">
+        <div class="scrn"><div class="bar"><span class="t">9:41</span><span class="isl"></span><span class="bt"></span></div><img src="/assets/screens/mobile-goals.jpg" alt="Goals on Automonie" loading="lazy"><span class="glare"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fpanel d alt">
+  <div class="fp-in">
+    <div class="fp-copy reveal">
+      <span class="eyebrow">Never miss one</span>
+      <h3>Bills &amp; reminders</h3>
+      <p>Automonie spots your recurring bills and subscriptions and reminds you before they're due — so nothing catches you off guard.</p>
+      <a class="more" href="/features/bills">Explore bills &amp; reminders <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="fp-device">
+      <svg class="deco flower" style="bottom:6%;right:4%" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="14" fill="currentColor"/><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-dasharray="0.5 15.5"><circle cx="50" cy="50" r="40"/></g></svg>
+      <div class="dvc tilt-l float" style="z-index:2">
+        <div class="scrn"><div class="bar"><span class="t">9:41</span><span class="isl"></span><span class="bt"></span></div><img src="/assets/screens/mobile-bills.jpg" alt="Bills and reminders on Automonie" loading="lazy"><span class="glare"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fpanel m">
+  <div class="fp-in">
+    <div class="fp-copy reveal">
+      <span class="eyebrow">Health &amp; trends</span>
+      <h3>Insights</h3>
+      <p>Income-vs-expense charts, spending breakdowns, your money personality and cashflow trends that show you exactly where your money goes.</p>
+      <a class="more" href="/features/insights">Explore insights <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="fp-device">
+      <div class="bvc tilt-r float" style="z-index:2">
+        <div class="top"><i></i><i></i><i></i><span class="url">app.automonie.com/health</span></div>
+        <img src="/assets/screens/health.png" alt="Financial health insights on Automonie" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="life reveal">
+  <div class="life-img" role="img" aria-label="Managing money on the go"></div>
+  <div class="life-copy">
+    <span class="eyebrow">Money, on your terms</span>
+    <h2>Built for the way you actually spend</h2>
+    <p>From salary to soft-life spending, Automonie keeps every naira accounted for, so you always know where you stand.</p>
+    <ul class="life-list">
+      <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Import months of history in seconds</li>
+      <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Alerts before you blow the budget</li>
+      <li><svg class="ic" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Know where every naira goes</li>
+    </ul>
+  </div>
+</section>
+
+<section class="people">
+  <div class="people-in">
+    <div class="section-head reveal">
+      <span class="eyebrow shine">Who it's for</span>
+      <h2>Built for how Nigeria actually earns</h2>
+      <p>Salary earners, traders, side-hustlers. If money comes in and goes out, Automonie keeps score.</p>
+    </div>
+    <div class="photo-grid">
+      <figure class="pcard reveal" data-d="1">
+        <img src="/assets/img/juice-stand.jpg" width="700" height="467" alt="Small business owner checking her phone at her juice stand" loading="lazy" decoding="async">
+        <figcaption><b>Business owners</b><span>Track takings, separate business from personal, and see profit clearly.</span></figcaption>
+      </figure>
+      <figure class="pcard reveal" data-d="2">
+        <img src="/assets/img/reviewing-finances.jpg" width="700" height="1049" alt="Young professional reviewing her finances on her phone" loading="lazy" decoding="async">
+        <figcaption><b>Salary earners</b><span>Import your statement, set budgets, and make payday last the whole month.</span></figcaption>
+      </figure>
+      <figure class="pcard reveal" data-d="3">
+        <img src="/assets/img/market-trader.jpg" width="700" height="933" alt="Market trader preparing food at her stall" loading="lazy" decoding="async">
+        <figcaption><b>Daily earners</b><span>Log cash income as it comes, and turn irregular earnings into real savings.</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true">
+  <svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path fill="#0b1326" d="M0,26 C240,74 480,0 720,20 C960,40 1200,72 1440,34 L1440,70 L0,70 Z"/></svg>
+</div>
+
+<section class="how" id="how">
+  <div class="how-inner">
+    <div class="section-head reveal"><span class="eyebrow">Get going in minutes</span><h2>How it works</h2></div>
+    <div class="steps">
+      <div class="step reveal" data-d="1"><div class="step-no">1</div><h3>Create your account</h3><p>Sign up free on the web or the Android app — just your name, email, and phone.</p></div>
+      <div class="step reveal" data-d="2"><div class="step-no">2</div><h3>Import your money moves</h3><p>Scan your SMS alerts or import a full bank statement in one upload — nothing saves until you review it.</p></div>
+      <div class="step reveal" data-d="3"><div class="step-no">3</div><h3>Budget, track, and grow</h3><p>Set budgets and goals, and see exactly where your money goes each month.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <h2 class="reveal">Your money cockpit is one click away.</h2>
+  <div class="hero-cta reveal" data-d="1">
+    <a class="btn btn-primary" data-app="web">Open the web app <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="btn btn-dark" data-app="apk"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg> Get the Android app</a>
+  </div>
+</section>
+
+<section class="sec" id="security">
+  <div class="sec-in">
+    <div class="section-head reveal">
+      <span class="eyebrow">Built to be trusted</span>
+      <h2>Your money data, protected</h2>
+      <p>Automonie is designed so that the sensitive parts of your finances stay out of our hands in the first place.</p>
+    </div>
+    <div class="sec-grid">
+      <div class="sec-card reveal">
+        <div class="sec-ic"><svg class="ic" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+        <h3>We never see your bank login</h3>
+        <p>Bank connections run through a licensed open-banking provider. You sign in directly with your bank — your credentials never touch our servers.</p>
+      </div>
+      <div class="sec-card reveal" data-d="1">
+        <div class="sec-ic"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Read-only access</h3>
+        <p>A linked bank account can only be read, never debited. Automonie cannot move money out of your bank. Disconnect any time.</p>
+      </div>
+      <div class="sec-card reveal" data-d="2">
+        <div class="sec-ic"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7z"/></svg></div>
+        <h3>Encrypted end to end</h3>
+        <p>Every request is protected with 256-bit TLS encryption. Passwords are stored only as one-way salted hashes — they can't be read or recovered, even by us.</p>
+      </div>
+      <div class="sec-card reveal" data-d="3">
+        <div class="sec-ic"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div>
+        <h3>Locked to your device</h3>
+        <p>Add two-step email verification, plus a PIN or fingerprint lock on Android, so your finances stay private even if someone else picks up your phone.</p>
+      </div>
+      <div class="sec-card reveal" data-d="4">
+        <div class="sec-ic"><svg class="ic" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h10"/></svg></div>
+        <h3>We don't sell your data</h3>
+        <p>No advertisers, no data brokers. Your financial information is used to run the app for you, nothing else. You can export or delete it whenever you want.</p>
+      </div>
+      <div class="sec-card reveal" data-d="5">
+        <div class="sec-ic"><svg class="ic" viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 9h6M9 13h6"/></svg></div>
+        <h3>Licensed partners</h3>
+        <p>Any bank-data or payment services are handled by regulated Nigerian providers — so the money side is run by licensed institutions, not by us alone.</p>
+      </div>
+    </div>
+    <p class="sec-note">Read the detail in our <a href="/privacy" style="color:var(--mint);font-weight:600">Privacy Policy</a> and <a href="/terms" style="color:var(--mint);font-weight:600">Terms of Service</a>.</p>
+  </div>
+</section>
+
+<div class="divider flip" aria-hidden="true">
+  <svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path fill="#131d33" d="M0,26 C240,74 480,0 720,20 C960,40 1200,72 1440,34 L1440,70 L0,70 Z"/></svg>
+</div>
+
+<section class="section" id="faq">
+  <div class="section-head reveal"><span class="eyebrow">Good to know</span><h2>Frequently asked questions</h2></div>
+  <div class="faq reveal">
+    <details><summary>Is Automonie free?<svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary><p>Yes — creating an account and using the core features is free.</p></details>
+    <details><summary>Which banks can I import from?<svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary><p>Any Nigerian bank statement exported as CSV, Excel, or a digital (text) PDF, plus SMS transaction alerts. Scanned image PDFs aren't supported.</p></details>
+    <details><summary>Is my data secure?<svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary><p>Traffic is encrypted (HTTPS), passwords are hashed, bank access is read-only, and you can enable email two-step verification. Card details are never stored in full.</p></details>
+    <details><summary>Do the web and mobile apps share data?<svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary><p>Yes. One account works across both — your data stays in sync.</p></details>
+    <details><summary>How do I install the Android app?<svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary><p>Tap “Get the Android app”, open the file, and allow installation. No Play Store needed for the beta.</p></details>
+    <details><summary>Can Automonie move money out of my bank account?<svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary><p>No. A linked bank account is strictly <strong>read-only</strong> — Automonie can see transactions to keep your records current, and nothing more. It cannot move your money.</p></details>
+    <details><summary>Can I delete my data?<svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></summary><p>Yes. You can delete your account and its data at any time from the app, and disconnect a linked bank account instantly. You can also export your transactions. See the <a href="/privacy">Privacy Policy</a>.</p></details>
+  </div>
+</section>
+
+<footer class="footer" id="contact">
+  <div class="footer-grid">
+    <div>
+      <div class="brand"><img src="/assets/logo-full-light.png" alt="Automonie" class="brand-img"></div>
+      <p class="muted">See where your money actually goes. Import, budget, track — on web and Android.</p>
+      <div class="social">
+        <a href="https://www.linkedin.com/company/automonie/" target="_blank" rel="noopener" aria-label="Automonie on LinkedIn"><svg class="ic" viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05a4.2 4.2 0 0 1 3.75-2c4 0 4.4 2.4 4.4 5.6V21h-4v-5.2c0-1.25 0-2.85-1.75-2.85s-2 1.35-2 2.75V21h-4z"/></svg></a>
+        <a href="https://www.instagram.com/automonie.ng/" target="_blank" rel="noopener" aria-label="Automonie on Instagram"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2"/></svg></a>
+      </div>
+    </div>
+    <div><h4>Product</h4><a href="/features/transactions">Transactions</a><a href="/features/budgets">Budgets</a><a href="/features/goals">Goals</a><a href="/features/insights">Insights</a></div>
+    <div><h4>Learn</h4><a href="/guides/">Bank guides</a><a href="/learn/">Articles</a><a href="/quiz">Money quiz</a></div>
+    <div><h4>Company</h4><a href="#security">Security</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a><a href="#faq">FAQ</a></div>
+    <div><h4>Contact</h4>
+      <a href="mailto:tobe@automonie.com"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg> tobe@automonie.com</a>
+      <a data-app="web"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg> Open web app</a>
+      <a data-app="apk"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg> Android (APK)</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© {year} Automonie. All rights reserved.</div>
+</footer>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context':'https://schema.org',
+  '@graph':[
+    { '@type':'Organization','@id':'https://automonie.com/#org','name':'Automonie','url':'https://automonie.com/','logo':'https://automonie.com/assets/logo-mark.png','email':'tobe@automonie.com','areaServed':'NG','sameAs':['https://www.linkedin.com/company/automonie/','https://www.instagram.com/automonie.ng/'] },
+    { '@type':'WebSite','@id':'https://automonie.com/#website','url':'https://automonie.com/','name':'Automonie','publisher':{'@id':'https://automonie.com/#org'},'inLanguage':'en-NG' },
+    { '@type':'SoftwareApplication','name':'Automonie','applicationCategory':'FinanceApplication','operatingSystem':'Android, Web','description':'Personal finance app for Nigeria: see where your money goes, budget, import statements and track goals.','offers':{'@type':'Offer','price':'0','priceCurrency':'NGN'},'publisher':{'@id':'https://automonie.com/#org'} },
+    { '@type':'FAQPage','mainEntity':[
+      {'@type':'Question','name':'Is Automonie free?','acceptedAnswer':{'@type':'Answer','text':'Yes, creating an account and using the core features is free.'}},
+      {'@type':'Question','name':'Which banks can I import from?','acceptedAnswer':{'@type':'Answer','text':'Any Nigerian bank statement exported as CSV, Excel, or a digital (text) PDF, plus SMS transaction alerts.'}},
+      {'@type':'Question','name':'Can Automonie move money out of my bank account?','acceptedAnswer':{'@type':'Answer','text':'No. A linked bank account is strictly read-only. Automonie cannot move your money.'}}
+    ]}
+  ]
+})} />
+<script src="/assets/site.js" is:inline></script>
+</body>
+</html>
