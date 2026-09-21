@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const jsonLd = [
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://automonie.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Corper Money Personality Quiz', item: 'https://automonie.com/quiz/nysc' },
+  ] },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+    { '@type': 'Question', name: 'How much is the NYSC allawee?', acceptedAnswer: { '@type': 'Answer', text: 'The federal NYSC allowance is ₦33,000 a month, sometimes topped up by a state or PPA (place of primary assignment) stipend. This quiz is built around making that money work.' } },
+    { '@type': 'Question', name: 'Is the corper money quiz free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. It is free, needs no sign-up, and takes about two minutes. Ten questions reveal your corper money personality, from the Allawee Strategist to the Ghost Allawee.' } },
+    { '@type': 'Question', name: 'How do I budget my NYSC allawee?', acceptedAnswer: { '@type': 'Answer', text: 'Split the ₦33k before you spend it: needs first (transport, feeding, data), a little for savings or your next chapter, and a small amount for fun. Automonie reads your real transactions and shows you where the allawee actually went.' } },
+  ] },
+];
+---
+<BaseLayout
+  title="Corper Money Personality Quiz — Automonie"
+  description="What's your corper money personality? A free 2-minute quiz on how you handle the ₦33k NYSC allawee — from the Allawee Strategist to the Ghost Allawee. No sign-up."
+  path="/quiz/nysc"
+  jsonLd={jsonLd}
+>
+  <link rel="stylesheet" href="/assets/quiz.css" />
+
+  <section class="quiz-hero">
+    <span class="eyebrow">Free · no sign-up · for corpers</span>
+    <h1>What's your corper money personality?</h1>
+    <p class="quiz-sub">Ten quick questions on how you really handle the <strong>₦33k allawee</strong> — from the disciplined <strong>Allawee Strategist</strong> to the untraceable <strong>Ghost Allawee</strong>. Be honest, fellow corper.</p>
+  </section>
+
+  <section id="quizStage" class="quiz-stage" aria-live="polite">
+    <noscript><p>Please enable JavaScript to take the quiz.</p></noscript>
+  </section>
+
+  <section class="quiz-about">
+    <h2>The 8 corper money types</h2>
+    <p class="about-intro">Every corper handles the allawee differently. These are the eight types — which one are you?</p>
+    <div class="type-grid">
+      <div class="type-card"><h3>The Allawee Strategist</h3><p>You planned the ₦33k to the last naira — transport, feeding, savings, sorted before you spend a kobo.</p></div>
+      <div class="type-card"><h3>The PPA Baller</h3><p>Allawee lands and you spend like it's salary. One week of soft life, three weeks of garri and reflection.</p></div>
+      <div class="type-card"><h3>The Side-Hustle Corper</h3><p>Allawee is just bonus. Your real money comes from the gig, the small business and the connects.</p></div>
+      <div class="type-card"><h3>The Sapa Survivor</h3><p>More goes out than comes in, yet you stretch the allawee into a full month on pure strategy. Legend.</p></div>
+      <div class="type-card"><h3>The Redeployment Saver</h3><p>Every spare naira goes towards after service — japa, a business, rent, freedom. Future you says thank you.</p></div>
+      <div class="type-card"><h3>The CDS Socialite</h3><p>Aso-ebi, outings, corper linkups — the vibes are non-negotiable. Service year happens once.</p></div>
+      <div class="type-card"><h3>The Ghost Allawee</h3><p>Money enters, money disappears into transfers and small-small spending you can never trace.</p></div>
+      <div class="type-card"><h3>The Steady Corper</h3><p>No drama, no month-end panic — spending spread out and under control. Quietly winning the year.</p></div>
+    </div>
+  </section>
+
+  <section style="text-align:center;margin-top:38px">
+    <p style="color:var(--ink-2,#5b6b82)">Not a corper? Try the <a href="/quiz/students" style="color:var(--green-d,#0f6e56);font-weight:700">student money quiz</a> or the <a href="/quiz" style="color:var(--green-d,#0f6e56);font-weight:700">general money quiz</a>.</p>
+  </section>
+
+  <section class="quiz-cta">
+    <h2>Know your type. Now see the receipts.</h2>
+    <p>A quiz is a mirror. Automonie is the full picture — paste your alerts or import a statement and see exactly where the allawee went. Free, on web and Android.</p>
+    <div class="cta-btns">
+      <a class="btnp" href="/download">Get the app</a>
+      <a class="btng" href="https://app.automonie.com">Open web app</a>
+    </div>
+  </section>
+
+  <script is:inline>
+    window.QUIZ = {
+      eyebrow: 'YOUR CORPER MONEY TYPE',
+      cardTag: 'What’s your corper money personality?',
+      source: 'quiz-nysc',
+      shareUrl: 'https://automonie.com/quiz/nysc',
+      priority: ['strategist', 'baller', 'hustler', 'sapa', 'saver', 'socialite', 'ghost', 'steady'],
+      archetypes: {
+        strategist: { name: 'The Allawee Strategist', color: '#0ea5e9', tagline: 'You planned the ₦33k to the last naira.', blurb: 'The allawee lands and you already know where every naira is going. Discipline in the face of ₦33k is a real superpower.' },
+        baller:     { name: 'The PPA Baller', color: '#ec4899', tagline: 'Allawee land, you spend am like salary.', blurb: 'For one week you’re the most generous corper in the state. By week two it’s garri and reflection — but no regrets.' },
+        hustler:    { name: 'The Side-Hustle Corper', color: '#f59e0b', tagline: 'Allawee na bonus — your real money dey come from hustle.', blurb: 'You didn’t come to service to depend on ₦33k. Between the gig, the small business and the connects, allawee is just pocket money.' },
+        sapa:       { name: 'The Sapa Survivor', color: '#f97316', tagline: 'You stretched allawee into a full month. Legend.', blurb: 'More goes out than comes in, yet you survive on pure strategy. Every naira is doing overtime, and you always find a way.' },
+        saver:      { name: 'The Redeployment Saver', color: '#14b8a6', tagline: 'Every spare naira is going to the next chapter.', blurb: 'Allawee, side money, gifts — you’re stacking it all for after service: japa, a business, rent, freedom.' },
+        socialite:  { name: 'The CDS Socialite', color: '#8b5cf6', tagline: 'Aso-ebi, outings, corper linkups — the vibes matter.', blurb: 'Service year is once in a lifetime and you’re living it. A good chunk of the allawee funds the memories, and it’s worth it.' },
+        ghost:      { name: 'The Ghost Allawee', color: '#6b7280', tagline: 'Money enter, money disappear. No receipts.', blurb: 'The allawee hits and vanishes into transfers and small spending you can never trace. Not broke — just haunted by spending you never see.' },
+        steady:     { name: 'The Steady Corper', color: '#22c55e', tagline: 'No drama — just a balanced service year.', blurb: 'No plot twists, no month-end panic. Your spending is spread out and under control, and you finish most months in the green.' },
+      },
+      questions: [
+        { q: 'Allawee just landed. First move?', a: [
+          { t: 'Split it — transport, feeding, savings, done.', w: { strategist: 2 } },
+          { t: 'Treat myself, I’ve earned it.', w: { baller: 2, socialite: 1 } },
+          { t: 'Straight into savings for after service.', w: { saver: 2 } },
+          { t: 'Doesn’t move the needle — my hustle carries me.', w: { hustler: 2 } } ] },
+        { q: 'By the middle of the month, your allawee is…', a: [
+          { t: 'Still balanced, I planned it.', w: { strategist: 2, steady: 1 } },
+          { t: 'Long gone — the first week did the damage.', w: { baller: 2 } },
+          { t: 'Counting change, planning survival.', w: { sapa: 2 } },
+          { t: 'Untouched, I’m living off side money.', w: { hustler: 2 } } ] },
+        { q: 'Your PPA pays a little something extra. You…', a: [
+          { t: 'Add it to savings.', w: { saver: 2 } },
+          { t: 'Upgrade the weekend plans.', w: { socialite: 2, baller: 1 } },
+          { t: 'Reinvest it in the hustle.', w: { hustler: 2 } },
+          { t: 'Barely notice — it just disappears.', w: { ghost: 2 } } ] },
+        { q: 'CDS day, the corpers plan an outing. You…', a: [
+          { t: 'In! Memories over money.', w: { socialite: 2 } },
+          { t: 'Only if it fits the budget.', w: { strategist: 1, steady: 1 } },
+          { t: 'Can’t, I’m managing this month.', w: { sapa: 2 } },
+          { t: 'Sure, I’ll figure the money out later.', w: { baller: 1, ghost: 1 } } ] },
+        { q: 'Where does most of your allawee actually go?', a: [
+          { t: 'Transport and feeding, strictly needs.', w: { sapa: 2, strategist: 1 } },
+          { t: 'Outings, aso-ebi, the soft life.', w: { socialite: 2 } },
+          { t: 'Transfers I can’t even trace.', w: { ghost: 2 } },
+          { t: 'Savings, before anything else.', w: { saver: 2, strategist: 1 } } ] },
+        { q: 'A fellow corper needs to borrow, 3 days to allawee. You…', a: [
+          { t: 'Send it, I planned a buffer.', w: { strategist: 1, steady: 1 } },
+          { t: 'Politely say I’m also managing.', w: { sapa: 2 } },
+          { t: 'Send it, figure mine out later.', w: { baller: 1, ghost: 1 } },
+          { t: 'Sure, hustle money can cover it.', w: { hustler: 2 } } ] },
+        { q: 'Your ideal free weekend as a corper?', a: [
+          { t: 'Turn-up with the squad.', w: { socialite: 2, baller: 1 } },
+          { t: 'Working the side hustle.', w: { hustler: 2 } },
+          { t: 'Resting at the lodge — rest is free.', w: { sapa: 1, steady: 1, saver: 1 } },
+          { t: 'Anything, as long as I’m not counting cash.', w: { ghost: 1, baller: 1 } } ] },
+        { q: 'How often do you check your account balance?', a: [
+          { t: 'Constantly, I know it to the naira.', w: { strategist: 1, sapa: 1 } },
+          { t: 'Only when an alert scares me.', w: { baller: 1, ghost: 1 } },
+          { t: 'Weekly-ish, staying aware.', w: { steady: 2 } },
+          { t: 'I avoid it. Ignorance is peace.', w: { ghost: 2 } } ] },
+        { q: 'The plan for after service?', a: [
+          { t: 'Already saving hard for it.', w: { saver: 2 } },
+          { t: 'The hustle becomes the main thing.', w: { hustler: 2 } },
+          { t: 'Haven’t thought that far.', w: { baller: 1, ghost: 1 } },
+          { t: 'Steady steps, no rush.', w: { steady: 2 } } ] },
+        { q: 'Pick your corper money mantra:', a: [
+          { t: '“Plan the naira, survive the year.”', w: { strategist: 2 } },
+          { t: '“You only serve once.”', w: { socialite: 2, baller: 1 } },
+          { t: '“Allawee is not my source.”', w: { hustler: 2 } },
+          { t: '“Save now, soft life later.”', w: { saver: 2 } } ] },
+      ],
+    };
+  </script>
+  <script is:inline src="/assets/quiz-engine.js"></script>
+</BaseLayout>
