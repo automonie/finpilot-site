@@ -216,15 +216,53 @@ const jsonLd = [
     el('qShare').addEventListener('click',function(){share(A);});
     el('qForm').addEventListener('submit',function(e){e.preventDefault();join();});
   }
+  // Darken a #hex by amt (negative) for the card's gradient tail.
+  function shade(hex,amt){ var n=parseInt(hex.slice(1),16),r=(n>>16)&255,g=(n>>8)&255,b=n&255; function f(v){return Math.max(0,Math.min(255,Math.round(v*(1+amt))));} return 'rgb('+f(r)+','+f(g)+','+f(b)+')'; }
+  // Centre-wrapped text; returns the y after the last line.
+  function wrapCentre(ctx,text,cx,y,maxW,lineH){ var words=text.split(' '),line='',lines=[],i,t; for(i=0;i<words.length;i++){ t=line?line+' '+words[i]:words[i]; if(ctx.measureText(t).width>maxW&&line){lines.push(line);line=words[i];} else line=t; } if(line)lines.push(line); for(i=0;i<lines.length;i++) ctx.fillText(lines[i],cx,y+i*lineH); return y+lines.length*lineH; }
+
+  // Draw the 9:16 shareable card and return a PNG blob.
+  function renderCard(A){
+    return (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(function(){
+      var W=1080,H=1920,c=document.createElement('canvas');c.width=W;c.height=H;var x=c.getContext('2d');
+      var g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,A.color);g.addColorStop(1,shade(A.color,-0.5));x.fillStyle=g;x.fillRect(0,0,W,H);
+      x.textAlign='left';x.fillStyle='rgba(255,255,255,0.96)';x.font='700 58px Poppins, Arial, sans-serif';x.fillText('automonie',96,160);
+      // badge + simple person glyph
+      x.beginPath();x.arc(W/2,470,120,0,7);x.fillStyle='rgba(255,255,255,0.18)';x.fill();
+      x.strokeStyle='#fff';x.lineWidth=12;x.lineCap='round';x.lineJoin='round';
+      x.beginPath();x.arc(W/2,442,44,0,7);x.stroke();
+      x.beginPath();x.moveTo(W/2-72,562);x.quadraticCurveTo(W/2,468,W/2+72,562);x.stroke();
+      x.textAlign='center';
+      x.fillStyle='rgba(255,255,255,0.82)';x.font='700 36px Poppins, Arial, sans-serif';x.fillText('YOUR MONEY PERSONALITY',W/2,710);
+      x.fillStyle='#fff';x.font='700 104px Poppins, Arial, sans-serif';
+      var y=wrapCentre(x,A.name,W/2,830,W-192,116);
+      x.font='600 48px Poppins, Arial, sans-serif';x.fillStyle='rgba(255,255,255,0.95)';
+      y=wrapCentre(x,'“'+A.tagline+'”',W/2,y+46,W-200,62);
+      x.font='700 42px Poppins, Arial, sans-serif';x.fillStyle='rgba(255,255,255,0.9)';x.fillText('What’s your money personality?',W/2,H-236);
+      x.font='700 48px Poppins, Arial, sans-serif';x.fillStyle='#fff';x.fillText('Take the free quiz → automonie.com/quiz',W/2,H-160);
+      return new Promise(function(res){c.toBlob(function(b){res(b);},'image/png',0.95);});
+    });
+  }
+
   function share(A){
-    // One message carrying BOTH the result and the link. We deliberately DON'T pass a
-    // separate `url` to navigator.share — most apps (WhatsApp, etc.) then keep only the
-    // url and drop the result text; folding the link into `text` guarantees both show.
     var msg='My money personality is '+A.name+'. "'+A.tagline+'"\n\nWhat’s yours? Take the free Automonie quiz → https://automonie.com/quiz';
-    if(navigator.share){ navigator.share({title:'My Automonie money personality',text:msg}).catch(function(){}); return; }
-    var btn=el('qShare');
-    try{ navigator.clipboard.writeText(msg); var prev=btn.textContent; btn.textContent='Copied — paste it anywhere!'; setTimeout(function(){btn.textContent=prev;},1800); }
-    catch(e){ window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank'); }
+    var btn=el('qShare'),prev=btn.textContent;
+    btn.textContent='Creating…';
+    renderCard(A).then(function(blob){
+      var file=new File([blob],'automonie-money-personality.png',{type:'image/png'});
+      // Best case: share the actual IMAGE (posts a graphic to WhatsApp Status etc.).
+      if(navigator.canShare&&navigator.canShare({files:[file]})){
+        return navigator.share({files:[file],text:msg,title:'My Automonie money personality'}).then(function(){btn.textContent=prev;});
+      }
+      // Desktop fallback: download the image + copy the caption.
+      var url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=file.name;document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url);},5000);
+      try{navigator.clipboard.writeText(msg);}catch(e){}
+      btn.textContent='Saved image ✓';setTimeout(function(){btn.textContent=prev;},2200);
+    }).catch(function(){
+      btn.textContent=prev;
+      if(navigator.share){ navigator.share({title:'My Automonie money personality',text:msg}).catch(function(){}); }
+      else { try{navigator.clipboard.writeText(msg);}catch(e){ window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank'); } }
+    });
   }
   function join(){
     var email=el('qEmail'),msg=el('qMsg'),btn=el('qJoin'); var v=(email.value||'').trim();
