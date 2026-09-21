@@ -7,15 +7,15 @@ const jsonLd = [
     { '@type': 'ListItem', position: 2, name: 'Corper Money Personality Quiz', item: 'https://automonie.com/quiz/nysc' },
   ] },
   { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
-    { '@type': 'Question', name: 'How much is the NYSC allawee?', acceptedAnswer: { '@type': 'Answer', text: 'The federal NYSC allowance is ₦33,000 a month, sometimes topped up by a state or PPA (place of primary assignment) stipend. This quiz is built around making that money work.' } },
+    { '@type': 'Question', name: 'How much is the NYSC allawee?', acceptedAnswer: { '@type': 'Answer', text: 'The federal NYSC allowance is ₦77,000 a month, sometimes topped up by a state or PPA (place of primary assignment) stipend. This quiz is built around making that money work.' } },
     { '@type': 'Question', name: 'Is the corper money quiz free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. It is free, needs no sign-up, and takes about two minutes. Ten questions reveal your corper money personality, from the Allawee Strategist to the Ghost Allawee.' } },
-    { '@type': 'Question', name: 'How do I budget my NYSC allawee?', acceptedAnswer: { '@type': 'Answer', text: 'Split the ₦33k before you spend it: needs first (transport, feeding, data), a little for savings or your next chapter, and a small amount for fun. Automonie reads your real transactions and shows you where the allawee actually went.' } },
+    { '@type': 'Question', name: 'How do I budget my NYSC allawee?', acceptedAnswer: { '@type': 'Answer', text: 'Split the ₦77k before you spend it: needs first (transport, feeding, data), a little for savings or your next chapter, and a small amount for fun. Automonie reads your real transactions and shows you where the allawee actually went.' } },
   ] },
 ];
 ---
 <BaseLayout
   title="Corper Money Personality Quiz — Automonie"
-  description="What's your corper money personality? A free 2-minute quiz on how you handle the ₦33k NYSC allawee — from the Allawee Strategist to the Ghost Allawee. No sign-up."
+  description="What's your corper money personality? A free 2-minute quiz on how you handle the ₦77k NYSC allawee — from the Allawee Strategist to the Ghost Allawee. No sign-up."
   path="/quiz/nysc"
   jsonLd={jsonLd}
 >
@@ -24,7 +24,7 @@ const jsonLd = [
   <section class="quiz-hero">
     <span class="eyebrow">Free · no sign-up · for corpers</span>
     <h1>What's your corper money personality?</h1>
-    <p class="quiz-sub">Ten quick questions on how you really handle the <strong>₦33k allawee</strong> — from the disciplined <strong>Allawee Strategist</strong> to the untraceable <strong>Ghost Allawee</strong>. Be honest, fellow corper.</p>
+    <p class="quiz-sub">Ten quick questions on how you really handle the <strong>₦77k allawee</strong> — from the disciplined <strong>Allawee Strategist</strong> to the untraceable <strong>Ghost Allawee</strong>. Be honest, fellow corper.</p>
   </section>
 
   <section id="quizStage" class="quiz-stage" aria-live="polite">
@@ -35,7 +35,7 @@ const jsonLd = [
     <h2>The 8 corper money types</h2>
     <p class="about-intro">Every corper handles the allawee differently. These are the eight types — which one are you?</p>
     <div class="type-grid">
-      <div class="type-card"><h3>The Allawee Strategist</h3><p>You planned the ₦33k to the last naira — transport, feeding, savings, sorted before you spend a kobo.</p></div>
+      <div class="type-card"><h3>The Allawee Strategist</h3><p>You planned the ₦77k to the last naira — transport, feeding, savings, sorted before you spend a kobo.</p></div>
       <div class="type-card"><h3>The PPA Baller</h3><p>Allawee lands and you spend like it's salary. One week of soft life, three weeks of garri and reflection.</p></div>
       <div class="type-card"><h3>The Side-Hustle Corper</h3><p>Allawee is just bonus. Your real money comes from the gig, the small business and the connects.</p></div>
       <div class="type-card"><h3>The Sapa Survivor</h3><p>More goes out than comes in, yet you stretch the allawee into a full month on pure strategy. Legend.</p></div>
@@ -67,9 +67,9 @@ const jsonLd = [
       shareUrl: 'https://automonie.com/quiz/nysc',
       priority: ['strategist', 'baller', 'hustler', 'sapa', 'saver', 'socialite', 'ghost', 'steady'],
       archetypes: {
-        strategist: { name: 'The Allawee Strategist', color: '#0ea5e9', tagline: 'You planned the ₦33k to the last naira.', blurb: 'The allawee lands and you already know where every naira is going. Discipline in the face of ₦33k is a real superpower.' },
+        strategist: { name: 'The Allawee Strategist', color: '#0ea5e9', tagline: 'You planned the ₦77k to the last naira.', blurb: 'The allawee lands and you already know where every naira is going. Discipline in the face of ₦77k is a real superpower.' },
         baller:     { name: 'The PPA Baller', color: '#ec4899', tagline: 'Allawee land, you spend am like salary.', blurb: 'For one week you’re the most generous corper in the state. By week two it’s garri and reflection — but no regrets.' },
-        hustler:    { name: 'The Side-Hustle Corper', color: '#f59e0b', tagline: 'Allawee na bonus — your real money dey come from hustle.', blurb: 'You didn’t come to service to depend on ₦33k. Between the gig, the small business and the connects, allawee is just pocket money.' },
+        hustler:    { name: 'The Side-Hustle Corper', color: '#f59e0b', tagline: 'Allawee na bonus — your real money dey come from hustle.', blurb: 'You didn’t come to service to depend on ₦77k. Between the gig, the small business and the connects, allawee is just pocket money.' },
         sapa:       { name: 'The Sapa Survivor', color: '#f97316', tagline: 'You stretched allawee into a full month. Legend.', blurb: 'More goes out than comes in, yet you survive on pure strategy. Every naira is doing overtime, and you always find a way.' },
         saver:      { name: 'The Redeployment Saver', color: '#14b8a6', tagline: 'Every spare naira is going to the next chapter.', blurb: 'Allawee, side money, gifts — you’re stacking it all for after service: japa, a business, rent, freedom.' },
         socialite:  { name: 'The CDS Socialite', color: '#8b5cf6', tagline: 'Aso-ebi, outings, corper linkups — the vibes matter.', blurb: 'Service year is once in a lifetime and you’re living it. A good chunk of the allawee funds the memories, and it’s worth it.' },
