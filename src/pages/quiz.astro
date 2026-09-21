@@ -217,12 +217,14 @@ const jsonLd = [
     el('qForm').addEventListener('submit',function(e){e.preventDefault();join();});
   }
   function share(A){
-    var text='I am '+A.name+'. "'+A.tagline+'" What is your money personality? Take the Automonie quiz:';
-    var url='https://automonie.com/quiz';
-    if(navigator.share){ navigator.share({title:'My Automonie money personality',text:text,url:url}).catch(function(){}); return; }
+    // One message carrying BOTH the result and the link. We deliberately DON'T pass a
+    // separate `url` to navigator.share — most apps (WhatsApp, etc.) then keep only the
+    // url and drop the result text; folding the link into `text` guarantees both show.
+    var msg='My money personality is '+A.name+'. "'+A.tagline+'"\n\nWhat’s yours? Take the free Automonie quiz → https://automonie.com/quiz';
+    if(navigator.share){ navigator.share({title:'My Automonie money personality',text:msg}).catch(function(){}); return; }
     var btn=el('qShare');
-    try{ navigator.clipboard.writeText(text+' '+url); var prev=btn.textContent; btn.textContent='Copied!'; setTimeout(function(){btn.textContent=prev;},1600); }
-    catch(e){ window.open('https://wa.me/?text='+encodeURIComponent(text+' '+url),'_blank'); }
+    try{ navigator.clipboard.writeText(msg); var prev=btn.textContent; btn.textContent='Copied — paste it anywhere!'; setTimeout(function(){btn.textContent=prev;},1800); }
+    catch(e){ window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank'); }
   }
   function join(){
     var email=el('qEmail'),msg=el('qMsg'),btn=el('qJoin'); var v=(email.value||'').trim();
