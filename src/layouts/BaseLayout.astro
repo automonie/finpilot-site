@@ -65,7 +65,14 @@ const year = new Date().getFullYear();
         </div>
         <a href="/guides/">Guides</a>
         <a href="/learn/">Learn</a>
-        <a href="/quiz">Quiz</a>
+        <div class="has-drop">
+          <button class="drop-btn" aria-haspopup="true">Tools <svg class="ic" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="drop-menu">
+            <a href="/quiz"><span class="di"><svg class="ic" viewBox="0 0 24 24"><path d="M9 9a3 3 0 1 1 4 2.83c-.7.4-1 .84-1 1.67M12 17h.01"/></svg></span><div>Money quiz<small>Your spending type</small></div></a>
+            <a href="/budget-calculator"><span class="di"><svg class="ic" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h4M8 15h2M12 15h4"/></svg></span><div>Budget calculator<small>50/30/20 in naira</small></div></a>
+            <a href="/cost-of-living-calculator"><span class="di"><svg class="ic" viewBox="0 0 24 24"><path d="M3 21h18M6 21V9l6-4 6 4v12M10 21v-6h4v6"/></svg></span><div>Cost of living<small>Lagos &amp; Abuja</small></div></a>
+          </div>
+        </div>
         <a href="/#faq">FAQ</a>
         <a href="/#waitlist">Waitlist</a>
         <a class="btn btn-ghost" data-app="web">Open web app</a>
@@ -86,7 +93,7 @@ const year = new Date().getFullYear();
           <p class="muted">See where your money actually goes. Import, budget, track — on web and Android.</p>
         </div>
         <div><h4>Product</h4><a href="/features/transactions">Transactions</a><a href="/features/budgets">Budgets</a><a href="/features/goals">Goals</a><a href="/features/insights">Insights</a></div>
-        <div><h4>Learn</h4><a href="/guides/">Bank guides</a><a href="/learn/">Articles</a><a href="/quiz">Money quiz</a></div>
+        <div><h4>Learn</h4><a href="/guides/">Bank guides</a><a href="/learn/">Articles</a><a href="/quiz">Money quiz</a><a href="/budget-calculator">Budget calculator</a><a href="/cost-of-living-calculator">Cost of living</a></div>
         <div><h4>Company</h4><a href="/#security">Security</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a><a href="/download">Download</a></div>
       </div>
       <div class="footer-bottom">© {year} Automonie. All rights reserved.</div>
