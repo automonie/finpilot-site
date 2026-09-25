@@ -164,6 +164,10 @@
   var btn = document.getElementById('wlBtn');
   var msg = document.getElementById('wlMsg');
   var reEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // Campaign source: a ?src= param wins (per-event QR tags, e.g. nysc-ikeja), else
+  // the form's data-source (per-page default), else 'website'.
+  var srcParam = new URLSearchParams(location.search).get('src');
+  var source = (srcParam || form.getAttribute('data-source') || 'website').toString().slice(0, 40);
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var v = (email.value || '').trim();
@@ -175,7 +179,7 @@
     fetch(API + '/api/waitlist', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: v, phone: ph, source: 'website' })
+      body: JSON.stringify({ email: v, phone: ph, source: source })
     }).then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
       .then(function (res) {
         if (res.ok) {

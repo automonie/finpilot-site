@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const jsonLd = [
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://automonie.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Automonie for Corpers', item: 'https://automonie.com/corper' },
+  ] },
+];
+---
+<BaseLayout
+  title="Automonie for Corpers | Make your ₦77k allawee work"
+  description="Free money tracker built for NYSC corpers. See where your ₦77k allawee actually goes, budget it before it vanishes, and save for after service. Web and Android."
+  path="/corper"
+  jsonLd={jsonLd}
+>
+  <section class="cp-hero">
+    <span class="eyebrow">For NYSC corpers</span>
+    <h1>Your ₦77k allawee doesn't have to vanish.</h1>
+    <p class="cp-sub">Every month the allawee lands, and somehow it's gone before you can trace it. Automonie reads your bank alerts and statements and shows you exactly where it went. No manual logging, no stress. Free, on web and Android.</p>
+    <div class="cp-cta">
+      <a class="btn btn-primary" href="/quiz/nysc">Find your corper money type</a>
+      <a class="btn btn-ghost" href="#join">Join the waitlist</a>
+    </div>
+    <p class="cp-mini">Takes 2 minutes. No sign-up to try the quiz.</p>
+  </section>
+
+  <section class="cp-split">
+    <h2>The ₦77k rule: split it before you spend it</h2>
+    <p class="cp-lead">The corpers who survive the month decide where the allawee goes the day it lands, not after.</p>
+    <div class="cp-buckets">
+      <div class="cp-bucket">
+        <div class="cp-b-amt">₦45,000</div>
+        <div class="cp-b-name">Needs</div>
+        <p>Transport, feeding, data. The non negotiables that keep you moving.</p>
+      </div>
+      <div class="cp-bucket">
+        <div class="cp-b-amt">₦20,000</div>
+        <div class="cp-b-name">Next chapter</div>
+        <p>Savings for after service: japa, a small business, rent, freedom.</p>
+      </div>
+      <div class="cp-bucket">
+        <div class="cp-b-amt">₦12,000</div>
+        <div class="cp-b-name">Fun</div>
+        <p>Outings, aso ebi, the vibes. You only serve once, and it's guilt free when it's planned.</p>
+      </div>
+    </div>
+    <p class="cp-note">A starting point, not a rule. Automonie learns your real split from your actual spending and helps you adjust.</p>
+  </section>
+
+  <section class="cp-why">
+    <h2>Why corpers use Automonie</h2>
+    <div class="cp-why-grid">
+      <div class="cp-why-card"><h3>It reads your alerts</h3><p>Paste a bank SMS or forward an email, or upload a full statement. Automonie sorts it into categories for you.</p></div>
+      <div class="cp-why-card"><h3>It catches the ghost spending</h3><p>Those small transfers you can never trace get grouped and named, so nothing disappears silently again.</p></div>
+      <div class="cp-why-card"><h3>It plans for after service</h3><p>Set a redeployment or japa goal and watch it fill. Future you says thank you.</p></div>
+      <div class="cp-why-card"><h3>It's free and Naira first</h3><p>Built in Nigeria, for Naira, with the banks and wallets you already use. Free to start.</p></div>
+    </div>
+  </section>
+
+  <section class="cp-join" id="join">
+    <div class="wl-card">
+      <span class="eyebrow">Join early</span>
+      <h2>Get early access, join the corper community</h2>
+      <p class="wl-sub">Drop your email and WhatsApp number. We'll add you to the community for early access and tips, and tell you the moment the full launch lands. No spam.</p>
+      <form id="wlForm" class="wl-form" data-source="nysc-talk" novalidate>
+        <input id="wlEmail" class="wl-input" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" aria-label="Email address" required>
+        <input id="wlPhone" class="wl-input" type="tel" inputmode="tel" autocomplete="tel" placeholder="WhatsApp number e.g. 0803 123 4567" aria-label="WhatsApp number" required>
+        <button class="btn btn-primary wl-btn" type="submit" id="wlBtn">Join the waitlist</button>
+      </form>
+      <p class="wl-msg" id="wlMsg" role="status" aria-live="polite"></p>
+      <a id="wlGroup" class="btn btn-primary wl-group" href="#" target="_blank" rel="noopener" style="display:none;margin-top:14px;background:#25D366;color:#fff">Join our WhatsApp community</a>
+    </div>
+  </section>
+
+  <section class="cp-app">
+    <h2>Ready now? Open Automonie</h2>
+    <div class="cp-cta">
+      <a class="btn btn-primary" href="/download?src=nysc-talk">Get the Android app</a>
+      <a class="btn btn-ghost" href="https://app.automonie.com">Open the web app</a>
+    </div>
+  </section>
+
+  <section class="cp-share">
+    <h2>Send it to a fellow corper</h2>
+    <p class="cp-lead">Scan or share this to bring someone here.</p>
+    <div class="cp-qr">
+      <img src="/assets/corper-qr.svg" alt="QR code to automonie.com/corper" width="200" height="200" />
+    </div>
+    <p class="cp-note">automonie.com/corper</p>
+  </section>
+
+  <style>
+    .cp-hero { max-width: 760px; margin: 0 auto; padding: 56px 20px 20px; text-align: center; }
+    .cp-hero h1 { font-size: clamp(1.9rem, 5vw, 3rem); line-height: 1.1; margin: 12px 0 14px; color: var(--ink, #0f1b2d); }
+    .cp-sub { color: var(--ink-2, #5b6b82); font-size: 1.08rem; line-height: 1.6; max-width: 60ch; margin: 0 auto 22px; }
+    .cp-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .cp-mini { color: var(--ink-2, #5b6b82); font-size: 0.85rem; margin-top: 12px; }
+    .btn-ghost { background: transparent; border: 1.5px solid var(--green-d, #0f6e56); color: var(--green-d, #0f6e56); }
+
+    .cp-split { max-width: 900px; margin: 40px auto; padding: 0 20px; text-align: center; }
+    .cp-split h2, .cp-why h2, .cp-app h2, .cp-share h2, .cp-join h2 { font-size: clamp(1.4rem, 3.5vw, 2rem); color: var(--ink, #0f1b2d); }
+    .cp-lead, .cp-note { color: var(--ink-2, #5b6b82); }
+    .cp-lead { font-size: 1.02rem; margin: 8px 0 24px; }
+    .cp-buckets { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .cp-bucket { background: var(--card, #fff); border: 1px solid rgba(15,110,86,0.15); border-radius: 18px; padding: 22px; text-align: left; }
+    .cp-b-amt { font-size: 1.7rem; font-weight: 800; color: var(--green-d, #0f6e56); }
+    .cp-b-name { font-weight: 700; margin: 4px 0 8px; color: var(--ink, #0f1b2d); }
+    .cp-bucket p { color: var(--ink-2, #5b6b82); font-size: 0.92rem; line-height: 1.5; margin: 0; }
+    .cp-note { font-size: 0.88rem; margin-top: 18px; }
+
+    .cp-why { max-width: 900px; margin: 48px auto; padding: 0 20px; text-align: center; }
+    .cp-why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 22px; text-align: left; }
+    .cp-why-card { background: var(--card, #fff); border: 1px solid rgba(15,110,86,0.12); border-radius: 16px; padding: 20px; }
+    .cp-why-card h3 { margin: 0 0 6px; font-size: 1.05rem; color: var(--ink, #0f1b2d); }
+    .cp-why-card p { margin: 0; color: var(--ink-2, #5b6b82); font-size: 0.92rem; line-height: 1.5; }
+
+    .cp-join { max-width: 640px; margin: 48px auto; padding: 0 20px; }
+    .cp-app { max-width: 760px; margin: 48px auto; padding: 0 20px; text-align: center; }
+    .cp-share { max-width: 520px; margin: 48px auto 72px; padding: 0 20px; text-align: center; }
+    .cp-qr { display: inline-flex; background: #fff; padding: 16px; border-radius: 18px; border: 1px solid rgba(15,110,86,0.15); margin: 8px 0; }
+    .cp-qr img { display: block; width: 200px; height: 200px; }
+  </style>
+</BaseLayout>
