@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Join the Automonie beta"
+  description="Become an Automonie beta tester. Try new features first, report what breaks, and help shape a money app built for Nigerians. Free."
+  path="/beta"
+  noindex={true}
+>
+  <section class="bt-hero">
+    <span class="eyebrow">Beta testers</span>
+    <h1>Help us build Automonie.</h1>
+    <p class="bt-sub">Get new features before anyone else, tell us what works and what breaks, and shape the app with your feedback. We read every message.</p>
+  </section>
+
+  <section class="bt-what">
+    <div class="bt-grid">
+      <div class="bt-card"><h3>See it first</h3><p>Early access to new features and screens before they go wide.</p></div>
+      <div class="bt-card"><h3>Report what breaks</h3><p>Hit a bug or something confusing? Tell us right from inside the app.</p></div>
+      <div class="bt-card"><h3>Shape the roadmap</h3><p>Your ideas go straight to the team and steer what we build next.</p></div>
+    </div>
+  </section>
+
+  <section class="bt-join" id="join">
+    <div class="wl-card">
+      <span class="eyebrow">Join the beta</span>
+      <h2>Get in and meet the other testers</h2>
+      <p class="wl-sub">Drop your email and WhatsApp number. We'll add you to the beta community and send early builds and updates there.</p>
+      <form id="wlForm" class="wl-form" data-source="beta" novalidate>
+        <input id="wlEmail" class="wl-input" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" aria-label="Email address" required>
+        <input id="wlPhone" class="wl-input" type="tel" inputmode="tel" autocomplete="tel" placeholder="WhatsApp number e.g. 0803 123 4567" aria-label="WhatsApp number" required>
+        <button class="btn btn-primary wl-btn" type="submit" id="wlBtn">Join the beta</button>
+      </form>
+      <p class="wl-msg" id="wlMsg" role="status" aria-live="polite"></p>
+      <a id="wlGroup" class="btn btn-primary wl-group" href="#" target="_blank" rel="noopener" style="display:none;margin-top:14px;background:#25D366;color:#fff">Join the beta WhatsApp community</a>
+    </div>
+  </section>
+
+  <section class="bt-app">
+    <h2>Already using Automonie?</h2>
+    <p class="bt-lead">Open the app, go to Settings, and turn on Beta tester. You can send feedback from there any time.</p>
+    <div class="bt-cta">
+      <a class="btn btn-primary" href="https://app.automonie.com">Open the web app</a>
+      <a class="btn btn-ghost" href="/download">Get the Android app</a>
+    </div>
+  </section>
+
+  <style>
+    .bt-hero { max-width: 720px; margin: 0 auto; padding: 56px 20px 12px; text-align: center; }
+    .bt-hero h1 { font-size: clamp(1.9rem, 5vw, 2.8rem); margin: 12px 0 14px; color: var(--ink, #0f1b2d); }
+    .bt-sub { color: var(--ink-2, #5b6b82); font-size: 1.06rem; line-height: 1.6; max-width: 56ch; margin: 0 auto; }
+    .bt-what { max-width: 900px; margin: 36px auto; padding: 0 20px; }
+    .bt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .bt-card { background: var(--card, #fff); border: 1px solid rgba(15,110,86,0.12); border-radius: 16px; padding: 20px; }
+    .bt-card h3 { margin: 0 0 6px; font-size: 1.05rem; color: var(--ink, #0f1b2d); }
+    .bt-card p { margin: 0; color: var(--ink-2, #5b6b82); font-size: 0.92rem; line-height: 1.5; }
+    .bt-join { max-width: 640px; margin: 44px auto; padding: 0 20px; }
+    .bt-app { max-width: 720px; margin: 44px auto 72px; padding: 0 20px; text-align: center; }
+    .bt-app h2, .bt-join h2 { font-size: clamp(1.4rem, 3.5vw, 1.9rem); color: var(--ink, #0f1b2d); }
+    .bt-lead { color: var(--ink-2, #5b6b82); margin: 8px 0 20px; }
+    .bt-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-ghost { background: transparent; border: 1.5px solid var(--green-d, #0f6e56); color: var(--green-d, #0f6e56); }
+  </style>
+</BaseLayout>
