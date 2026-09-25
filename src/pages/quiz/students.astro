@@ -9,13 +9,13 @@ const jsonLd = [
   { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
     { '@type': 'Question', name: 'Is the student money quiz free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. It is free, no sign-up, about two minutes. Ten questions reveal your student money personality, from the Ajo Undergraduate to the Ghost Spender.' } },
     { '@type': 'Question', name: 'How can a Nigerian student budget their allowance?', acceptedAnswer: { '@type': 'Answer', text: 'Split the allowance the day it lands: feeding and transport first, a small amount for data and fun, and something small for savings. Automonie reads your real transactions so you can see where the allowance actually went, not where you think it went.' } },
-    { '@type': 'Question', name: 'How do I stop being broke by mid-month as a student?', acceptedAnswer: { '@type': 'Answer', text: 'Track your spending. Most students run out early because small, untracked spending adds up. Seeing it clearly — the app does this from your bank alerts — is the first step to making the allowance last.' } },
+    { '@type': 'Question', name: 'How do I stop being broke by mid-month as a student?', acceptedAnswer: { '@type': 'Answer', text: 'Track your spending. Most students run out early because small, untracked spending adds up. Seeing it clearly, the app does this from your bank alerts, is the first step to making the allowance last.' } },
   ] },
 ];
 ---
 <BaseLayout
-  title="Student Money Personality Quiz — Automonie"
-  description="What's your student money personality? A free 2-minute quiz on how you handle your allowance — from the Ajo Undergraduate to the Sapa Scholar. No sign-up."
+  title="Student Money Personality Quiz | Automonie"
+  description="What's your student money personality? A free 2-minute quiz on how you handle your allowance, from the Ajo Undergraduate to the Sapa Scholar. No sign-up."
   path="/quiz/students"
   jsonLd={jsonLd}
 >
@@ -24,7 +24,7 @@ const jsonLd = [
   <section class="quiz-hero">
     <span class="eyebrow">Free · no sign-up · for students</span>
     <h1>What's your student money personality?</h1>
-    <p class="quiz-sub">Ten quick questions on how you really handle your <strong>allowance</strong> — from the disciplined <strong>Ajo Undergraduate</strong> to the untraceable <strong>Ghost Spender</strong>. Be honest, no lecturer is watching.</p>
+    <p class="quiz-sub">Ten quick questions on how you really handle your <strong>allowance</strong>, from the disciplined <strong>Ajo Undergraduate</strong> to the untraceable <strong>Ghost Spender</strong>. Be honest, no lecturer is watching.</p>
   </section>
 
   <section id="quizStage" class="quiz-stage" aria-live="polite">
@@ -33,11 +33,11 @@ const jsonLd = [
 
   <section class="quiz-about">
     <h2>The 8 student money types</h2>
-    <p class="about-intro">Every student handles the allowance differently. These are the eight types — which one are you?</p>
+    <p class="about-intro">Every student handles the allowance differently. These are the eight types, which one are you?</p>
     <div class="type-grid">
-      <div class="type-card"><h3>The Allowee Juggler</h3><p>You stretch the monthly allowance like a maths problem — food, transport, data, small fun, all balanced.</p></div>
+      <div class="type-card"><h3>The Allowee Juggler</h3><p>You stretch the monthly allowance like a maths problem, food, transport, data, small fun, all balanced.</p></div>
       <div class="type-card"><h3>The Sapa Scholar</h3><p>Broke by mid-month, surviving on indomie, garri and the kindness of roommates. Resilience is your major.</p></div>
-      <div class="type-card"><h3>The Campus Hustler</h3><p>Allowance is small money — thrift, mini-importation, a small skill. You always have a plan to make more.</p></div>
+      <div class="type-card"><h3>The Campus Hustler</h3><p>Allowance is small money, thrift, mini-importation, a small skill. You always have a plan to make more.</p></div>
       <div class="type-card"><h3>The Soft-Life Student</h3><p>Soft life on a student budget, and somehow it adds up. Nice things, clean fits, still reaches month-end.</p></div>
       <div class="type-card"><h3>The Borrow-Borrow</h3><p>&ldquo;Send me 2k, I&rsquo;ll pay you back&rdquo; is your anthem. Always a little short, always owing someone.</p></div>
       <div class="type-card"><h3>The Ajo Undergraduate</h3><p>Discipline is your middle name, even on allowance. Class ajo, small savings, buying in bulk. You lend, not borrow.</p></div>
@@ -52,7 +52,7 @@ const jsonLd = [
 
   <section class="quiz-cta">
     <h2>Know your type. Now see the receipts.</h2>
-    <p>A quiz is a mirror. Automonie is the full picture — paste your alerts or import a statement and see exactly where the allowance went. Free, on web and Android.</p>
+    <p>A quiz is a mirror. Automonie is the full picture, paste your alerts or import a statement and see exactly where the allowance went. Free, on web and Android.</p>
     <div class="cta-btns">
       <a class="btnp" href="/download">Get the app</a>
       <a class="btng" href="https://app.automonie.com">Open web app</a>
@@ -67,36 +67,36 @@ const jsonLd = [
       shareUrl: 'https://automonie.com/quiz/students',
       priority: ['juggler', 'sapa', 'hustler', 'softlife', 'borrow', 'ajo', 'detty', 'ghost'],
       archetypes: {
-        juggler:  { name: 'The Allowee Juggler', color: '#0ea5e9', tagline: 'You stretch the allowance like a maths problem.', blurb: 'Allowance drops and you immediately do the calculations — food, transport, data, small fun. You’re always juggling, and somehow it works.' },
-        sapa:     { name: 'The Sapa Scholar', color: '#f97316', tagline: 'Broke by mid-month, surviving on garri and vibes.', blurb: 'The allowance rarely reaches month-end, but you always survive — indomie, garri, and the kindness of roommates. Resilience is your major.' },
-        hustler:  { name: 'The Campus Hustler', color: '#f59e0b', tagline: 'Allowance na small money — you dey build empire.', blurb: 'Thrift, mini-importation, selling to classmates, a small skill — you always have a plan to make money. School is just the base.' },
+        juggler:  { name: 'The Allowee Juggler', color: '#0ea5e9', tagline: 'You stretch the allowance like a maths problem.', blurb: 'Allowance drops and you immediately do the calculations, food, transport, data, small fun. You’re always juggling, and somehow it works.' },
+        sapa:     { name: 'The Sapa Scholar', color: '#f97316', tagline: 'Broke by mid-month, surviving on garri and vibes.', blurb: 'The allowance rarely reaches month-end, but you always survive, indomie, garri, and the kindness of roommates. Resilience is your major.' },
+        hustler:  { name: 'The Campus Hustler', color: '#f59e0b', tagline: 'Allowance na small money, you dey build empire.', blurb: 'Thrift, mini-importation, selling to classmates, a small skill, you always have a plan to make money. School is just the base.' },
         softlife: { name: 'The Soft-Life Student', color: '#ec4899', tagline: 'Soft life on a student budget, and it adds up.', blurb: 'Nice things, good outings, the fit always clean. You enjoy the finer things and still make it to month-end. Calculated treats.' },
-        borrow:   { name: 'The Borrow-Borrow', color: '#a855f7', tagline: '“Send me 2k, I’ll pay you back” is your anthem.', blurb: 'You’re always a little short and always owing someone. Not broke — the timing just never works. Your roommates keep receipts.' },
-        ajo:      { name: 'The Ajo Undergraduate', color: '#14b8a6', tagline: 'Discipline na your middle name, even on allowance.', blurb: 'You save from the little you get — class ajo, small savings, buying in bulk. Slow and steady, you’re the one lending, not borrowing.' },
-        detty:    { name: 'The Detty Weekender', color: '#8b5cf6', tagline: 'Allowance vanishes into outings and turn-up.', blurb: 'Weekends are sacred. A big chunk of the allowance funds the memories — outings, links, the vibe. You planned to save. You spent. No regrets.' },
-        ghost:    { name: 'The Ghost Spender', color: '#6b7280', tagline: 'Money enter, money disappear. No receipts.', blurb: 'The allowance lands and vanishes into small spending you can never trace. Not broke — just haunted by spending you never see.' },
+        borrow:   { name: 'The Borrow-Borrow', color: '#a855f7', tagline: '“Send me 2k, I’ll pay you back” is your anthem.', blurb: 'You’re always a little short and always owing someone. Not broke, the timing just never works. Your roommates keep receipts.' },
+        ajo:      { name: 'The Ajo Undergraduate', color: '#14b8a6', tagline: 'Discipline na your middle name, even on allowance.', blurb: 'You save from the little you get, class ajo, small savings, buying in bulk. Slow and steady, you’re the one lending, not borrowing.' },
+        detty:    { name: 'The Detty Weekender', color: '#8b5cf6', tagline: 'Allowance vanishes into outings and turn-up.', blurb: 'Weekends are sacred. A big chunk of the allowance funds the memories, outings, links, the vibe. You planned to save. You spent. No regrets.' },
+        ghost:    { name: 'The Ghost Spender', color: '#6b7280', tagline: 'Money enter, money disappear. No receipts.', blurb: 'The allowance lands and vanishes into small spending you can never trace. Not broke, just haunted by spending you never see.' },
       },
       questions: [
         { q: 'Your allowance just landed. First move?', a: [
-          { t: 'Do the maths — budget it across the month.', w: { juggler: 2 } },
+          { t: 'Do the maths, budget it across the month.', w: { juggler: 2 } },
           { t: 'Buy the things I’ve been eyeing.', w: { softlife: 2, detty: 1 } },
           { t: 'Clear the debts I owe roommates.', w: { borrow: 2 } },
           { t: 'Move some to savings first.', w: { ajo: 2 } } ] },
         { q: 'By week 3, your allowance is…', a: [
           { t: 'Still holding, I planned it.', w: { juggler: 1, ajo: 1 } },
-          { t: 'Gone — living on garri now.', w: { sapa: 2 } },
+          { t: 'Gone, living on garri now.', w: { sapa: 2 } },
           { t: 'Fine, my hustle tops it up.', w: { hustler: 2 } },
           { t: 'Wondering where it went.', w: { ghost: 2, detty: 1 } } ] },
         { q: 'How do you handle feeding on campus?', a: [
           { t: 'Cook in bulk, budget-friendly.', w: { juggler: 1, ajo: 1 } },
-          { t: 'Eat out / order — life is short.', w: { softlife: 2, detty: 1 } },
+          { t: 'Eat out / order, life is short.', w: { softlife: 2, detty: 1 } },
           { t: 'Indomie and garri, strictly surviving.', w: { sapa: 2 } },
-          { t: 'Whatever — I don’t track it.', w: { ghost: 2 } } ] },
+          { t: 'Whatever, I don’t track it.', w: { ghost: 2 } } ] },
         { q: 'A friend is doing a class outing. You…', a: [
           { t: 'Count me in, weekends are for vibes.', w: { detty: 2 } },
           { t: 'Only if it’s within budget.', w: { juggler: 1, ajo: 1 } },
           { t: 'Can’t, I’m broke till next month.', w: { sapa: 2 } },
-          { t: 'I’ll come — borrow small first.', w: { borrow: 2 } } ] },
+          { t: 'I’ll come, borrow small first.', w: { borrow: 2 } } ] },
         { q: 'Where does most of your money actually go?', a: [
           { t: 'Food and transport, needs first.', w: { sapa: 1, juggler: 1 } },
           { t: 'Outings and the soft life.', w: { softlife: 2, detty: 1 } },
@@ -116,9 +116,9 @@ const jsonLd = [
           { t: 'Constantly, to the last naira.', w: { sapa: 1, juggler: 1 } },
           { t: 'Only when an alert shakes me.', w: { detty: 1, ghost: 1 } },
           { t: 'Weekly, staying aware.', w: { ajo: 2 } },
-          { t: 'I avoid it — ignorance is peace.', w: { ghost: 2 } } ] },
+          { t: 'I avoid it, ignorance is peace.', w: { ghost: 2 } } ] },
         { q: 'End of semester, financially you’re…', a: [
-          { t: 'Balanced — even saved small.', w: { ajo: 2, juggler: 1 } },
+          { t: 'Balanced, even saved small.', w: { ajo: 2, juggler: 1 } },
           { t: 'In debt to half the hostel.', w: { borrow: 2 } },
           { t: 'Somehow survived on strategy.', w: { sapa: 2 } },
           { t: 'No idea how the money went.', w: { ghost: 2 } } ] },

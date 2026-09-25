@@ -1,7 +1,7 @@
 ---
 import { urlFor } from '../sanity/lib/image';
 
-// Author byline — required on every article (E-E-A-T for finance/YMYL content).
+// Author byline, required on every article (E-E-A-T for finance/YMYL content).
 const { author, publishedAt, updatedAt } = Astro.props;
 const photo = author?.photo ? urlFor(author.photo).width(72).height(72).url() : null;
 const fmt = (d?: string) => (d ? new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : '');

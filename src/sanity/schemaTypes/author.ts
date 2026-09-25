@@ -1,6 +1,6 @@
 import { defineField, defineType } from 'sanity';
 
-// Finance content is YMYL — Google (and AI assistants) hold it to a higher
+// Finance content is YMYL, Google (and AI assistants) hold it to a higher
 // expertise bar, so every article must show a credentialed author. All fields
 // required so the byline can never be skipped.
 export const author = defineType({
@@ -12,7 +12,7 @@ export const author = defineType({
     defineField({ name: 'role', type: 'string', description: 'e.g. "Financial analyst"', validation: (r) => r.required() }),
     defineField({
       name: 'credentials', type: 'text', rows: 2,
-      description: 'Real qualifications — e.g. "Economics (Babcock University), financial modelling". Shown on every article.',
+      description: 'Real qualifications, e.g. "Economics (Babcock University), financial modelling". Shown on every article.',
       validation: (r) => r.required(),
     }),
     defineField({

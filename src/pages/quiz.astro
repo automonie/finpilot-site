@@ -7,7 +7,7 @@ const jsonLd = [
     { '@type': 'ListItem', position: 2, name: 'Money Personality Quiz', item: 'https://automonie.com/quiz' },
   ] },
   { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
-    { '@type': 'Question', name: 'What is a money personality?', acceptedAnswer: { '@type': 'Answer', text: 'Your money personality is the pattern behind how you spend — where your money tends to go, when it disappears, and what you prioritise. Automonie sorts Nigerian spenders into eight archetypes, from the disciplined Ajo Loyalist to the untraceable Ghost Spender.' } },
+    { '@type': 'Question', name: 'What is a money personality?', acceptedAnswer: { '@type': 'Answer', text: 'Your money personality is the pattern behind how you spend, where your money tends to go, when it disappears, and what you prioritise. Automonie sorts Nigerian spenders into eight archetypes, from the disciplined Ajo Loyalist to the untraceable Ghost Spender.' } },
     { '@type': 'Question', name: 'Is the money personality quiz free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. The quiz is completely free and needs no sign-up. It is ten quick questions and gives you your archetype instantly.' } },
     { '@type': 'Question', name: 'How accurate is the quiz?', acceptedAnswer: { '@type': 'Answer', text: 'The quiz is a fun, self-reported snapshot. For the real picture, Automonie reads your actual bank statements and transactions and shows you exactly where your money went.' } },
     { '@type': 'Question', name: 'What are the eight money personalities?', acceptedAnswer: { '@type': 'Answer', text: 'The Ghost Spender, the Last-Week Detonator, the Subscription Collector, the Ajo Loyalist, the Soft-Life Economist, the Sapa Survivor, the Detty Prophet, and the Steady Hand.' } },
@@ -15,15 +15,15 @@ const jsonLd = [
 ];
 ---
 <BaseLayout
-  title="Money Personality Quiz — Automonie"
-  description="Take the free Money Personality Quiz — 10 quick questions to find your Nigerian spending archetype, from the Ajo Loyalist to the Ghost Spender. No sign-up needed."
+  title="Money Personality Quiz | Automonie"
+  description="Take the free Money Personality Quiz, 10 quick questions to find your Nigerian spending archetype, from the Ajo Loyalist to the Ghost Spender. No sign-up needed."
   path="/quiz"
   jsonLd={jsonLd}
 >
   <section class="quiz-hero">
     <span class="eyebrow">Free · no sign-up</span>
     <h1>What's your money personality?</h1>
-    <p class="quiz-sub">Ten quick questions to reveal your Nigerian spending archetype — from the disciplined <strong>Ajo Loyalist</strong> to the untraceable <strong>Ghost Spender</strong>. Be honest. It's just you and the numbers.</p>
+    <p class="quiz-sub">Ten quick questions to reveal your Nigerian spending archetype, from the disciplined <strong>Ajo Loyalist</strong> to the untraceable <strong>Ghost Spender</strong>. Be honest. It's just you and the numbers.</p>
   </section>
 
   <section id="quizStage" class="quiz-stage" aria-live="polite">
@@ -32,16 +32,16 @@ const jsonLd = [
 
   <section class="quiz-about">
     <h2>The 8 money personalities</h2>
-    <p class="about-intro">Every spender falls into a pattern. These are the eight Automonie archetypes — computed in the app from your real transactions, and approximated here from your answers. Which one are you?</p>
+    <p class="about-intro">Every spender falls into a pattern. These are the eight Automonie archetypes, computed in the app from your real transactions, and approximated here from your answers. Which one are you?</p>
     <div class="type-grid">
-      <div class="type-card"><h3>The Ghost Spender</h3><p>Money enter, money disappear. Most of it vanishes into transfers and untracked cash — no receipts, no memory.</p></div>
+      <div class="type-card"><h3>The Ghost Spender</h3><p>Money enter, money disappear. Most of it vanishes into transfers and untracked cash, no receipts, no memory.</p></div>
       <div class="type-card"><h3>The Last-Week Detonator</h3><p>Three weeks of discipline, then the last week undoes all of it. The damage is always late, never early.</p></div>
       <div class="type-card"><h3>The Subscription Collector</h3><p>Funding apps you forgot you married. Small recurring charges quietly meet monthly to remove your money.</p></div>
       <div class="type-card"><h3>The Ajo Loyalist</h3><p>Discipline is your middle name. You save before you spend, small small, consistently. The tortoise that wins.</p></div>
       <div class="type-card"><h3>The Soft-Life Economist</h3><p>Soft life, but the numbers still add up. You enjoy the finer things and still finish the month in the green.</p></div>
       <div class="type-card"><h3>The Sapa Survivor</h3><p>More goes out than comes in, yet you survive on pure strategy. Every naira is doing overtime.</p></div>
-      <div class="type-card"><h3>The Detty Prophet</h3><p>You planned to save. You spent. No regrets. Nearly everything that lands goes back out — and the vibes were immaculate.</p></div>
-      <div class="type-card"><h3>The Steady Hand</h3><p>No drama, no chaos — just a balanced month. Spending spread out and under control. Quietly winning.</p></div>
+      <div class="type-card"><h3>The Detty Prophet</h3><p>You planned to save. You spent. No regrets. Nearly everything that lands goes back out, and the vibes were immaculate.</p></div>
+      <div class="type-card"><h3>The Steady Hand</h3><p>No drama, no chaos, just a balanced month. Spending spread out and under control. Quietly winning.</p></div>
     </div>
   </section>
 
@@ -51,7 +51,7 @@ const jsonLd = [
 
   <section class="quiz-cta">
     <h2>Know your type. Now see the receipts.</h2>
-    <p>A quiz is a mirror. Automonie is the full picture — import your bank statement or paste your alerts, and it shows you exactly where every naira went. Free, on web and Android.</p>
+    <p>A quiz is a mirror. Automonie is the full picture, import your bank statement or paste your alerts, and it shows you exactly where every naira went. Free, on web and Android.</p>
     <div class="cta-btns">
       <a class="btnp" href="/download">Get the app</a>
       <a class="btng" href="https://app.automonie.com">Open web app</a>
@@ -82,7 +82,7 @@ const jsonLd = [
 
 <!-- The quiz question/result UI is injected at runtime by the inline script below.
      Those elements never carry Astro's data-astro-cid attribute, so scoped styles
-     would NOT reach them — they MUST be global. Namespaced under #quizStage so the
+     would NOT reach them, they MUST be global. Namespaced under #quizStage so the
      generic q-* / .btn-primary class names can't leak into the rest of the site. -->
 <style is:global>
   #quizStage .q-progress{height:6px;border-radius:6px;background:#eef1f5;overflow:hidden;margin-bottom:14px}

@@ -7,7 +7,7 @@ export const article = defineType({
   name: 'article',
   title: 'Article',
   type: 'document',
-  fieldsets: [{ name: 'seo', title: 'SEO — all required', options: { collapsible: false } }],
+  fieldsets: [{ name: 'seo', title: 'SEO, all required', options: { collapsible: false } }],
   fields: [
     defineField({ name: 'title', title: 'Title (H1)', type: 'string', validation: (r) => r.required().max(70) }),
     defineField({
@@ -27,7 +27,7 @@ export const article = defineType({
     }),
     defineField({
       name: 'directAnswer', title: '★ Direct answer', type: 'text', rows: 3, fieldset: 'seo',
-      description: 'Answer the question completely in 1–2 sentences — what Google and AI assistants quote. No introduction here.',
+      description: 'Answer the question completely in 1–2 sentences, what Google and AI assistants quote. No introduction here.',
       components: { input: CharCount },
       validation: (r) => r.required().max(320),
     }),

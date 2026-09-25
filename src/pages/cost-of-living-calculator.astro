@@ -8,14 +8,14 @@ const jsonLd = [
     { '@type': 'ListItem', position: 2, name: 'Cost of Living Calculator', item: 'https://automonie.com/cost-of-living-calculator' },
   ] },
   { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
-    { '@type': 'Question', name: 'What does it cost to live in Lagos?', acceptedAnswer: { '@type': 'Answer', text: 'There is no single number — rent, area and lifestyle swing the total by hundreds of thousands of naira. Rent is usually the largest line. Use the calculator to set a city/lifestyle estimate, then edit every line to your reality.' } },
+    { '@type': 'Question', name: 'What does it cost to live in Lagos?', acceptedAnswer: { '@type': 'Answer', text: 'There is no single number, rent, area and lifestyle swing the total by hundreds of thousands of naira. Rent is usually the largest line. Use the calculator to set a city/lifestyle estimate, then edit every line to your reality.' } },
     { '@type': 'Question', name: 'Is Abuja more expensive than Lagos?', acceptedAnswer: { '@type': 'Answer', text: 'Broadly comparable, with Abuja often slightly higher on rent and Lagos higher on transport and going out. Your area and lifestyle matter far more than the city label.' } },
     { '@type': 'Question', name: 'How do I work out my monthly cost of living?', acceptedAnswer: { '@type': 'Answer', text: 'Add up rent, food, transport, utilities and data, health, and miscellaneous spending. The calculator gives a starting estimate by city and lifestyle; then track it against what you actually spend.' } },
   ] },
 ];
 ---
 <BaseLayout
-  title="Cost of Living Calculator — Lagos & Abuja"
+  title="Cost of Living Calculator, Lagos & Abuja"
   description="Estimate your monthly cost of living in Lagos, Abuja or any Nigerian city. Pick your lifestyle, edit every line, and see your true monthly total, live."
   path="/cost-of-living-calculator"
   jsonLd={jsonLd}
@@ -42,7 +42,7 @@ const jsonLd = [
       <select class="calc-select" id="colHouse"><option value="single">Just me</option><option value="couple">Couple</option><option value="family">Family (4)</option></select>
     </div>
 
-    <label class="calc-label">Monthly estimate (₦) — edit any line</label>
+    <label class="calc-label">Monthly estimate (₦), edit any line</label>
     <div class="col-cats">
       <div><label class="calc-note" for="colRent">Rent (monthly)</label><input class="calc-input" id="colRent" type="text" inputmode="numeric" /></div>
       <div><label class="calc-note" for="colFood">Food &amp; groceries</label><input class="calc-input" id="colFood" type="text" inputmode="numeric" /></div>
@@ -57,7 +57,7 @@ const jsonLd = [
       <div class="y" id="colYear"></div>
       <button class="calc-reset" id="colReset" type="button">Reset to city defaults</button>
     </div>
-    <p class="calc-note">Rough 2026 starting figures — rent especially varies enormously by area, so treat these as a frame and edit to your own numbers.</p>
+    <p class="calc-note">Rough 2026 starting figures, rent especially varies enormously by area, so treat these as a frame and edit to your own numbers.</p>
   </section>
 
   <div class="tool-links">
@@ -67,18 +67,18 @@ const jsonLd = [
 
   <section class="calc-body">
     <h2>What does it cost to live in Lagos or Abuja?</h2>
-    <p>There is no single number — your rent, your area and your lifestyle move the total by hundreds of thousands of naira. The calculator gives you a sensible starting point by city and lifestyle, then lets you edit every line so the total is actually yours.</p>
-    <h3>Rent — the biggest lever</h3>
+    <p>There is no single number, your rent, your area and your lifestyle move the total by hundreds of thousands of naira. The calculator gives you a sensible starting point by city and lifestyle, then lets you edit every line so the total is actually yours.</p>
+    <h3>Rent, the biggest lever</h3>
     <p>Rent swings the widest. A self-contained flat on the mainland is a different world from a serviced one-bed in Lekki or Maitama. It is usually the single largest line, so it is also where a move saves the most.</p>
     <h3>Food, transport &amp; the quiet drains</h3>
-    <p>Food and transport are the lines people underestimate most, followed by data and subscriptions. Individually small, together they often rival rent — which is exactly why seeing them added up is a wake-up call.</p>
+    <p>Food and transport are the lines people underestimate most, followed by data and subscriptions. Individually small, together they often rival rent, which is exactly why seeing them added up is a wake-up call.</p>
     <h2>Know your number, then track against it</h2>
-    <p>An estimate is a target. The real value comes from checking it against what you actually spent — that gap is where the surprises (and the savings) live. That is the job Automonie does automatically from your bank statements and alerts.</p>
+    <p>An estimate is a target. The real value comes from checking it against what you actually spent, that gap is where the surprises (and the savings) live. That is the job Automonie does automatically from your bank statements and alerts.</p>
   </section>
 
   <section class="calc-cta">
     <h2>Estimate it here. Track it in Automonie.</h2>
-    <p>See your true monthly cost of living from your real transactions — no manual entry. Free, on web and Android.</p>
+    <p>See your true monthly cost of living from your real transactions, no manual entry. Free, on web and Android.</p>
     <div class="cta-btns">
       <a class="btnp" href="/download">Get the app</a>
       <a class="btng" href="https://app.automonie.com">Open web app</a>

@@ -1,4 +1,4 @@
-# Automonie — allow everyone, including AI crawlers. Being blocked from an AI
+# Automonie, allow everyone, including AI crawlers. Being blocked from an AI
 # crawler means being uncitable, so we explicitly welcome them.
 User-agent: *
 Allow: /

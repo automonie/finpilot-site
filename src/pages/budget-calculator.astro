@@ -8,22 +8,22 @@ const jsonLd = [
     { '@type': 'ListItem', position: 2, name: 'Naira Budget Calculator', item: 'https://automonie.com/budget-calculator' },
   ] },
   { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
-    { '@type': 'Question', name: 'How much of my salary should I save?', acceptedAnswer: { '@type': 'Answer', text: 'A common target is 20% of your income, saved before you spend on anything else. On a ₦200,000 salary that is ₦40,000 a month. If money is tight, even 10% (₦20,000) builds the habit — the amount matters less than doing it every month.' } },
+    { '@type': 'Question', name: 'How much of my salary should I save?', acceptedAnswer: { '@type': 'Answer', text: 'A common target is 20% of your income, saved before you spend on anything else. On a ₦200,000 salary that is ₦40,000 a month. If money is tight, even 10% (₦20,000) builds the habit, the amount matters less than doing it every month.' } },
     { '@type': 'Question', name: 'What is the 50/30/20 budget rule?', acceptedAnswer: { '@type': 'Answer', text: 'The 50/30/20 rule splits your income into 50% needs (rent, food, transport, utilities, data), 30% wants (eating out, subscriptions, fun) and 20% savings and investments. It is a starting point you adjust to your real life.' } },
     { '@type': 'Question', name: 'How do I budget on a ₦150,000 salary in Nigeria?', acceptedAnswer: { '@type': 'Answer', text: 'With 50/30/20 on ₦150,000: about ₦75,000 for needs, ₦45,000 for wants and ₦30,000 to savings. In practice many Nigerians spend more than 50% on needs because of rent and transport, so trim the wants bucket first and protect the savings.' } },
   ] },
 ];
 ---
 <BaseLayout
-  title="Naira Budget Calculator — Automonie"
-  description="Free budget calculator for Nigerians. Enter your monthly salary and see how much goes to needs, wants and savings — the 50/30/20 rule, adjusted for naira life."
+  title="Naira Budget Calculator | Automonie"
+  description="Free budget calculator for Nigerians. Enter your monthly salary and see how much goes to needs, wants and savings, the 50/30/20 rule, adjusted for naira life."
   path="/budget-calculator"
   jsonLd={jsonLd}
 >
   <section class="calc-hero">
     <span class="eyebrow">Free · no sign-up</span>
     <h1>How should you budget your salary?</h1>
-    <p class="calc-sub">Enter your monthly income and see a clean needs / wants / savings split in seconds — the 50/30/20 rule, with a savings dial you control. Naira-first.</p>
+    <p class="calc-sub">Enter your monthly income and see a clean needs / wants / savings split in seconds, the 50/30/20 rule, with a savings dial you control. Naira-first.</p>
   </section>
 
   <section class="calc-card" id="budgetCalc">
@@ -43,7 +43,7 @@ const jsonLd = [
         <div class="split-card"><div class="k"><span class="dot b-wants"></span>Wants</div><div class="v" id="wantsAmt">-</div><div class="p" id="wantsPct"></div></div>
         <div class="split-card"><div class="k"><span class="dot b-save"></span>Save</div><div class="v" id="saveAmt">-</div><div class="p" id="savePctOut"></div></div>
       </div>
-      <p class="calc-note">Needs = rent, food, transport, utilities, data. Wants = eating out, subscriptions, fun. Save = emergency fund, goals, investments. A starting point — adjust to your reality.</p>
+      <p class="calc-note">Needs = rent, food, transport, utilities, data. Wants = eating out, subscriptions, fun. Save = emergency fund, goals, investments. A starting point, adjust to your reality.</p>
     </div>
   </section>
 
@@ -54,20 +54,20 @@ const jsonLd = [
 
   <section class="calc-body">
     <h2>How to budget your salary in Nigeria</h2>
-    <p>Budgeting is not about restriction — it is about deciding where your money goes before it decides for you. The simplest framework is the <strong>50/30/20 rule</strong>: half your income to needs, a third to wants, and a fifth to savings. Enter your salary above and the calculator does the split instantly.</p>
-    <h3>Needs — about 50%</h3>
-    <p>The non-negotiables: rent, food, transport, electricity and water, airtime and data. In Nigerian reality this bucket often runs above 50% because rent and transport are heavy — that is fine, as long as you cover it by trimming wants, not savings.</p>
-    <h3>Wants — about 30%</h3>
-    <p>Eating out, delivery, subscriptions, nights out, the soft life. This is the flexible bucket. When money is tight, this is the first place to cut — and the place a spending tracker like Automonie shows you the most surprises.</p>
-    <h3>Save &amp; invest — about 20%</h3>
+    <p>Budgeting is not about restriction, it is about deciding where your money goes before it decides for you. The simplest framework is the <strong>50/30/20 rule</strong>: half your income to needs, a third to wants, and a fifth to savings. Enter your salary above and the calculator does the split instantly.</p>
+    <h3>Needs, about 50%</h3>
+    <p>The non-negotiables: rent, food, transport, electricity and water, airtime and data. In Nigerian reality this bucket often runs above 50% because rent and transport are heavy, that is fine, as long as you cover it by trimming wants, not savings.</p>
+    <h3>Wants, about 30%</h3>
+    <p>Eating out, delivery, subscriptions, nights out, the soft life. This is the flexible bucket. When money is tight, this is the first place to cut, and the place a spending tracker like Automonie shows you the most surprises.</p>
+    <h3>Save &amp; invest, about 20%</h3>
     <p>Pay yourself first. Move this out on the day your salary lands, before you spend anything, so it never becomes "whatever is left" (which is usually nothing). Even 10% builds the habit if 20% is a stretch.</p>
     <h2>How much should I save on ₦150,000 or ₦200,000?</h2>
-    <p>On <strong>₦150,000</strong>, a 20% savings target is <strong>₦30,000</strong> a month. On <strong>₦200,000</strong>, it is <strong>₦40,000</strong>. Automate it and you will not miss it. The exact figure matters less than doing it every single month — consistency compounds.</p>
+    <p>On <strong>₦150,000</strong>, a 20% savings target is <strong>₦30,000</strong> a month. On <strong>₦200,000</strong>, it is <strong>₦40,000</strong>. Automate it and you will not miss it. The exact figure matters less than doing it every single month, consistency compounds.</p>
   </section>
 
   <section class="calc-cta">
     <h2>Budgeting is the plan. Automonie is the receipts.</h2>
-    <p>A budget only works if you know where the money actually went. Import your bank statement or paste your alerts, and Automonie shows you the real split — free, on web and Android.</p>
+    <p>A budget only works if you know where the money actually went. Import your bank statement or paste your alerts, and Automonie shows you the real split, free, on web and Android.</p>
     <div class="cta-btns">
       <a class="btnp" href="/download">Get the app</a>
       <a class="btng" href="https://app.automonie.com">Open web app</a>

@@ -1,7 +1,7 @@
 ---
 import { urlFor } from '../sanity/lib/image';
 
-// An inline image inside a portable-text body — served as WebP from the Sanity
+// An inline image inside a portable-text body, served as WebP from the Sanity
 // CDN, lazy-loaded, with the required alt text and an optional caption.
 const { node } = Astro.props;
 const src = urlFor(node).width(1400).url();

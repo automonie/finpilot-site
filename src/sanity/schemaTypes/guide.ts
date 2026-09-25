@@ -1,7 +1,7 @@
 import { defineField, defineType } from 'sanity';
 import { CharCount } from '../components/CharCount';
 
-// Bank-statement guides — the main content type and the site's SEO wedge. Every
+// Bank-statement guides, the main content type and the site's SEO wedge. Every
 // field that affects ranking or AI-citation is REQUIRED, so the form itself makes
 // it impossible to publish a badly-optimised page.
 export const guide = defineType({
@@ -10,7 +10,7 @@ export const guide = defineType({
   type: 'document',
   // The SEO fields are grouped so their importance is obvious in the editor.
   fieldsets: [
-    { name: 'seo', title: 'SEO — all required', options: { collapsible: false } },
+    { name: 'seo', title: 'SEO, all required', options: { collapsible: false } },
   ],
   fields: [
     defineField({
@@ -32,7 +32,7 @@ export const guide = defineType({
     defineField({
       name: 'targetKeyword', title: 'Target keyword', type: 'string',
       fieldset: 'seo',
-      description: 'ONE keyword this page should rank for — e.g. "download gtbank statement". One page, one keyword.',
+      description: 'ONE keyword this page should rank for, e.g. "download gtbank statement". One page, one keyword.',
       validation: (r) => r.required(),
     }),
     defineField({
@@ -51,7 +51,7 @@ export const guide = defineType({
     }),
     defineField({
       name: 'bank', title: 'Bank', type: 'reference', to: [{ type: 'bank' }],
-      description: 'Optional — links this guide to a bank for filtering + templating.',
+      description: 'Optional, links this guide to a bank for filtering + templating.',
     }),
     defineField({
       name: 'heroImage', title: 'Hero image', type: 'image', options: { hotspot: true },
@@ -76,7 +76,7 @@ export const guide = defineType({
     }),
     defineField({
       name: 'author', type: 'reference', to: [{ type: 'author' }],
-      description: 'Required — finance content must show a credentialed author (E-E-A-T).',
+      description: 'Required, finance content must show a credentialed author (E-E-A-T).',
       validation: (r) => r.required(),
     }),
     defineField({ name: 'publishedAt', title: 'Published at', type: 'datetime', validation: (r) => r.required() }),

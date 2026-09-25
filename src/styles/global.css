@@ -1,5 +1,5 @@
 /* Poppins is self-hosted via @fontsource, imported in BaseLayout.astro (Astro
-   bundles the .woff2 files — no Google CDN). System stack is the fallback. */
+   bundles the .woff2 files, no Google CDN). System stack is the fallback. */
 :root {
   --teal: #139DA0;
   --mint: #1DD3A8;
