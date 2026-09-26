@@ -19,6 +19,12 @@ if (!article) return Astro.redirect('/404');
 const path = `/learn/${article.slug}`;
 const heroUrl = article.heroImage ? urlFor(article.heroImage).width(1200).height(630).url() : undefined;
 
+// Guard against dangling Sanity references / null blocks (an unpublished or deleted
+// related guide, or an empty body block) so one bad reference can't crash the build.
+const body = Array.isArray(article.body) ? article.body.filter(Boolean) : article.body;
+const faqs = (article.faqs || []).filter((f: any) => f && f.question);
+const relatedGuides = (article.relatedGuides || []).filter((g: any) => g && g.slug);
+
 const jsonLd = [
   articleSchema({
     title: article.title, description: article.metaDescription, path, image: heroUrl,
@@ -46,12 +52,12 @@ const jsonLd = [
       <img class="hero" src={urlFor(article.heroImage).width(1200).url()} alt={article.heroImage?.alt || article.title} loading="lazy" decoding="async" />
     )}
 
-    <Body value={article.body} />
+    <Body value={body} />
 
-    {article.faqs?.length > 0 && (
+    {faqs.length > 0 && (
       <section class="faqs">
         <h2>FAQs</h2>
-        {article.faqs.map((f: any) => (
+        {faqs.map((f: any) => (
           <details>
             <summary>{f.question}</summary>
             <p>{f.answer}</p>
@@ -62,11 +68,11 @@ const jsonLd = [
 
     <ProductBridge />
 
-    {article.relatedGuides?.length > 0 && (
+    {relatedGuides.length > 0 && (
       <section>
         <h2>Related reading</h2>
         <div class="related-cards">
-          {article.relatedGuides.map((g: any) => (
+          {relatedGuides.map((g: any) => (
             <a href={`${g._type === 'article' ? '/learn' : '/guides'}/${g.slug}`}>{g.title}</a>
           ))}
         </div>

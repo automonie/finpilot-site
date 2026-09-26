@@ -32,6 +32,8 @@
 #quizStage .q-back{margin-top:18px;background:none;border:none;color:#8a97a8;font:inherit;font-weight:700;cursor:pointer;padding:4px}
 #quizStage .q-result{text-align:center}
 #quizStage .q-badge{width:74px;height:74px;border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;background:var(--acc);animation:qPop .55s cubic-bezier(.2,.8,.3,1.3) both}
+#quizStage .q-art-wrap{margin:0 auto 16px;animation:qPop .55s cubic-bezier(.2,.8,.3,1.3) both}
+#quizStage .q-art{width:min(300px,74%);height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:18px;box-shadow:0 14px 40px rgba(11,19,38,.18);display:block;margin:0 auto}
 #quizStage .q-eyebrow{font-size:.8rem;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--acc)}
 #quizStage .q-name{font-size:clamp(1.7rem,5vw,2.4rem);margin:6px 0 10px;color:var(--acc)}
 #quizStage .q-tag{font-size:1.12rem;font-weight:600;color:var(--ink,#0b1326);margin:0 0 12px}

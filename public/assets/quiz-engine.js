@@ -34,7 +34,8 @@
 
   function renderResult() {
     var A = ARCHETYPES[winner()];
-    stage.innerHTML = '<div class="q-anim q-result" style="--acc:' + A.color + '"><div class="q-badge"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div><div class="q-eyebrow r1">' + EYEBROW + '</div><h2 class="q-name r2">' + A.name + '</h2><p class="q-tag r3">' + A.tagline + '</p><p class="q-blurb r4">' + A.blurb + '</p><div class="q-actions r5"><button class="btn-primary" id="qShare">Share my result</button><button class="q-retake" id="qRetake">Retake quiz</button></div><div class="q-capture r6"><p class="q-cap-title">This is just the surface. Automonie reads your real transactions and shows you where your money actually went, free.</p><form id="qForm" class="q-form" novalidate><input id="qEmail" class="q-input" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" aria-label="Email" required><button class="btn-primary" type="submit" id="qJoin">Get early access</button></form><p class="q-msg" id="qMsg" role="status" aria-live="polite"></p></div></div>';
+    var artHead = A.img ? '<div class="q-art-wrap r1"><img class="q-art" src="' + A.img + '" alt="' + A.name + '" loading="eager"></div>' : '<div class="q-badge"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>';
+    stage.innerHTML = '<div class="q-anim q-result" style="--acc:' + A.color + '">' + artHead + '<div class="q-eyebrow r1">' + EYEBROW + '</div><h2 class="q-name r2">' + A.name + '</h2><p class="q-tag r3">' + A.tagline + '</p><p class="q-blurb r4">' + A.blurb + '</p><div class="q-actions r5"><button class="btn-primary" id="qShare">Share my result</button><button class="q-retake" id="qRetake">Retake quiz</button></div><div class="q-capture r6"><p class="q-cap-title">This is just the surface. Automonie reads your real transactions and shows you where your money actually went, free.</p><form id="qForm" class="q-form" novalidate><input id="qEmail" class="q-input" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" aria-label="Email" required><button class="btn-primary" type="submit" id="qJoin">Get early access</button></form><p class="q-msg" id="qMsg" role="status" aria-live="polite"></p></div></div>';
     stage.scrollIntoView({ behavior: 'smooth', block: 'start' });
     el('qRetake').addEventListener('click', start);
     el('qShare').addEventListener('click', function () { share(A); });
@@ -43,23 +44,36 @@
 
   function shadeCol(hex, amt) { var n = parseInt(hex.slice(1), 16), r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255; function f(v) { return Math.max(0, Math.min(255, Math.round(v * (1 + amt)))); } return 'rgb(' + f(r) + ',' + f(g) + ',' + f(b) + ')'; }
   function wrapCentre(ctx, text, cx, y, maxW, lineH) { var words = text.split(' '), line = '', lines = [], i, t; for (i = 0; i < words.length; i++) { t = line ? line + ' ' + words[i] : words[i]; if (ctx.measureText(t).width > maxW && line) { lines.push(line); line = words[i]; } else line = t; } if (line) lines.push(line); for (i = 0; i < lines.length; i++) ctx.fillText(lines[i], cx, y + i * lineH); return y + lines.length * lineH; }
+  function loadImg(src) { return new Promise(function (res) { if (!src) { res(null); return; } var im = new Image(); im.onload = function () { res(im); }; im.onerror = function () { res(null); }; im.src = src; }); }
+  function roundRectPath(x, ix, iy, w, h, r) { x.beginPath(); x.moveTo(ix + r, iy); x.arcTo(ix + w, iy, ix + w, iy + h, r); x.arcTo(ix + w, iy + h, ix, iy + h, r); x.arcTo(ix, iy + h, ix, iy, r); x.arcTo(ix, iy, ix + w, iy, r); x.closePath(); }
   function renderCard(A) {
-    return (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function () {
+    var fontsReady = (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve());
+    return Promise.all([fontsReady, loadImg(A.img)]).then(function (arr) {
+      var img = arr[1];
       var W = 1080, H = 1920, c = document.createElement('canvas'); c.width = W; c.height = H; var x = c.getContext('2d');
-      var g = x.createLinearGradient(0, 0, W, H); g.addColorStop(0, A.color); g.addColorStop(1, shadeCol(A.color, -0.5)); x.fillStyle = g; x.fillRect(0, 0, W, H);
-      x.textAlign = 'left'; x.fillStyle = 'rgba(255,255,255,0.96)'; x.font = '700 58px Poppins, Arial, sans-serif'; x.fillText('automonie', 96, 160);
-      x.beginPath(); x.arc(W / 2, 470, 120, 0, 7); x.fillStyle = 'rgba(255,255,255,0.18)'; x.fill();
-      x.strokeStyle = '#fff'; x.lineWidth = 12; x.lineCap = 'round'; x.lineJoin = 'round';
-      x.beginPath(); x.arc(W / 2, 442, 44, 0, 7); x.stroke();
-      x.beginPath(); x.moveTo(W / 2 - 72, 562); x.quadraticCurveTo(W / 2, 468, W / 2 + 72, 562); x.stroke();
-      x.textAlign = 'center';
-      x.fillStyle = 'rgba(255,255,255,0.82)'; x.font = '700 36px Poppins, Arial, sans-serif'; x.fillText(EYEBROW, W / 2, 710);
-      x.fillStyle = '#fff'; x.font = '700 104px Poppins, Arial, sans-serif';
-      var y = wrapCentre(x, A.name, W / 2, 830, W - 192, 116);
-      x.font = '600 48px Poppins, Arial, sans-serif'; x.fillStyle = 'rgba(255,255,255,0.95)';
-      wrapCentre(x, '“' + A.tagline + '”', W / 2, y + 46, W - 200, 62);
-      x.font = '700 42px Poppins, Arial, sans-serif'; x.fillStyle = 'rgba(255,255,255,0.9)'; x.fillText(CARD_TAG, W / 2, H - 236);
-      x.font = '700 48px Poppins, Arial, sans-serif'; x.fillStyle = '#fff'; x.fillText('Take the free quiz → automonie.com', W / 2, H - 160);
+      var g = x.createLinearGradient(0, 0, W, H); g.addColorStop(0, A.color); g.addColorStop(1, shadeCol(A.color, -0.55)); x.fillStyle = g; x.fillRect(0, 0, W, H);
+      x.textAlign = 'left'; x.fillStyle = 'rgba(255,255,255,0.96)'; x.font = '700 54px Poppins, Arial, sans-serif'; x.fillText('automonie', 90, 150);
+      x.fillStyle = 'rgba(255,255,255,0.82)'; x.font = '700 32px Poppins, Arial, sans-serif'; x.fillText(EYEBROW, 92, 206);
+      var y;
+      if (img) {
+        var iw = 904, ih = Math.round(iw * img.height / img.width), ix = (W - iw) / 2, iy = 270;
+        if (iy + ih > 1440) { ih = 1170; iw = Math.round(ih * img.width / img.height); ix = (W - iw) / 2; }
+        x.save(); roundRectPath(x, ix, iy, iw, ih, 40); x.clip(); x.drawImage(img, ix, iy, iw, ih); x.restore();
+        y = iy + ih + 72; x.textAlign = 'center';
+      } else {
+        x.textAlign = 'center';
+        x.beginPath(); x.arc(W / 2, 470, 120, 0, 7); x.fillStyle = 'rgba(255,255,255,0.18)'; x.fill();
+        x.strokeStyle = '#fff'; x.lineWidth = 12; x.lineCap = 'round'; x.lineJoin = 'round';
+        x.beginPath(); x.arc(W / 2, 442, 44, 0, 7); x.stroke();
+        x.beginPath(); x.moveTo(W / 2 - 72, 562); x.quadraticCurveTo(W / 2, 468, W / 2 + 72, 562); x.stroke();
+        x.fillStyle = 'rgba(255,255,255,0.82)'; x.font = '700 36px Poppins, Arial, sans-serif'; x.fillText(EYEBROW, W / 2, 710);
+        x.fillStyle = '#fff'; x.font = '700 104px Poppins, Arial, sans-serif';
+        y = wrapCentre(x, A.name, W / 2, 830, W - 192, 116) + 46;
+      }
+      x.font = '600 46px Poppins, Arial, sans-serif'; x.fillStyle = 'rgba(255,255,255,0.95)';
+      wrapCentre(x, '“' + A.tagline + '”', W / 2, y, W - 200, 60);
+      x.font = '700 42px Poppins, Arial, sans-serif'; x.fillStyle = 'rgba(255,255,255,0.9)'; x.fillText(CARD_TAG, W / 2, H - 150);
+      x.font = '700 46px Poppins, Arial, sans-serif'; x.fillStyle = '#fff'; x.fillText('Take the free quiz → automonie.com', W / 2, H - 86);
       return new Promise(function (res) { c.toBlob(function (b) { res(b); }, 'image/png', 0.95); });
     });
   }
