@@ -16,8 +16,8 @@
       var inc = num(income.value);
       var p = (+pct.value) / 100;
       pctLabel.textContent = (+pct.value) + '%';
-      if (inc <= 0) { out.style.display = 'none'; return; }
-      out.style.display = 'block';
+      if (inc <= 0) { out.hidden = true; return; }
+      out.hidden = false;
       var save = inc * p, rest = inc - save;
       var needs = rest * 5 / 8, wants = rest * 3 / 8;
       var pctOf = function (x) { return (x / inc * 100).toFixed(0) + '%'; };

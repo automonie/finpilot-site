@@ -47,6 +47,7 @@ img{max-width:100%}
 .nav-links{display:flex;align-items:center;gap:28px;font-weight:600}
 .nav-links a:not(.btn):hover{color:var(--green-d)}
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;color:var(--navy)}
+.nav-toggle .ic{width:26px;height:26px}
 
 /* Features dropdown */
 .has-drop{position:relative}
@@ -548,3 +549,18 @@ a.card{display:block}
 .wl-msg{min-height:20px;margin:14px 0 0;font-weight:600;font-size:.96rem;color:#eafff5}
 .wl-msg.err{color:#ffdada}
 @media(max-width:540px){.wl-form{flex-direction:column}.wl-btn{width:100%}}
+
+/* Shared helpers (formerly inline styles) */
+.wl-group{display:none;margin-top:14px;background:#25D366;color:#fff}
+.dvc.raised,.bvc.raised{z-index:2}
+.quiz-cta{text-align:center;margin-top:38px}
+.quiz-cta p{color:var(--ink-2,#5b6b82)}
+.quiz-cta a{color:var(--green-d,#0f6e56);font-weight:700}
+.ic.ic-fill{stroke:none}
+.section.section-tight{padding-bottom:18px}
+.sec-note a{color:var(--mint);font-weight:600}
+.deco.at-tr{top:2%;right:4%}
+.deco.at-bl{bottom:6%;left:2%}
+.deco.at-tl{top:4%;left:4%}
+.deco.at-tr2{top:8%;right:5%}
+.deco.at-br{bottom:6%;right:4%}

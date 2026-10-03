@@ -10,13 +10,13 @@ const articles = await getArticleList();
 >
   <h1>Learn</h1>
   <p>Money self-knowledge, in plain English.</p>
-  <div class="related-cards" style="margin-top:20px">
+  <div class="related-cards spaced">
     {articles.map((a: any) => (
       <a href={`/learn/${a.slug}`}>
         <strong>{a.title}</strong>
-        <span class="creds" style="display:block;color:var(--ink-3);font-weight:400;font-size:14px;margin-top:4px">{a.metaDescription}</span>
+        <span class="card-sub">{a.metaDescription}</span>
       </a>
     ))}
   </div>
-  {articles.length === 0 && <p style="color:var(--ink-3)">Articles are on the way.</p>}
+  {articles.length === 0 && <p class="empty-note">Articles are on the way.</p>}
 </BaseLayout>

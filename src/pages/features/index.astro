@@ -9,11 +9,11 @@ import { features } from '../../data/features';
 >
   <h1 id="features">Features</h1>
   <p>Automonie reads your money and shows you the truth. Here's what it does.</p>
-  <div class="related-cards" style="margin-top:20px">
+  <div class="related-cards spaced">
     {features.map((f) => (
       <a href={`/features/${f.slug}`}>
         <strong>{f.title}</strong>
-        <span class="creds" style="display:block;color:var(--ink-3);font-weight:400;font-size:14px;margin-top:4px">{f.description}</span>
+        <span class="card-sub">{f.description}</span>
       </a>
     ))}
   </div>

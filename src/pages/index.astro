@@ -8,6 +8,7 @@ import '@fontsource/poppins/400.css';
 import '@fontsource/poppins/500.css';
 import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/700.css';
+import Nav from '../components/Nav.astro';
 const year = new Date().getFullYear();
 ---
 <!doctype html>
@@ -36,36 +37,7 @@ const year = new Date().getFullYear();
 <link rel="stylesheet" href="/assets/site.css" />
 </head>
 <body>
-<header class="nav" id="top">
-  <a href="/" class="brand"><img src="/assets/logo-full-dark.png" alt="Automonie" class="brand-img"></a>
-  <nav class="nav-links" id="navLinks">
-    <div class="has-drop">
-      <button class="drop-btn" aria-haspopup="true">Features <svg class="ic" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
-      <div class="drop-menu">
-        <a href="/features/transactions"><span class="di"><svg class="ic" viewBox="0 0 24 24"><path d="M7 7h11M7 7l3-3M7 7l3 3M17 17H6M17 17l-3-3M17 17l-3 3"/></svg></span><div>Transactions<small>Track &amp; import</small></div></a>
-        <a href="/features/budgets"><span class="di"><svg class="ic" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9v9z"/></svg></span><div>Budgets<small>Limits &amp; alerts</small></div></a>
-        <a href="/features/goals"><span class="di"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg></span><div>Goals<small>Track your saving</small></div></a>
-        <a href="/features/bills"><span class="di"><svg class="ic" viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6"/></svg></span><div>Bills &amp; reminders<small>Never miss one</small></div></a>
-        <a href="/features/insights"><span class="di"><svg class="ic" viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 16v-5M12 16V8M16 16v-3"/></svg></span><div>Insights<small>Where it goes</small></div></a>
-      </div>
-    </div>
-    <a href="/guides/">Guides</a>
-    <a href="/learn/">Learn</a>
-    <div class="has-drop">
-      <button class="drop-btn" aria-haspopup="true">Tools <svg class="ic" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
-      <div class="drop-menu">
-        <a href="/quiz"><span class="di"><svg class="ic" viewBox="0 0 24 24"><path d="M9 9a3 3 0 1 1 4 2.83c-.7.4-1 .84-1 1.67M12 17h.01"/></svg></span><div>Money quiz<small>Your spending type</small></div></a>
-        <a href="/budget-calculator"><span class="di"><svg class="ic" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h4M8 15h2M12 15h4"/></svg></span><div>Budget calculator<small>50/30/20 in naira</small></div></a>
-        <a href="/cost-of-living-calculator"><span class="di"><svg class="ic" viewBox="0 0 24 24"><path d="M3 21h18M6 21V9l6-4 6 4v12M10 21v-6h4v6"/></svg></span><div>Cost of living<small>Lagos &amp; Abuja</small></div></a>
-      </div>
-    </div>
-    <a href="#faq">FAQ</a>
-    <a href="#waitlist">Waitlist</a>
-    <a href="/beta">Beta</a>
-    <a class="btn btn-ghost" data-app="web">Open web app</a>
-  </nav>
-  <button class="nav-toggle" id="navToggle" aria-label="Menu"><svg class="ic" style="width:26px;height:26px" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
-</header>
+<Nav />
 
 <section class="hero">
   <div class="hero-copy">
@@ -75,7 +47,7 @@ const year = new Date().getFullYear();
     <div class="hero-cta reveal" data-d="3">
       <a class="btn btn-primary" data-app="web">Open the web app <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="store" data-app="apk"><svg class="ic" viewBox="0 0 24 24"><path d="M5 4l14 8-14 8z"/></svg><span><small>Download the</small><b>Android app</b></span></a>
-      <a class="store" data-app="ios"><svg class="ic" viewBox="0 0 24 24" style="stroke:none"><path fill="currentColor" d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg><span><small>Install on</small><b>iPhone (web)</b></span></a>
+      <a class="store" data-app="ios"><svg class="ic ic-fill" viewBox="0 0 24 24"><path fill="currentColor" d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg><span><small>Install on</small><b>iPhone (web)</b></span></a>
     </div>
     <div class="hero-trust reveal" data-d="3">
       <span><svg class="ic" viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7z"/></svg> Bank-grade security</span>
@@ -84,9 +56,9 @@ const year = new Date().getFullYear();
     </div>
   </div>
   <div class="hero-art">
-    <svg class="deco flower" style="top:2%;right:4%" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="14" fill="currentColor"/><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-dasharray="0.5 15.5"><circle cx="50" cy="50" r="40"/></g></svg>
-    <svg class="deco cross" style="bottom:6%;left:2%" viewBox="0 0 100 100" aria-hidden="true"><path fill="currentColor" d="M50 0C58 30 70 42 100 50 70 58 58 70 50 100 42 70 30 58 0 50 30 42 42 30 50 0Z"/></svg>
-    <div class="dvc tilt-l float" style="z-index:2">
+    <svg class="deco flower at-tr" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="14" fill="currentColor"/><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-dasharray="0.5 15.5"><circle cx="50" cy="50" r="40"/></g></svg>
+    <svg class="deco cross at-bl" viewBox="0 0 100 100" aria-hidden="true"><path fill="currentColor" d="M50 0C58 30 70 42 100 50 70 58 58 70 50 100 42 70 30 58 0 50 30 42 42 30 50 0Z"/></svg>
+    <div class="dvc tilt-l float raised">
       <div class="scrn">
         <div class="bar"><span class="t">9:41</span><span class="isl"></span><span class="bt"></span></div>
         <img src="/assets/screens/mobile-transactions.jpg" alt="Automonie transactions on Android" loading="eager" decoding="async">
@@ -107,7 +79,7 @@ const year = new Date().getFullYear();
       <button class="btn btn-primary wl-btn" type="submit" id="wlBtn">Join the waitlist</button>
     </form>
     <p class="wl-msg" id="wlMsg" role="status" aria-live="polite"></p>
-    <a id="wlGroup" class="btn btn-primary wl-group" href="#" target="_blank" rel="noopener" style="display:none;margin-top:14px;background:#25D366;color:#fff">Join our WhatsApp community</a>
+    <a id="wlGroup" class="btn btn-primary wl-group" href="#" target="_blank" rel="noopener">Join our WhatsApp community</a>
   </div>
 </section>
 
@@ -130,7 +102,7 @@ const year = new Date().getFullYear();
   </div>
 </section>
 
-<section class="section" id="features" style="padding-bottom:18px">
+<section class="section section-tight" id="features">
   <div class="section-head reveal"><span class="eyebrow">Everything in one place</span><h2>How each feature works</h2><p>Tap any feature to see it in detail, with real screens from the app.</p></div>
 </section>
 
@@ -143,8 +115,8 @@ const year = new Date().getFullYear();
       <a class="more" href="/features/transactions">Explore transactions <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
     <div class="fp-device">
-      <svg class="deco flower" style="top:4%;left:4%" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="14" fill="currentColor"/><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-dasharray="0.5 15.5"><circle cx="50" cy="50" r="40"/></g></svg>
-      <div class="dvc tilt-l float" style="z-index:2">
+      <svg class="deco flower at-tl" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="14" fill="currentColor"/><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-dasharray="0.5 15.5"><circle cx="50" cy="50" r="40"/></g></svg>
+      <div class="dvc tilt-l float raised">
         <div class="scrn"><div class="bar"><span class="t">9:41</span><span class="isl"></span><span class="bt"></span></div><img src="/assets/screens/mobile-transactions.jpg" alt="Imported transactions on Automonie" loading="lazy"><span class="glare"></span></div>
       </div>
     </div>
@@ -160,7 +132,7 @@ const year = new Date().getFullYear();
       <a class="more" href="/features/budgets">Explore budgets <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
     <div class="fp-device">
-      <div class="bvc tilt-r float" style="z-index:2">
+      <div class="bvc tilt-r float raised">
         <div class="top"><i></i><i></i><i></i><span class="url">app.automonie.com/budget</span></div>
         <img src="/assets/screens/budget.png" alt="Budget page on Automonie" loading="lazy">
       </div>
@@ -177,8 +149,8 @@ const year = new Date().getFullYear();
       <a class="more" href="/features/goals">Explore goals <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
     <div class="fp-device">
-      <svg class="deco cross" style="top:8%;right:5%" viewBox="0 0 100 100" aria-hidden="true"><path fill="currentColor" d="M50 0C58 30 70 42 100 50 70 58 58 70 50 100 42 70 30 58 0 50 30 42 42 30 50 0Z"/></svg>
-      <div class="dvc tilt-l float" style="z-index:2">
+      <svg class="deco cross at-tr2" viewBox="0 0 100 100" aria-hidden="true"><path fill="currentColor" d="M50 0C58 30 70 42 100 50 70 58 58 70 50 100 42 70 30 58 0 50 30 42 42 30 50 0Z"/></svg>
+      <div class="dvc tilt-l float raised">
         <div class="scrn"><div class="bar"><span class="t">9:41</span><span class="isl"></span><span class="bt"></span></div><img src="/assets/screens/mobile-goals.jpg" alt="Goals on Automonie" loading="lazy"><span class="glare"></span></div>
       </div>
     </div>
@@ -194,8 +166,8 @@ const year = new Date().getFullYear();
       <a class="more" href="/features/bills">Explore bills &amp; reminders <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
     <div class="fp-device">
-      <svg class="deco flower" style="bottom:6%;right:4%" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="14" fill="currentColor"/><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-dasharray="0.5 15.5"><circle cx="50" cy="50" r="40"/></g></svg>
-      <div class="dvc tilt-l float" style="z-index:2">
+      <svg class="deco flower at-br" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="14" fill="currentColor"/><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-dasharray="0.5 15.5"><circle cx="50" cy="50" r="40"/></g></svg>
+      <div class="dvc tilt-l float raised">
         <div class="scrn"><div class="bar"><span class="t">9:41</span><span class="isl"></span><span class="bt"></span></div><img src="/assets/screens/mobile-bills.jpg" alt="Bills and reminders on Automonie" loading="lazy"><span class="glare"></span></div>
       </div>
     </div>
@@ -211,7 +183,7 @@ const year = new Date().getFullYear();
       <a class="more" href="/features/insights">Explore insights <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
     <div class="fp-device">
-      <div class="bvc tilt-r float" style="z-index:2">
+      <div class="bvc tilt-r float raised">
         <div class="top"><i></i><i></i><i></i><span class="url">app.automonie.com/health</span></div>
         <img src="/assets/screens/health.png" alt="Financial health insights on Automonie" loading="lazy">
       </div>
@@ -319,7 +291,7 @@ const year = new Date().getFullYear();
         <p>Any bank-data or payment services are handled by regulated Nigerian providers, so the money side is run by licensed institutions, not by us alone.</p>
       </div>
     </div>
-    <p class="sec-note">Read the detail in our <a href="/privacy" style="color:var(--mint);font-weight:600">Privacy Policy</a> and <a href="/terms" style="color:var(--mint);font-weight:600">Terms of Service</a>.</p>
+    <p class="sec-note">Read the detail in our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a>.</p>
   </div>
 </section>
 

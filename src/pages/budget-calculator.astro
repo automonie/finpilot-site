@@ -32,10 +32,10 @@ const jsonLd = [
       <input class="calc-input" id="income" type="text" inputmode="numeric" placeholder="e.g. 200,000" />
     </div>
     <div class="calc-field">
-      <div class="calc-slider-head"><label class="calc-label" for="savePct" style="margin:0">Savings rate</label><b id="savePctLabel">20%</b></div>
+      <div class="calc-slider-head"><label class="calc-label calc-label-inline" for="savePct">Savings rate</label><b id="savePctLabel">20%</b></div>
       <input class="calc-slider" id="savePct" type="range" min="5" max="40" step="5" value="20" />
     </div>
-    <div id="budgetOut" style="display:none">
+    <div id="budgetOut" hidden>
       <p class="calc-head" id="saveHeadline"></p>
       <div class="calc-bar"><span class="b-needs" id="barNeeds"></span><span class="b-wants" id="barWants"></span><span class="b-save" id="barSave"></span></div>
       <div class="calc-split">

@@ -63,3 +63,7 @@
 @media (min-width: 560px) { .related-cards { grid-template-columns: 1fr 1fr; } }
 .related-cards a { display: block; border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; text-decoration: none; color: var(--navy); font-weight: 600; background: var(--card); }
 .related-cards a:hover { border-color: var(--green); }
+
+.card-sub { display: block; color: var(--ink-3); font-weight: 400; font-size: 14px; margin-top: 4px; }
+.related-cards.spaced { margin-top: 20px; }
+.empty-note { color: var(--ink-3); }

@@ -10,13 +10,13 @@ const guides = await getGuideList();
 >
   <h1>Bank statement guides</h1>
   <p>How to download, open and understand your statements from every major Nigerian bank and fintech.</p>
-  <div class="related-cards" style="margin-top:20px">
+  <div class="related-cards spaced">
     {guides.map((g: any) => (
       <a href={`/guides/${g.slug}`}>
         <strong>{g.title}</strong>
-        <span class="creds" style="display:block;color:var(--ink-3);font-weight:400;font-size:14px;margin-top:4px">{g.metaDescription}</span>
+        <span class="card-sub">{g.metaDescription}</span>
       </a>
     ))}
   </div>
-  {guides.length === 0 && <p style="color:var(--ink-3)">Guides are on the way.</p>}
+  {guides.length === 0 && <p class="empty-note">Guides are on the way.</p>}
 </BaseLayout>

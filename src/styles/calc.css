@@ -41,3 +41,4 @@
 .tool-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
 .tool-links a{color:#0f6e56;font-weight:700;text-decoration:none;border:1px solid #cfeede;border-radius:999px;padding:8px 16px}
 @media(max-width:560px){.calc-row,.col-cats,.calc-split{grid-template-columns:1fr}}
+.calc-label.calc-label-inline{margin:0}
