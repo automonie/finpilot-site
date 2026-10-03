@@ -12,22 +12,22 @@
     "seed": "sanity dataset import ./sanity/seed.ndjson production --replace"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.2.1",
-    "@astrojs/vercel": "^8.0.4",
+    "@astrojs/sitemap": "^3.7.4",
+    "@astrojs/vercel": "^11.0.11",
     "@fontsource/poppins": "^5.3.0",
-    "@sanity/astro": "^3.1.6",
-    "@sanity/client": "^7.14.1",
+    "@sanity/astro": "^3.5.1",
+    "@sanity/client": "^8.9.0",
     "@sanity/image-url": "^1.1.0",
-    "@sanity/vision": "^3.66.1",
-    "astro": "^5.1.5",
-    "astro-portabletext": "^0.11.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "sanity": "^3.66.1",
-    "styled-components": "^6.1.14"
+    "@sanity/vision": "^6.17.0",
+    "astro": "^7.3.5",
+    "astro-portabletext": "^1.0.1",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "sanity": "^6.17.0",
+    "styled-components": "^6.5.3"
   },
   "devDependencies": {
-    "@astrojs/react": "^4.1.2",
+    "@astrojs/react": "^7.0.0",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "typescript": "^5.7.3"

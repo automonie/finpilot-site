@@ -4,7 +4,7 @@ import react from '@astrojs/react';
 import vercel from '@astrojs/vercel';
 import sanity from '@sanity/astro';
 
-// Public Sanity connection details (project id + dataset are NOT secrets — they
+// Public Sanity connection details (project id + dataset are NOT secrets: they
 // only allow reading published content). Set them in a .env file; see .env.example.
 const projectId = process.env.PUBLIC_SANITY_PROJECT_ID || 'replaceme';
 const dataset = process.env.PUBLIC_SANITY_DATASET || 'production';
@@ -29,7 +29,7 @@ export default defineConfig({
       dataset,
       apiVersion: '2024-12-01',
       useCdn: true,
-      // Embed the Sanity Studio at /studio so writers get a plain URL — no local
+      // Embed the Sanity Studio at /studio so writers get a plain URL: no local
       // install, no GitHub. (It's a client-rendered route inside the static site.)
       studioBasePath: '/studio',
     }),
