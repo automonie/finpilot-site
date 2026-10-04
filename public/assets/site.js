@@ -2,12 +2,12 @@
 (function () {
   // App links: UPDATE `apk` AFTER EVERY ANDROID BUILD.
   // Get the current URL with:  npx eas build:list --platform android --limit 1
-  // (look for "Application Archive URL"). Last updated: build ba37e7d0, 2026-09-27.
+  // (look for "Application Archive URL"). Last updated: build 8faebbdc, 2026-10-04.
   var LINKS = {
     web: 'https://app.automonie.com',
     // iPhone = the installable PWA (open in Safari → Add to Home Screen).
     ios: 'https://app.automonie.com',
-    apk: 'https://expo.dev/artifacts/eas/eI9LMK-5PLlYYwTiKBTMLK5v94MiGt2nw-TDgHmd7XQ.apk'
+    apk: 'https://expo.dev/artifacts/eas/ls6cmkKTjHexks7AmDeBn8vlf_Pw4uqrS2Qgv-Gu8Hc.apk'
   };
   document.querySelectorAll('[data-app]').forEach(function (el) {
     var t = LINKS[el.getAttribute('data-app')];
