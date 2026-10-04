@@ -8,7 +8,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   noindex={false}
 >
   <h1>Privacy Policy</h1>
-  <p><em>Last updated: 21 July 2026</em></p>
+  <p><em>Last updated: 4 October 2026</em></p>
   <p>Automonie helps you understand and manage your money. To do that we handle personal and financial information, and we take that responsibility seriously. This policy explains what we collect, why, how long we keep it, and the control you have over it.</p>
 
   <h2>1. Who we are</h2>
@@ -18,12 +18,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <h3>Information you give us</h3>
   <ul>
     <li><strong>Account details:</strong> your name, email address and phone number when you register.</li>
-    <li><strong>Financial information you enter:</strong> transactions, budgets, savings goals, bills, debts and subscriptions.</li>
+    <li><strong>Financial information you enter:</strong> transactions, budgets, savings goals, bills and subscriptions.</li>
     <li>Bank statements you upload, CSV, Excel or PDF files you choose to import, and the transactions extracted from them.</li>
     <li><strong>Support messages:</strong> anything you send us when you ask for help.</li>
   </ul>
   <h3>Information from a linked bank account</h3>
   <p>If you choose to connect a bank account, we use a licensed third-party open-banking provider (currently Mono) to retrieve your transaction history and account details. This access is read-only: it cannot be used to move money. We never see, receive or store your bank login credentials, you enter them directly with your bank through the provider's secure widget. Connecting a bank account is entirely optional; the app works without it.</p>
+  <h3>Bank alerts you send us</h3>
+  <p>You can choose to send us the alerts your bank sends you, so your transactions are logged without typing them in. Each of these is optional and can be turned off at any time:</p>
+  <ul>
+    <li><strong>Email forwarding:</strong> bank alert emails you forward to your personal Automonie address. We read only emails from banks; anything else is discarded.</li>
+    <li><strong>Notification capture (Android):</strong> if you turn it on and grant notification access, the app reads notifications from the bank apps you approve and sends only the ones that mention an amount. Notifications from other apps are ignored on your phone and never sent to us.</li>
+    <li><strong>iPhone Shortcuts:</strong> if you set up the automation, your iPhone forwards texts from the banks you pick.</li>
+    <li><strong>Shared receipts:</strong> a receipt PDF or screenshot you share to Automonie.</li>
+  </ul>
+  <p>We read the amount, date, direction and description from these alerts and save the resulting transaction. We do not keep the original message text, and we never read your other messages.</p>
   <h3>Information collected automatically</h3>
   <ul>
     <li>Technical data, IP address, device and browser type, and app version, used for security, fraud prevention and diagnostics.</li>
@@ -33,7 +42,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <h2>3. How we use your information</h2>
   <ul>
     <li>To provide the service, categorising transactions, calculating budgets, tracking goals, and generating insights.</li>
-    <li>To operate your wallet and process payments you initiate, through licensed payment partners.</li>
+    <li>To process your Automonie Pro subscription payment, through our payment partner.</li>
     <li>To authenticate you and keep your account secure, including two-step verification.</li>
     <li>To send service messages such as budget alerts, bill reminders and security notices.</li>
     <li>To meet legal, regulatory and anti-fraud obligations.</li>
@@ -44,7 +53,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <p>We share only what is necessary, and only with:</p>
   <ul>
     <li>Open-banking providers (e.g. Mono), to retrieve transactions from a bank account you have linked.</li>
-    <li>Payment providers: to fund your wallet, process withdrawals, and complete bill or airtime payments you request.</li>
+    <li>Payment providers (Paystack): to process Automonie Pro subscription payments. Automonie does not hold or move your money.</li>
+    <li>AI providers (Google Gemini): to read statements and alerts our own rules can't, to read the text in receipt screenshots you share, and to answer questions in the AI assistant. Account numbers are removed first where possible.</li>
     <li>Infrastructure providers: hosting, database and email delivery services that operate the app.</li>
     <li>Authorities: where we are required to by law, regulation or valid legal process.</li>
   </ul>
