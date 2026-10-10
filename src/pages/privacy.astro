@@ -3,98 +3,339 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 <BaseLayout
   title="Privacy Policy | Automonie"
-  description="What Automonie collects, why, how long we keep it, and the control you have over your personal and financial data."
+  description="How MICADOT-NG LIMITED collects, uses, shares, protects and retains personal and financial data in Automonie, the lawful bases we rely on, and the rights you have under the Nigeria Data Protection Act 2023."
   path="/privacy"
   noindex={false}
 >
   <h1>Privacy Policy</h1>
-  <p><em>Last updated: 4 October 2026</em></p>
-  <p>Automonie helps you understand and manage your money. To do that we handle personal and financial information, and we take that responsibility seriously. This policy explains what we collect, why, how long we keep it, and the control you have over it.</p>
+  <p><em>Effective date and last updated: 10 October 2026</em></p>
 
-  <h2>1. Who we are</h2>
-  <p>Automonie ("we", "us", "our") provides a personal finance management application available on the web and on Android. For any privacy question, or to exercise any right described below, contact us at <a href="mailto:tobe@automonie.com">tobe@automonie.com</a>.</p>
-
-  <h2>2. Information we collect</h2>
-  <h3>Information you give us</h3>
+  <h2 id="summary">The short version</h2>
+  <p>This policy is long because the law asks us to be complete. These are the points that matter most, in plain words. Reading this summary does not replace the full policy below, which governs if anything here is unclear.</p>
   <ul>
-    <li><strong>Account details:</strong> your name, email address and phone number when you register.</li>
-    <li><strong>Financial information you enter:</strong> transactions, budgets, savings goals, bills and subscriptions.</li>
-    <li>Bank statements you upload, CSV, Excel or PDF files you choose to import, and the transactions extracted from them.</li>
-    <li><strong>Support messages:</strong> anything you send us when you ask for help.</li>
-  </ul>
-  <h3>Information from a linked bank account</h3>
-  <p>If you choose to connect a bank account, we use a licensed third-party open-banking provider (currently Mono) to retrieve your transaction history and account details. This access is read-only: it cannot be used to move money. We never see, receive or store your bank login credentials, you enter them directly with your bank through the provider's secure widget. Connecting a bank account is entirely optional; the app works without it.</p>
-  <h3>Bank alerts you send us</h3>
-  <p>You can choose to send us the alerts your bank sends you, so your transactions are logged without typing them in. Each of these is optional and can be turned off at any time:</p>
-  <ul>
-    <li><strong>Email forwarding:</strong> bank alert emails you forward to your personal Automonie address. We read only emails from banks; anything else is discarded.</li>
-    <li><strong>Notification capture (Android):</strong> if you turn it on and grant notification access, the app reads notifications from the bank apps you approve and sends only the ones that mention an amount. Notifications from other apps are ignored on your phone and never sent to us.</li>
-    <li><strong>iPhone Shortcuts:</strong> if you set up the automation, your iPhone forwards texts from the banks you pick.</li>
-    <li><strong>Shared receipts:</strong> a receipt PDF or screenshot you share to Automonie.</li>
-  </ul>
-  <p>We read the amount, date, direction and description from these alerts and save the resulting transaction. We do not keep the original message text, and we never read your other messages.</p>
-  <h3>Information collected automatically</h3>
-  <ul>
-    <li>Technical data, IP address, device and browser type, and app version, used for security, fraud prevention and diagnostics.</li>
-    <li>Usage data: which features are used, to help us improve the product.</li>
+    <li><strong>We do not sell your data</strong> and we do not share your financial data with advertisers.</li>
+    <li><strong>Some features use Google’s Gemini AI on Google’s free service tier.</strong> On that tier, Google’s terms allow Google to use what we send to improve its products, and allow human reviewers at Google to read it. This applies when you use the AI assistant, when you share a receipt image, and when our own rules cannot read a bank statement or alert you uploaded. We remove account numbers before sending where we can, but the text can still include names, amounts, merchants and dates. If you do not want this, do not use those features. We intend to move to Google’s paid tier, under which Google does not use the content to improve its products, before our public launch, and we will update this policy when we do. Section 9 has the details.</li>
+    <li><strong>Bank alerts you choose to send us are read to create transactions.</strong> For accuracy, we keep the original text of alerts and statement lines you import and review, together with any corrections you make, unless you turn off “Help improve Automonie” in Settings.</li>
+    <li><strong>You can see, correct, export and delete your data,</strong> and you can delete your account, which deletes your data apart from what the law requires us to keep.</li>
+    <li><strong>Contact:</strong> <a href="mailto:tobe@automonie.com">tobe@automonie.com</a>. You can also complain to the Nigeria Data Protection Commission.</li>
   </ul>
 
-  <h2>3. How we use your information</h2>
+  <h2 id="contents">Contents</h2>
+  <ol>
+    <li><a href="#about">About this policy and who we are</a></li>
+    <li><a href="#definitions">Definitions and interpretation</a></li>
+    <li><a href="#scope">Scope and application</a></li>
+    <li><a href="#collect">Personal data we collect</a></li>
+    <li><a href="#sources">Where your personal data comes from</a></li>
+    <li><a href="#capture">Bank alerts, notifications, messages and statements</a></li>
+    <li><a href="#purposes">Purposes of processing</a></li>
+    <li><a href="#bases">Lawful bases for processing</a></li>
+    <li><a href="#ai">Artificial intelligence and automated processing</a></li>
+    <li><a href="#automated">Automated decision-making and profiling</a></li>
+    <li><a href="#sharing">Disclosure of personal data to third parties</a></li>
+    <li><a href="#transfers">Transfers of personal data outside Nigeria</a></li>
+    <li><a href="#retention">Data retention</a></li>
+    <li><a href="#security">Security of processing</a></li>
+    <li><a href="#breach">Personal data breaches</a></li>
+    <li><a href="#rights">Your rights as a data subject</a></li>
+    <li><a href="#exercise">How to exercise your rights</a></li>
+    <li><a href="#marketing">Marketing and service communications</a></li>
+    <li><a href="#cookies">Cookies, local storage and similar technologies</a></li>
+    <li><a href="#permissions">Device permissions</a></li>
+    <li><a href="#children">Children</a></li>
+    <li><a href="#programmes">Beta programme, feedback, campaigns and community</a></li>
+    <li><a href="#payments">Payments and subscriptions</a></li>
+    <li><a href="#third">Third-party websites and services</a></li>
+    <li><a href="#changes">Changes to this policy</a></li>
+    <li><a href="#law">Governing law and disputes</a></li>
+    <li><a href="#misc">General provisions</a></li>
+    <li><a href="#contact-us">Contact us</a></li>
+  </ol>
+
+  <h2 id="about">1. About this policy and who we are</h2>
+  <p>1.1. This Privacy Policy (the “Policy”) is issued by MICADOT-NG LIMITED, a company incorporated in the Federal Republic of Nigeria, which owns and operates Automonie (“Automonie”, “we”, “us” and “our”). For the purposes of the Nigeria Data Protection Act 2023 (the “NDPA”), any regulations, guidance or directives issued under it by the Nigeria Data Protection Commission (the “Commission”), and any other data protection law that may apply to our processing of your personal data (together, “Data Protection Law”), MICADOT-NG LIMITED is the data controller of the personal data described in this Policy, except where this Policy states otherwise.</p>
+  <p>1.2. Automonie is a personal finance management service that helps you record, categorise, understand and plan around your money. It is provided through our website and web application, our Android application, and any other channel through which we make it available from time to time (together, the “Service”).</p>
+  <p>1.3. This Policy explains, in accordance with the transparency and notice obligations of Data Protection Law, what personal data we collect, the sources from which we obtain it, the purposes for which and lawful bases on which we process it, the persons to whom we disclose it, the places to which we transfer it, how long we retain it, how we protect it, and the rights that you have in relation to it, together with how you may exercise those rights.</p>
+  <p>1.4. This Policy should be read together with our <a href="/terms">Terms of Service</a>, which govern your use of the Service. Where this Policy and the Terms of Service conflict on a matter concerning personal data, this Policy prevails to the extent of the conflict.</p>
+  <p>1.5. Automonie does not hold, move, transmit or store your money. It is not a bank, a payment service provider, a lender, an investment adviser or a deposit-taking institution, and nothing in this Policy should be read as suggesting otherwise. Nothing in the Service constitutes financial, investment, tax or legal advice.</p>
+
+  <h2 id="definitions">2. Definitions and interpretation</h2>
+  <p>2.1. In this Policy, unless the context requires otherwise, the following words and expressions have the meanings given below:</p>
   <ul>
-    <li>To provide the service, categorising transactions, calculating budgets, tracking goals, and generating insights.</li>
-    <li>To process your Automonie Pro subscription payment, through our payment partner.</li>
-    <li>To authenticate you and keep your account secure, including two-step verification.</li>
-    <li>To send service messages such as budget alerts, bill reminders and security notices.</li>
-    <li>To meet legal, regulatory and anti-fraud obligations.</li>
+    <li><strong>“Personal data”</strong> means any information relating to an identified or identifiable natural person, as more fully defined in the NDPA, and includes, without limitation, a name, an identification number, location data, an online identifier, and one or more factors specific to the physical, physiological, genetic, psychological, cultural, social or economic identity of that person.</li>
+    <li><strong>“Sensitive personal data”</strong> has the meaning given to it in the NDPA. Because the Service is concerned with your finances, we treat all financial information that you provide to or generate through the Service with the care appropriate to sensitive personal data, whether or not Data Protection Law strictly classifies it as such in a given case.</li>
+    <li><strong>“Processing”</strong> means any operation or set of operations performed on personal data, whether or not by automated means, including collection, recording, organisation, structuring, storage, adaptation, alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment, combination, restriction, erasure or destruction, and “process” and “processed” are to be construed accordingly.</li>
+    <li><strong>“Data subject”</strong>, <strong>“you”</strong> and <strong>“your”</strong> mean the natural person to whom personal data relates, and in particular any person who visits our website, joins our waitlist or newsletter, registers for, or uses, the Service.</li>
+    <li><strong>“Data processor”</strong> means a person or organisation that processes personal data on our behalf and on our documented instructions.</li>
+    <li><strong>“Third party”</strong> means any natural or legal person, public authority, agency or body other than you, us, and persons who, under our direct authority, are authorised to process personal data.</li>
+    <li><strong>“Bank alert”</strong> means any message, notification, email, text message, document or image issued by or on behalf of a bank, payment service provider, wallet operator or other financial institution, or created by you, that records or describes a financial transaction, and that you choose to make available to the Service by any of the means described in this Policy.</li>
+    <li><strong>“AI provider”</strong> means a third party that provides artificial intelligence or machine learning models, including large language models, that we call through an application programming interface in order to provide certain features of the Service.</li>
   </ul>
-  <p>We do not sell your personal data. We do not share your financial data with advertisers.</p>
+  <p>2.2. Headings are for convenience only and do not affect interpretation. Words in the singular include the plural and vice versa. The words “include”, “including” and “in particular” are illustrative and do not limit the generality of the words preceding them. A reference to a law includes that law as amended, extended, re-enacted or replaced from time to time, and any subordinate legislation made under it.</p>
 
-  <h2>4. Who we share information with</h2>
-  <p>We share only what is necessary, and only with:</p>
+  <h2 id="scope">3. Scope and application</h2>
+  <p>3.1. This Policy applies to all personal data that we process in connection with the Service, our websites (including automonie.com and its subdomains), our waitlist, newsletter, beta programme, community groups we administer, campaigns, quizzes and calculators, customer support, and any correspondence between you and us.</p>
+  <p>3.2. This Policy applies whether you access the Service as a registered user, as a visitor who has not registered, as a person who has joined our waitlist or newsletter, or as a person whose personal data appears in information that a user provides to us (for example, the name of a person to whom a user sends money, as it appears in a bank alert).</p>
+  <p>3.3. Where personal data relating to another person (for example, a family member, a friend, a landlord, an employer or a merchant) appears in information you provide to us, you are responsible for ensuring that you are entitled to provide it to us. We process such data only for the purpose of providing the Service to you, such as identifying the counterparty to a transaction, and we do not contact such persons.</p>
+  <p>3.4. This Policy does not apply to the practices of third parties that we do not own or control, including banks, payment providers, app stores, email providers and other services that you may use alongside the Service. Their handling of your data is governed by their own policies.</p>
+
+  <h2 id="collect">4. Personal data we collect</h2>
+  <p>4.1. The categories of personal data that we may collect and process, depending on how you use the Service and which features you choose to enable, are as follows.</p>
+  <h3>4.2. Identity and contact data</h3>
   <ul>
-    <li>Open-banking providers (e.g. Mono), to retrieve transactions from a bank account you have linked.</li>
-    <li>Payment providers (Paystack): to process Automonie Pro subscription payments. Automonie does not hold or move your money.</li>
-    <li>AI providers (Google Gemini): to read statements and alerts our own rules can't, to read the text in receipt screenshots you share, and to answer questions in the AI assistant. Account numbers are removed first where possible.</li>
-    <li>Infrastructure providers: hosting, database and email delivery services that operate the app.</li>
-    <li>Authorities: where we are required to by law, regulation or valid legal process.</li>
+    <li>Your full name and, where provided, a preferred first name.</li>
+    <li>Your email address, and your phone number or WhatsApp number where you provide it (for example, when you join the waitlist or beta programme).</li>
+    <li>If you sign in with Google, the name, email address and profile identifier that Google shares with us with your permission. We do not receive your Google password.</li>
   </ul>
-  <p>Some of these providers process data outside Nigeria. Where that happens, we take steps to ensure the transfer is lawful and that the data remains protected to a comparable standard.</p>
-
-  <h2>5. How we protect your information</h2>
+  <h3>4.3. Account and authentication data</h3>
   <ul>
-    <li>All traffic between your device and our servers is encrypted using HTTPS/TLS.</li>
-    <li>Passwords are stored only as salted one-way hashes, never in readable form, and cannot be recovered by us or anyone else.</li>
-    <li>Optional two-step email verification, and app lock with a PIN or fingerprint on mobile.</li>
-    <li>Bank access is read-only and can be revoked by you at any time.</li>
-    <li>Full card numbers are never stored on our servers.</li>
+    <li>Your password, which we store only as a salted one-way cryptographic hash and which we cannot read or recover.</li>
+    <li>One-time verification codes, session tokens, the date and time sessions were issued, and records of security events such as sign-ins, password resets and “sign out of all devices” requests.</li>
+    <li>On mobile, whether you have enabled an app lock with a PIN or with biometrics. Biometric data (such as your fingerprint or face) is handled entirely by your device’s operating system and is never sent to us.</li>
+    <li>Settings and preferences you choose in the Service, including notification preferences, privacy toggles, and whether you have opted out of having your corrections used to improve the Service.</li>
   </ul>
-  <p>No system can be guaranteed perfectly secure, but we work continuously to protect your information and to limit what we collect in the first place.</p>
-
-  <h2>6. How long we keep your data</h2>
-  <p>We keep your information for as long as your account is open. If you delete your account, we delete your personal and financial data, except where we are required to retain certain records to meet legal, tax or anti-fraud obligations. Disconnecting a bank account stops any further data being retrieved immediately.</p>
-
-  <h2>7. Your rights</h2>
-  <p>Under the Nigeria Data Protection Act (and equivalent laws that may apply to you), you have the right to:</p>
+  <h3>4.4. Financial data</h3>
   <ul>
-    <li>Access the personal data we hold about you.</li>
-    <li>Correct information that is wrong or incomplete, most of this you can edit yourself in the app.</li>
-    <li>Delete your account and the data associated with it.</li>
-    <li>Withdraw consent, including disconnecting a linked bank account at any time.</li>
-    <li>Object to or restrict certain processing.</li>
-    <li>Port your data, you can export your transactions from the app.</li>
-    <li>Complain to the Nigeria Data Protection Commission if you believe your rights have been breached.</li>
+    <li>Transactions, including their date, amount, direction (money in or money out), description, merchant or counterparty, category, the bank or account to which they relate, and how they were recorded (for example, entered manually, imported from a statement, captured from an alert, or shared to the app).</li>
+    <li>Account identifiers in truncated form only: the name of the bank or wallet and, where available, the last three or four digits of an account number. We do not intentionally store full account numbers, and where a full account number appears in content you provide, we take steps to remove or truncate it before storage.</li>
+    <li>Budgets, savings goals and the amounts you record against them, bills and reminders, subscriptions (whether entered by you or detected from your transactions), cash records, and notes.</li>
+    <li>Statements and documents you upload, including PDF, CSV, Excel and Word files and images, and the information extracted from them. Uploaded files are processed to extract transactions and are not retained in their original form after processing, except as described in section 13.</li>
+    <li>People and businesses you transact with, as derived from transaction descriptions, including any labels or relationships you assign to them (for example, “family” or “landlord”).</li>
+    <li>Information you tell us about yourself to personalise the Service, such as your stated monthly income, your primary financial goal, or whether you are a student or a corps member.</li>
   </ul>
-  <p>To exercise any of these, email <a href="mailto:tobe@automonie.com">tobe@automonie.com</a>. We aim to respond within 30 days.</p>
+  <h3>4.5. Bank alert content</h3>
+  <ul>
+    <li>The content of bank alerts you choose to make available to us by any of the channels described in section 6, including the text of emails, notifications and text messages from your bank or wallet provider, and the text visible in receipt images you share.</li>
+    <li>Metadata about those alerts, such as the time a notification was posted, the name of the app or sender that produced it, and the date an email was sent.</li>
+  </ul>
+  <h3>4.6. Content you create and communications</h3>
+  <ul>
+    <li>Questions you ask the AI assistant and the replies it gives.</li>
+    <li>Support requests, feedback, bug reports, survey answers and any other messages you send us, including any attachments.</li>
+    <li>Corrections you make to information the Service has read or inferred, such as changing a category, an amount, a date or a direction.</li>
+  </ul>
+  <h3>4.7. Technical and usage data</h3>
+  <ul>
+    <li>Internet Protocol (IP) address, device type and model, operating system and version, browser type and version, app version, language, time zone, and similar technical identifiers.</li>
+    <li>Logs of requests made to our servers, error reports and diagnostic information, which may include the time of a request and the feature used.</li>
+    <li>Information about how you use the Service, such as which screens and features you use, how often, and the outcome of actions such as imports.</li>
+    <li>If you enable push notifications, a push token that identifies your device to the notification service.</li>
+  </ul>
+  <h3>4.8. Payment data</h3>
+  <ul>
+    <li>Records of subscription purchases, such as the plan, the amount, the date, the payment reference and the outcome. Card details are entered directly with our payment provider and are never received or stored by us.</li>
+  </ul>
+  <h3>4.9. Marketing and community data</h3>
+  <ul>
+    <li>Your email address and, where provided, your WhatsApp number and how you heard about us, if you join our waitlist, newsletter or beta programme; your subscription status; and whether you have unsubscribed.</li>
+    <li>Campaign identifiers attached to links or QR codes you used to reach us, for example from a talk at a corps members’ community development service.</li>
+  </ul>
+  <p>4.10. We do not knowingly collect data about your racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic or biometric data, health, or sex life or sexual orientation. However, such information may be inferable from, or may appear in, transaction descriptions you provide (for example, a payment to a place of worship or a hospital). We do not use transaction data to draw conclusions about these matters, and we process such descriptions only as part of the transaction record.</p>
 
-  <h2>8. Children</h2>
-  <p>Automonie is not intended for anyone under 18, and we do not knowingly collect data from children. If you believe a child has given us personal data, contact us and we will delete it.</p>
+  <h2 id="sources">5. Where your personal data comes from</h2>
+  <p>5.1. We obtain personal data from the following sources:</p>
+  <ul>
+    <li><strong>Directly from you,</strong> when you register, enter information, upload documents, forward or share alerts, enable capture features, contact us, or otherwise use the Service.</li>
+    <li><strong>From your device,</strong> when you grant the Service permission to read notifications from approved bank apps or, on builds that offer it, text messages, as described in section 6 and section 20.</li>
+    <li><strong>From your bank or wallet provider indirectly,</strong> through the alerts, statements and emails that they send to you and that you choose to make available to us.</li>
+    <li><strong>From open-banking providers,</strong> where you choose to link an account through such a provider, as described in section 11.</li>
+    <li><strong>From Google,</strong> where you choose to sign in with Google.</li>
+    <li><strong>Generated by the Service,</strong> such as categories, insights, summaries, detected subscriptions, detected duplicates, budget progress and forecasts derived from your data.</li>
+    <li><strong>From other users of the Service in aggregated, de-identified form,</strong> where corrections made by many users improve how the Service categorises a merchant for everyone, as described in section 7.</li>
+  </ul>
 
-  <h2>9. Cookies and similar technologies</h2>
-  <p>We use only what is necessary to keep you signed in and to keep the service secure and reliable. We do not use advertising trackers.</p>
+  <h2 id="capture">6. Bank alerts, notifications, messages and statements</h2>
+  <p>6.1. A central feature of the Service is that it can create transaction records from the alerts and statements your bank or wallet provider already sends you, so that you do not have to type them. Each method is optional, each requires an action by you to enable it, and each can be stopped at any time. The methods, and what each involves, are set out below.</p>
+  <h3>6.2. Email forwarding</h3>
+  <p>If you set up forwarding, bank alert emails are sent to a personal address that we create for you. We process emails received at that address to identify bank alerts and extract transactions. We discard emails that do not appear to be from a financial institution. We may also process a one-time verification email from your email provider that is needed to confirm the forwarding rule. You can stop forwarding at any time in your email provider’s settings, and you can ask us to disable your forwarding address.</p>
+  <h3>6.3. Notification capture on Android</h3>
+  <p>If you enable notification capture and grant the Service notification access in your device settings, the Service reads notifications posted by the bank and wallet apps on your list of approved apps. The list starts with well-known Nigerian bank and wallet apps and you can add or remove apps. Notifications from apps that are not on your approved list are not sent to us. Where an app that is not on your list appears to post banking notifications, the Service may suggest it to you on your device so that you can decide whether to approve it; that suggestion is made on your device and the notifications concerned are not sent to us. Notifications from approved apps are sent to us to be read; those that are not transactions, such as one-time passwords, promotions, login notices and balance enquiries, are discarded. You can turn off notification access in your device settings at any time.</p>
+  <h3>6.4. Text messages</h3>
+  <p>Where a version of the Android app offers it and you grant the permission, the Service can read text messages on your device to find bank alerts. The search for bank alerts is carried out on your device. Transactions found, and the text of the alerts from which they were found, are then sent to us when you review and save them. Versions of the app distributed through the Google Play Store may not include this feature.</p>
+  <h3>6.5. Sharing to Automonie</h3>
+  <p>You can share the text of an alert, a receipt image or a PDF to the Service from another app. Shared text is read to prepare a transaction for you to confirm. Shared images may be transcribed using an AI provider, as described in section 9.</p>
+  <h3>6.6. iPhone Shortcuts</h3>
+  <p>If you set up an automation on an iPhone, your device forwards text messages from the senders you choose to the Service using a private capture key. You control which senders are forwarded and can delete the automation at any time.</p>
+  <h3>6.7. Statements</h3>
+  <p>You can upload bank statements. Password-protected statements require you to provide the password, which is used only to open the file at that moment and is not stored. We extract the transactions in the statement and check them against the balances printed in it where possible.</p>
+  <h3>6.8. What we keep</h3>
+  <p>From every alert or statement, we keep the transaction record we create. In addition, unless you turn off “Help improve Automonie” in Settings, we keep the original text of imported alerts and statement lines that you review, together with what the Service read and what you changed, so that we can measure and improve accuracy. Uploaded statement files and shared images are not kept after they have been processed. Capture keys are stored only in hashed form.</p>
+  <h3>6.9. Your responsibility</h3>
+  <p>The alerts and statements you make available to us may contain the personal data of other people, such as the names of people who sent you money. You confirm that you are entitled to make them available to us for the purpose of managing your own finances.</p>
 
-  <h2>10. Changes to this policy</h2>
-  <p>If we make material changes we will update the date at the top of this page and, where the change significantly affects you, notify you in the app or by email.</p>
+  <h2 id="purposes">7. Purposes of processing</h2>
+  <p>7.1. We process personal data for the following purposes and for no purpose incompatible with them:</p>
+  <ul>
+    <li><strong>Providing the Service:</strong> creating and maintaining your account; recording, reading, categorising and de-duplicating transactions; recognising your accounts; detecting subscriptions and recurring charges; calculating budgets, goals, summaries, reports, recaps and forecasts; and showing you insights about your money.</li>
+    <li><strong>Accuracy and quality:</strong> checking imported transactions against statement balances; asking you to confirm items we are unsure about; learning from the corrections you make so that the Service categorises your future transactions the way you prefer; and, using corrections from many users in aggregated and de-identified form, improving how merchants are categorised for all users.</li>
+    <li><strong>AI features:</strong> answering your questions in the AI assistant, reading statements, alerts and receipt images that our own rules cannot read, and suggesting the purpose of a transfer, as described in section 9.</li>
+    <li><strong>Communications:</strong> sending service messages such as verification codes, password resets, security alerts, reminders you set, budget alerts, digests and notices about changes to the Service or this Policy; and, where you have agreed, newsletters and updates.</li>
+    <li><strong>Support:</strong> responding to your requests, investigating problems you report, and improving our help materials.</li>
+    <li><strong>Payments:</strong> processing subscriptions and keeping records of them.</li>
+    <li><strong>Security and integrity:</strong> authenticating you; preventing, detecting and investigating fraud, abuse, security incidents and breaches of our Terms of Service; rate limiting; and keeping logs.</li>
+    <li><strong>Product development:</strong> understanding how the Service is used, diagnosing errors, and planning and testing improvements, using aggregated or de-identified data wherever practicable.</li>
+    <li><strong>Legal and regulatory:</strong> complying with legal obligations, responding to lawful requests from authorities, establishing, exercising or defending legal claims, and keeping records required by law, including tax and accounting records.</li>
+  </ul>
+  <p>7.2. Should we wish to process personal data for a new purpose that is not compatible with the purposes above, we will inform you before doing so and, where required by Data Protection Law, seek your consent.</p>
 
-  <h2>11. Contact</h2>
-  <p>Questions, requests or complaints: <a href="mailto:tobe@automonie.com">tobe@automonie.com</a>.</p>
+  <h2 id="bases">8. Lawful bases for processing</h2>
+  <p>8.1. Data Protection Law requires us to have a lawful basis for each processing activity. We rely on the following:</p>
+  <ul>
+    <li><strong>Performance of a contract:</strong> processing that is necessary to provide the Service to you under our Terms of Service, or to take steps at your request before entering into that contract. This covers most of the processing described in section 7.1 under “Providing the Service”, “Communications” (service messages), “Support” and “Payments”.</li>
+    <li><strong>Consent:</strong> processing that you have specifically agreed to, including notification capture, text message reading, email forwarding, iPhone Shortcuts capture, linking an account through an open-banking provider, sending content to an AI provider when you use an AI feature, push notifications, newsletters and marketing messages, and the processing of financial information to the extent that it constitutes sensitive personal data. You may withdraw consent at any time, as described in section 17. Withdrawal does not affect the lawfulness of processing carried out before it.</li>
+    <li><strong>Legitimate interests:</strong> processing that is necessary for our legitimate interests, or those of a third party, provided those interests are not overridden by your interests, rights and freedoms. Our legitimate interests include keeping the Service secure, preventing fraud and abuse, improving accuracy and quality through corrections, understanding how the Service is used, and defending legal claims. Where we rely on legitimate interests, you have the right to object, as described in section 16.</li>
+    <li><strong>Legal obligation:</strong> processing that is necessary to comply with a legal obligation to which we are subject, such as keeping financial records, responding to lawful orders, and notifying breaches.</li>
+    <li><strong>Vital interests and public interest:</strong> in rare cases, processing necessary to protect someone’s life, or to perform a task carried out in the public interest or in the exercise of official authority vested in us.</li>
+  </ul>
+
+  <h2 id="ai">9. Artificial intelligence and automated processing</h2>
+  <p>9.1. <strong>Our approach.</strong> Most of what the Service does, including reading amounts, dates and whether money came in or went out, is done by fixed rules that we write and control, on our own servers, without any AI provider. We use an AI provider only for the features listed in this section, and only where those features are used.</p>
+  <p>9.2. <strong>Our current AI provider.</strong> We currently use the Gemini models provided by Google LLC and its affiliates (“Google”), accessed through Google’s application programming interface on Google’s unpaid (free) service tier.</p>
+  <p>9.3. <strong>What Google’s free-tier terms allow.</strong> Under Google’s terms for its unpaid Gemini services, as they stand on the date of this Policy, Google may use the content submitted to it and the responses it generates to provide, improve and develop Google’s products and services and machine learning technologies, and human reviewers may read, annotate and process that input and output. Google states that it takes steps to disconnect such data from the account, API key and project that submitted it before human review. Google’s terms also ask that sensitive, confidential or personal information not be submitted to its unpaid services. We are not able to control or limit Google’s use of content under those terms. You can read Google’s current terms at <a href="https://ai.google.dev/gemini-api/terms" rel="noopener noreferrer">ai.google.dev/gemini-api/terms</a>.</p>
+  <p>9.4. <strong>Features that send content to the AI provider, and what is sent.</strong></p>
+  <ul>
+    <li><strong>AI assistant:</strong> your question, the conversation so far, and a summary of your finances that includes your first name, your stated monthly income and goal where provided, your income and spending totals, your top spending categories, and your budgets and goals.</li>
+    <li><strong>Receipt and screenshot images you share:</strong> the image, so that the text in it can be transcribed. The transcribed text is then read by our own rules.</li>
+    <li><strong>Statements our rules cannot read:</strong> the text of the statement, which may include your name, the names of counterparties, transaction descriptions, amounts, dates and balances. Where possible we remove account numbers first.</li>
+    <li><strong>Alerts our rules cannot read,</strong> when you are reviewing them before saving: the text of the alert, with account numbers removed where possible.</li>
+    <li><strong>Transfer purpose suggestions,</strong> where offered: a redacted description of the transfer pattern, with account numbers removed.</li>
+  </ul>
+  <p>9.5. <strong>Your choice.</strong> You can avoid sending content to the AI provider by not using the AI assistant, not sharing images to the Service, and entering or correcting transactions yourself where an upload cannot be read by our rules. Using these features is not required to use the core Service. By using any of the features listed in section 9.4 while we remain on the free tier, you consent to the content described being sent to Google on the terms described in section 9.3.</p>
+  <p>9.6. <strong>Our intended change.</strong> We intend to move to Google’s paid service tier before the public launch of the Service. Under Google’s paid terms as they stand on the date of this Policy, Google does not use prompts or responses to improve its products. When we make that change, we will update this Policy and record the date of the change here.</p>
+  <p>9.7. <strong>Accuracy of AI output.</strong> AI output may be incomplete or wrong. The AI assistant provides general information about your own data and is not financial, investment, tax or legal advice. Where the Service uses AI to read a document, the result is checked by our rules and, where we are not confident, shown to you to confirm before it is relied on.</p>
+
+  <h2 id="automated">10. Automated decision-making and profiling</h2>
+  <p>10.1. The Service automatically categorises transactions, detects recurring charges, flags possible duplicates, estimates spending trends, and produces insights and summaries about your finances. This is a form of profiling in the sense that it evaluates aspects of your financial situation.</p>
+  <p>10.2. These evaluations are produced for your own information and to help you manage your money. We do not make any decision based solely on automated processing that produces legal effects concerning you or similarly significantly affects you, such as a decision about credit, insurance, employment or eligibility for a service. We do not sell or provide these evaluations to lenders, insurers, employers or any other third party.</p>
+  <p>10.3. You can correct any automated categorisation or detection at any time, and the Service learns from your corrections for your own account.</p>
+
+  <h2 id="sharing">11. Disclosure of personal data to third parties</h2>
+  <p>11.1. We do not sell personal data, rent it, or share financial data with advertisers or data brokers. We disclose personal data only as described in this section, and only to the extent necessary for the purpose concerned.</p>
+  <p>11.2. <strong>Service providers acting as data processors.</strong> We use carefully selected providers to operate the Service. They process personal data on our instructions and are bound by obligations of confidentiality and security. They include providers of:</p>
+  <ul>
+    <li>application hosting and server infrastructure (including Render and Vercel);</li>
+    <li>database hosting;</li>
+    <li>transactional and marketing email delivery (Brevo), and the receipt of forwarded emails;</li>
+    <li>mobile app builds, over-the-air updates and push notification delivery (Expo);</li>
+    <li>website content management (Sanity), which holds the content of our public website and not your financial data.</li>
+  </ul>
+  <p>11.3. <strong>Independent providers you choose to use.</strong> Some providers process personal data under their own terms and policies, as controllers in their own right, when you choose to use a feature that relies on them:</p>
+  <ul>
+    <li><strong>Google,</strong> for the AI features described in section 9, and for sign-in if you choose to sign in with Google.</li>
+    <li><strong>Open-banking providers (currently Mono),</strong> if you choose to link an account. Access is read-only and cannot be used to move money. You enter your bank credentials with the provider and your bank, never with us, and we never see or store them.</li>
+    <li><strong>Paystack,</strong> to process subscription payments. We never receive your card details.</li>
+    <li><strong>App stores (such as Google Play),</strong> when you download the app.</li>
+  </ul>
+  <p>11.4. <strong>Legal and protective disclosures.</strong> We may disclose personal data where we believe in good faith that it is required by law, regulation, court order or other valid legal process; to respond to lawful requests from public authorities, including to meet national security or law enforcement requirements; to enforce our Terms of Service; or to protect the rights, property or safety of MICADOT-NG LIMITED, our users or the public. Where permitted, we will tell you about such a request.</p>
+  <p>11.5. <strong>Business transfers.</strong> If MICADOT-NG LIMITED is involved in a merger, acquisition, reorganisation, sale of assets, financing or insolvency, personal data may be transferred to the successor or acquirer, subject to its continued protection on terms no less protective than this Policy. We will notify you before your personal data becomes subject to a different privacy policy.</p>
+  <p>11.6. <strong>With your instruction.</strong> We disclose personal data to any other person where you ask us to, for example when you export a report and choose to send it to someone.</p>
+  <p>11.7. <strong>Aggregated and de-identified data.</strong> We may use and share information that has been aggregated or de-identified so that it no longer identifies you, for example statistics about how many users imported a statement in a month. We take reasonable measures to ensure such information cannot be re-identified.</p>
+
+  <h2 id="transfers">12. Transfers of personal data outside Nigeria</h2>
+  <p>12.1. Several of our providers, including our hosting providers, our email provider and Google, process data in countries outside Nigeria, which may include the United States, member states of the European Union and other countries.</p>
+  <p>12.2. Where we transfer personal data outside Nigeria, we do so in accordance with the NDPA, relying on one or more of the grounds it provides, including that the recipient is subject to a law, binding corporate rules, contractual clauses, code of conduct or certification mechanism that affords an adequate level of protection; that you have consented to the transfer after being informed of the possible risks; or that the transfer is necessary for the performance of a contract between you and us or for the implementation of pre-contractual measures taken at your request.</p>
+  <p>12.3. In particular, by using the AI features described in section 9 you consent to the transfer of the content described in that section to Google outside Nigeria, having been informed in section 9.3 of the terms on which Google may use it.</p>
+
+  <h2 id="retention">13. Data retention</h2>
+  <p>13.1. We retain personal data only for as long as is necessary for the purposes for which it was collected, including the purpose of meeting any legal, accounting or reporting requirements. In determining the appropriate period, we consider the amount, nature and sensitivity of the data, the potential risk of harm from unauthorised use or disclosure, the purposes for which we process it, whether we can achieve those purposes by other means, and applicable legal requirements.</p>
+  <p>13.2. Subject to sections 13.3 and 13.4, our standard retention periods are:</p>
+  <ul>
+    <li><strong>Account, financial and content data:</strong> for as long as your account remains open. When you delete your account, we delete this data, including your transactions, budgets, goals, bills, subscriptions, accounts, contacts, notifications and correction records, promptly and in any event within thirty (30) days, save for copies in routine backups, which are overwritten in the ordinary course within a further period not exceeding ninety (90) days.</li>
+    <li><strong>Uploaded statement files and shared images:</strong> not retained after processing.</li>
+    <li><strong>Original alert and statement text kept for accuracy:</strong> while your account is open, unless you turn off “Help improve Automonie”, in which case we stop keeping new text.</li>
+    <li><strong>Waitlist and newsletter data:</strong> until you unsubscribe or ask us to delete it, or until it is no longer needed for the purpose for which it was collected.</li>
+    <li><strong>Support and feedback correspondence:</strong> for up to two (2) years after the matter is closed, unless it is needed for longer to resolve a dispute.</li>
+    <li><strong>Payment records:</strong> for the period required by tax and accounting law, which may be up to six (6) years after the transaction or longer where the law requires.</li>
+    <li><strong>Security logs:</strong> for a limited period, generally not more than twelve (12) months, unless needed to investigate an incident.</li>
+  </ul>
+  <p>13.3. We may retain personal data for longer where required or permitted by law, where it is necessary to establish, exercise or defend legal claims, or where you have asked us to.</p>
+  <p>13.4. Aggregated or de-identified information that can no longer identify you may be retained indefinitely.</p>
+
+  <h2 id="security">14. Security of processing</h2>
+  <p>14.1. We implement appropriate technical and organisational measures to protect personal data against accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to, personal data, having regard to the state of the art, the costs of implementation, and the nature, scope, context and purposes of processing as well as the risks to your rights and freedoms. These measures include:</p>
+  <ul>
+    <li>encryption of data in transit between your device and our servers using HTTPS and Transport Layer Security;</li>
+    <li>storage of passwords and capture keys only as one-way cryptographic hashes;</li>
+    <li>truncation of account numbers, and the removal of full account numbers from content where practicable before storage or transmission to an AI provider;</li>
+    <li>access controls that limit access to personal data to authorised personnel who need it, and authentication for every request to your data;</li>
+    <li>rate limiting and monitoring to detect and prevent abuse;</li>
+    <li>optional two-step verification and, on mobile, an app lock using a PIN or your device’s biometrics;</li>
+    <li>read-only access where you link an account through an open-banking provider; and</li>
+    <li>contractual obligations of confidentiality and security on our providers.</li>
+  </ul>
+  <p>14.2. No method of transmission over the internet and no method of electronic storage is completely secure. While we work to protect your personal data, we cannot guarantee its absolute security. You are responsible for keeping your password, PIN and devices secure, and for telling us promptly if you believe your account has been compromised.</p>
+
+  <h2 id="breach">15. Personal data breaches</h2>
+  <p>15.1. If a personal data breach occurs that is likely to result in a risk to your rights and freedoms, we will notify the Commission within seventy-two (72) hours of becoming aware of it, or as otherwise required by the NDPA, and, where the breach is likely to result in a high risk to your rights and freedoms, we will inform you without undue delay in plain language, describing the nature of the breach, its likely consequences, the measures we have taken or propose to take, and the steps you can take to protect yourself.</p>
+
+  <h2 id="rights">16. Your rights as a data subject</h2>
+  <p>16.1. Subject to the conditions, limitations and exceptions set out in Data Protection Law, you have the following rights in relation to your personal data:</p>
+  <ul>
+    <li><strong>Right to be informed:</strong> to receive clear information about how we process your personal data, which this Policy provides.</li>
+    <li><strong>Right of access:</strong> to obtain confirmation of whether we process your personal data and, if so, a copy of it together with information about the processing.</li>
+    <li><strong>Right to rectification:</strong> to have inaccurate personal data corrected and incomplete data completed. Most of your data can be corrected by you directly in the Service.</li>
+    <li><strong>Right to erasure:</strong> to have your personal data deleted where it is no longer necessary, where you withdraw consent on which processing is based, where you object and there are no overriding legitimate grounds, or where it has been processed unlawfully. You can delete your account in the Service.</li>
+    <li><strong>Right to restriction:</strong> to ask us to restrict processing while the accuracy of data or the lawfulness of processing is being checked, or in other circumstances set out in Data Protection Law.</li>
+    <li><strong>Right to data portability:</strong> to receive personal data you have provided to us in a structured, commonly used and machine-readable format, and to have it transmitted to another controller where technically feasible. You can export your transactions from the Service.</li>
+    <li><strong>Right to object:</strong> to object at any time to processing based on our legitimate interests, and absolutely to processing for direct marketing.</li>
+    <li><strong>Right to withdraw consent:</strong> at any time, where processing is based on consent, without affecting the lawfulness of processing before withdrawal.</li>
+    <li><strong>Rights relating to automated decision-making:</strong> not to be subject to a decision based solely on automated processing, including profiling, that produces legal or similarly significant effects, as described in section 10.</li>
+    <li><strong>Right to complain:</strong> to lodge a complaint with the Nigeria Data Protection Commission, or with the supervisory authority where you live or work if outside Nigeria. We would appreciate the opportunity to address your concern first.</li>
+  </ul>
+
+  <h2 id="exercise">17. How to exercise your rights</h2>
+  <p>17.1. Many rights can be exercised directly in the Service: you can edit and delete transactions and other records, export your data, change your settings, turn off “Help improve Automonie”, turn off capture features, unsubscribe from newsletters, and delete your account. For anything else, email <a href="mailto:tobe@automonie.com">tobe@automonie.com</a> from the email address associated with your account.</p>
+  <p>17.2. To protect your data, we may need to verify your identity before acting on a request, and we may ask for further information for that purpose. We will not use that information for any other purpose.</p>
+  <p>17.3. We will respond to requests within thirty (30) days of receipt or such other period as Data Protection Law permits. Where a request is complex or we receive many requests, we may extend that period as permitted by law and will tell you why.</p>
+  <p>17.4. Exercising your rights is free of charge. However, where a request is manifestly unfounded or excessive, in particular because of its repetitive character, we may charge a reasonable fee reflecting our administrative costs, or refuse to act on it, and we will explain our reasons.</p>
+  <p>17.5. To withdraw consent for specific features: turn off notification access in your device settings; revoke the text message permission in your device settings; remove the email forwarding rule in your email provider; delete the iPhone Shortcuts automation; disconnect a linked account in the Service or with the open-banking provider; stop using the AI features; turn off push notifications in your device settings; or use the unsubscribe link in any marketing email.</p>
+
+  <h2 id="marketing">18. Marketing and service communications</h2>
+  <p>18.1. We send service communications that are necessary to provide the Service and to keep your account secure, such as verification codes, password resets, security notices, reminders you have set, and notices of material changes. You cannot opt out of essential service communications while you have an account, but you can control many reminders and alerts in Settings.</p>
+  <p>18.2. We send newsletters and promotional messages only where you have agreed, or where otherwise permitted by law. Each marketing email contains an unsubscribe link, and you can opt out at any time. If you join our community groups on third-party platforms such as WhatsApp, your participation is also governed by that platform’s terms and policies, and other members of the group may be able to see your name and number.</p>
+
+  <h2 id="cookies">19. Cookies, local storage and similar technologies</h2>
+  <p>19.1. Our web application uses your browser’s local storage to keep you signed in and to remember preferences such as your theme and the account you are viewing. These are strictly necessary for the Service to work as you request.</p>
+  <p>19.2. We do not use advertising cookies or third-party advertising trackers. Our hosting and website providers may set technical cookies or collect technical data needed to deliver pages securely and reliably.</p>
+  <p>19.3. You can clear local storage and cookies in your browser settings. If you do, you will be signed out and your preferences will be reset.</p>
+
+  <h2 id="permissions">20. Device permissions</h2>
+  <p>20.1. The mobile app may ask for the following permissions. Each is requested only when you use the feature that needs it, and each can be refused or revoked in your device settings:</p>
+  <ul>
+    <li><strong>Notification access:</strong> to read notifications from approved bank and wallet apps, as described in section 6.3.</li>
+    <li><strong>Text messages:</strong> on builds that offer it, to find bank alerts in your messages, as described in section 6.4.</li>
+    <li><strong>Notifications:</strong> to send you reminders and alerts.</li>
+    <li><strong>Microphone:</strong> if you use voice logging, to turn what you say into a transaction. Speech recognition is performed by your device.</li>
+    <li><strong>Camera and photos:</strong> if you choose to capture or select an image of a receipt.</li>
+    <li><strong>Biometrics:</strong> if you enable app lock with a fingerprint or face, handled entirely by your device.</li>
+  </ul>
+
+  <h2 id="children">21. Children</h2>
+  <p>21.1. The Service is intended for persons aged eighteen (18) years and above. We do not knowingly collect personal data from children. If you are a parent or guardian and believe that a child has provided us with personal data, please contact us and we will take steps to delete it. Where a student plan or similar offering is made available, it is intended for students who are aged eighteen or above.</p>
+
+  <h2 id="programmes">22. Beta programme, feedback, campaigns and community</h2>
+  <p>22.1. If you join our beta programme, we process your contact details and the feedback you send to improve the Service, and we may invite you to a community group. Beta versions may contain features not yet available generally and may be less stable; the same protections in this Policy apply to them.</p>
+  <p>22.2. If you reach us through a campaign link or QR code, we record which campaign brought you to us so that we can understand which activities are effective. We record this against the campaign, not to build a profile of you.</p>
+  <p>22.3. Quizzes and calculators on our website may be used without an account. Answers are processed to show you a result and, where you choose to share them, to send them to the destination you pick.</p>
+
+  <h2 id="payments">23. Payments and subscriptions</h2>
+  <p>23.1. Paid plans are processed by our payment provider. You enter your card or payment details directly with that provider, and we receive only confirmation of the payment, its reference, amount, date and status. We do not receive or store full card numbers, card security codes or bank login details.</p>
+
+  <h2 id="third">24. Third-party websites and services</h2>
+  <p>24.1. The Service may contain links to, or integrations with, third-party websites, apps and services, such as your bank, your email provider, app stores, community platforms and the guides we provide for cancelling subscriptions. We are not responsible for the privacy practices of those third parties, and we encourage you to read their policies.</p>
+
+  <h2 id="changes">25. Changes to this policy</h2>
+  <p>25.1. We may amend this Policy from time to time to reflect changes in our processing, the Service, or the law. The date at the top of this Policy shows when it was last updated. Where we make a material change, including a change of AI provider or of the terms on which we use one, we will notify you in the Service or by email before the change takes effect, and where Data Protection Law requires, we will seek your consent. Your continued use of the Service after a change takes effect signifies that you have read the updated Policy; it does not signify consent where consent is separately required.</p>
+
+  <h2 id="law">26. Governing law and disputes</h2>
+  <p>26.1. This Policy is governed by the laws of the Federal Republic of Nigeria, including the NDPA. Without prejudice to your right to complain to the Commission or to any other authority, any dispute arising out of or in connection with this Policy shall be subject to the dispute resolution provisions of our Terms of Service.</p>
+
+  <h2 id="misc">27. General provisions</h2>
+  <p>27.1. If any provision of this Policy is held to be invalid or unenforceable, that provision shall be enforced to the maximum extent permissible and the remaining provisions shall continue in full force and effect.</p>
+  <p>27.2. Nothing in this Policy limits any right you have under Data Protection Law that cannot be limited by agreement.</p>
+  <p>27.3. This Policy is written in English. Where we provide a translation, the English version prevails in the event of inconsistency.</p>
+
+  <h2 id="contact-us">28. Contact us</h2>
+  <p>28.1. For any question about this Policy, to exercise any of your rights, or to make a complaint, contact us at <a href="mailto:tobe@automonie.com">tobe@automonie.com</a>, with the subject line “Data protection”. We will acknowledge your message and respond within the period set out in section 17.3.</p>
+  <p>28.2. If you are not satisfied with our response, you may contact the Nigeria Data Protection Commission through its official channels.</p>
 </BaseLayout>
